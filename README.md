@@ -189,7 +189,7 @@ jobs:
   quotes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: python eval/generate_answers.py > answers.jsonl  # your own step
       - uses: xiayu23123/citation-gate@v0.1.0
         with:
