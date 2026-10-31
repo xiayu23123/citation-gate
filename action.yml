@@ -24,6 +24,9 @@ inputs:
   critical:
     description: "'tcm', 'none', or a path to a file of critical characters."
     default: tcm
+  critical-terms:
+    description: "'tcm', 'none', or a path to a file of critical terms (herb names and the like), one per line."
+    default: tcm
   allow-unknown-sources:
     description: Warn instead of fail when an answer cites a work the corpus does not have.
     default: "false"
@@ -77,6 +80,7 @@ runs:
         FIELD: ${{ inputs.field }}
         THRESHOLD: ${{ inputs.fuzzy-threshold }}
         CRITICAL: ${{ inputs.critical }}
+        CRITICAL_TERMS: ${{ inputs.critical-terms }}
         ALLOW_UNKNOWN: ${{ inputs.allow-unknown-sources }}
         REQUIRE_CITATION: ${{ inputs.require-citation }}
       run: |
@@ -88,7 +92,7 @@ runs:
         set +e
         # $ANSWERS is left unquoted on purpose so globs expand.
         citation-gate check $ANSWERS --corpus "$CORPUS" --glob "$GLOB" --field "$FIELD" \
-          --fuzzy-threshold "$THRESHOLD" --critical "$CRITICAL" "${flags[@]}" \
+          --fuzzy-threshold "$THRESHOLD" --critical "$CRITICAL" --critical-terms "$CRITICAL_TERMS" "${flags[@]}" \
           --json "$out/report.json" --markdown "$out/report.md"
         code=$?
         set -e

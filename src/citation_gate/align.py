@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 
 @dataclass(frozen=True)
@@ -11,11 +11,14 @@ class Edit:
 
     kind is "sub" (quote has a different character), "ins" (quote has an extra
     character) or "del" (quote is missing a source character). `at` is the
-    position in the folded quote.
+    position in the folded quote and `src` the position in the aligned source
+    span. Where one side has no character (the source of an "ins", the quote
+    of a "del"), the position is that of the next character on that side.
     """
 
     kind: str
     at: int
+    src: int
     quote: str | None
     source: str | None
 
@@ -72,13 +75,13 @@ def align(quote: str, window: str) -> Alignment:
         if same and here == rows[i - 1][j - 1]:
             i, j = i - 1, j - 1
         elif j > 0 and here == rows[i][j - 1] + 1:
-            edits.append(Edit("del", i, None, window[j - 1]))
+            edits.append(Edit("del", i, j - 1, None, window[j - 1]))
             j -= 1
         elif j > 0 and here == rows[i - 1][j - 1] + 1:
-            edits.append(Edit("sub", i - 1, quote[i - 1], window[j - 1]))
+            edits.append(Edit("sub", i - 1, j - 1, quote[i - 1], window[j - 1]))
             i, j = i - 1, j - 1
         else:
-            edits.append(Edit("ins", i - 1, quote[i - 1], None))
+            edits.append(Edit("ins", i - 1, j, quote[i - 1], None))
             i -= 1
-    edits.reverse()
-    return Alignment(last[end], j, end, tuple(edits))
+    # Source positions so far are in the window; make them relative to the span.
+    return Alignment(last[end], j, end, tuple(replace(e, src=e.src - j) for e in reversed(edits)))

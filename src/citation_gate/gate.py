@@ -7,13 +7,13 @@ from enum import Enum
 
 from .corpus import Corpus, Match
 from .extract import Quote, extract_quotes, uncited_sentences
-from .normalize import fold_text, load_critical
+from .normalize import fold_text, load_critical, load_terms
 
 
 class Status(str, Enum):
     VERIFIED = "verified"  # verbatim in the cited work (or anywhere, if none cited)
-    FUZZY = "fuzzy"  # near-verbatim; the differences touch no critical character
-    ALTERED = "altered"  # near-verbatim, but a critical character differs
+    FUZZY = "fuzzy"  # near-verbatim; the differences touch no critical character or term
+    ALTERED = "altered"  # near-verbatim, but a critical character or term differs
     MISATTRIBUTED = "misattributed"  # in the corpus, but not in the cited work
     SPLICED = "spliced"  # stitched from fragments of different passages
     UNKNOWN_SOURCE = "unknown_source"  # cites a work the corpus does not have
@@ -28,6 +28,7 @@ class Policy:
     min_chars: int = 4  # shorter quotations are emphasis, not citations
     fuzzy_threshold: float = 0.85
     critical: frozenset[str] = field(default_factory=lambda: load_critical("tcm"))
+    critical_terms: frozenset[str] = field(default_factory=lambda: load_terms("tcm"))
     detect_splices: bool = True
     allow_unknown_sources: bool = False
     require_citation: bool = False
@@ -86,12 +87,40 @@ class AnswerReport:
         return bool(self.failures(policy)) or (policy.require_citation and bool(self.uncited))
 
 
-def _classify(m: Match, quote_len: int, policy: Policy) -> Status | None:
+def _in_term(text: str, pos: int, gap: bool, terms: frozenset[str], lengths: set[int]) -> bool:
+    """Whether text[pos], or with `gap` the point just before it, lies inside
+    an occurrence of one of `terms`. A gap must be strictly inside: 桂|枝, not |桂枝."""
+    for n in lengths:
+        for s in range(max(0, pos - n + 1), min(pos + 1 - gap, len(text) - n + 1)):
+            if text[s : s + n] in terms:
+                return True
+    return False
+
+
+def _touches_term(m: Match, quote: str, terms: frozenset[str]) -> bool:
+    """Whether an edit falls inside a critical term in the quote or in the
+    source span it was aligned to.
+
+    Both sides matter: 桂枝→麻黄 breaks 桂枝 in the source and 麻黄 in the
+    quote, and either one alone is enough to know the prescription changed.
+    """
+    source = m.doc.folded.text[m.start : m.end]
+    lengths = {len(t) for t in terms}
+    return any(
+        _in_term(quote, e.at, e.kind == "del", terms, lengths)
+        or _in_term(source, e.src, e.kind == "ins", terms, lengths)
+        for e in m.edits
+    )
+
+
+def _classify(m: Match, quote: str, policy: Policy) -> Status | None:
     if m.distance == 0:
         return Status.VERIFIED
-    if m.similarity(quote_len) < policy.fuzzy_threshold:
+    if m.similarity(len(quote)) < policy.fuzzy_threshold:
         return None
     if any(e.chars() & policy.critical for e in m.edits):
+        return Status.ALTERED
+    if policy.critical_terms and _touches_term(m, quote, policy.critical_terms):
         return Status.ALTERED
     return Status.FUZZY
 
@@ -99,8 +128,8 @@ def _classify(m: Match, quote_len: int, policy: Policy) -> Status | None:
 _RANK = {Status.VERIFIED: 0, Status.FUZZY: 1, Status.ALTERED: 2}
 
 
-def _best(matches: list[Match], quote_len: int, policy: Policy) -> tuple[Status, Match] | None:
-    graded = [(s, m) for m in matches if (s := _classify(m, quote_len, policy))]
+def _best(matches: list[Match], quote: str, policy: Policy) -> tuple[Status, Match] | None:
+    graded = [(s, m) for m in matches if (s := _classify(m, quote, policy))]
     if not graded:
         return None
     return min(graded, key=lambda sm: (_RANK[sm[0]], sm[1].distance))
@@ -144,16 +173,16 @@ def check_quote(corpus: Corpus, quote: Quote, policy: Policy) -> QuoteResult | N
     cited = corpus.resolve(quote.attribution) if quote.attribution else None
 
     if cited == []:
-        found = _best(corpus.search(q), len(q), policy)
+        found = _best(corpus.search(q), q, policy)
         return QuoteResult(quote, q, Status.UNKNOWN_SOURCE, found[1] if found else None, cited)
 
     scoped = corpus.search(q, books=cited)
-    best = _best(scoped, len(q), policy)
+    best = _best(scoped, q, policy)
     if best:
         return QuoteResult(quote, q, best[0], best[1], cited)
 
     everywhere = corpus.search(q) if cited else scoped
-    elsewhere = _best(everywhere, len(q), policy)
+    elsewhere = _best(everywhere, q, policy)
     if elsewhere and elsewhere[0] is not Status.ALTERED:
         return QuoteResult(quote, q, Status.MISATTRIBUTED, elsewhere[1], cited)
 
