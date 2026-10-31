@@ -13,20 +13,24 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
+from build_bench import HERBS
 from citation_gate import Corpus, Policy
 from citation_gate.evaluate import load_bench, run
-from citation_gate.normalize import load_critical
+from citation_gate.normalize import load_critical, load_terms
 
 THRESHOLDS = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+FULL = "+ critical terms (full)"
 
 
 def configs(threshold: float) -> dict[str, Policy]:
-    full = Policy(fuzzy_threshold=threshold, critical=load_critical("tcm"))
+    full = Policy(fuzzy_threshold=threshold, critical=load_critical("tcm"), critical_terms=load_terms("tcm"))
+    none = frozenset()
     return {
-        "exact match only": replace(full, fuzzy_threshold=1.0, critical=frozenset(), detect_splices=False),
-        "+ fuzzy match": replace(full, critical=frozenset(), detect_splices=False),
-        "+ critical characters": replace(full, detect_splices=False),
-        "+ splice detection (full)": full,
+        "exact match only": replace(full, fuzzy_threshold=1.0, critical=none, critical_terms=none, detect_splices=False),
+        "+ fuzzy match": replace(full, critical=none, critical_terms=none, detect_splices=False),
+        "+ critical characters": replace(full, critical_terms=none, detect_splices=False),
+        "+ splice detection": replace(full, critical_terms=none),
+        FULL: full,
     }
 
 
@@ -52,8 +56,12 @@ def main() -> None:
     tied = [t for t in THRESHOLDS if sweep[t]["balanced_accuracy"] == best]
     chosen = tied[len(tied) // 2]
 
+    # Not used for any choice; it shows what critical terms cost on dev.
+    dev_without_terms = run(corpus, dev, configs(chosen)["+ splice detection"])
     results = {name: run(corpus, test, policy) for name, policy in configs(chosen).items()}
-    full = results["+ splice detection (full)"]
+    full = results[FULL]
+    terms = load_terms("tcm")
+    known = [h for h in HERBS if h in terms]
 
     lines = [
         "# Benchmark results",
@@ -69,6 +77,11 @@ def main() -> None:
     for t, r in sweep.items():
         mark = " **← chosen**" if t == chosen else ""
         lines.append(f"| {t:.2f}{mark} | {pct(r['recall'])} | {pct(r['false_alarm'])} | {r['balanced_accuracy']:.3f} |")
+    lines += [
+        "",
+        f"The sweep uses the full gate. Without critical terms, at {chosen:.2f}, dev recall is "
+        f"{pct(dev_without_terms['recall'])} and false alarms are {pct(dev_without_terms['false_alarm'])}.",
+    ]
 
     lines += [
         "",
@@ -81,6 +94,17 @@ def main() -> None:
     ]
     for name, r in results.items():
         lines.append(f"| {name} | {pct(r['recall'])} | {pct(r['false_alarm'])} | {pct(r['precision'])} | {r['f1']:.3f} |")
+
+    lines += [
+        "",
+        "## Critical terms",
+        "",
+        f"{len(terms)} herb names extracted from the corpus's ingredient lines by `scripts/extract_terms.py`. "
+        f"The benchmark's herb_swap and herb_swap_long items swap names from `HERBS` in `scripts/build_bench.py`; "
+        f"{len(known)} of its {len(HERBS)} names are in the term list"
+        + (f" (missing: {'、'.join(h for h in HERBS if h not in terms)})." if len(known) < len(HERBS) else ".")
+        + " herb_swap_offlist swaps only names the term list does not contain.",
+    ]
 
     cats = list(full["by_category"])
     lines += [
@@ -108,7 +132,12 @@ def main() -> None:
     md = "\n".join(lines) + "\n"
     (bench / "RESULTS.md").write_text(md, encoding="utf-8", newline="\n")
     (bench / "results.json").write_text(
-        json.dumps({"chosen_threshold": chosen, "dev_sweep": sweep, "test": results}, ensure_ascii=False, indent=1) + "\n",
+        json.dumps(
+            {"chosen_threshold": chosen, "dev_sweep": sweep, "dev_without_terms": dev_without_terms, "test": results},
+            ensure_ascii=False,
+            indent=1,
+        )
+        + "\n",
         encoding="utf-8",
         newline="\n",
     )

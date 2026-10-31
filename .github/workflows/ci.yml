@@ -35,6 +35,10 @@ jobs:
         with:
           python-version: "3.14"
       - run: python -m pip install -e .
+      - name: Re-extract critical terms
+        run: >-
+          python scripts/extract_terms.py &&
+          git diff --exit-code src/citation_gate/data/terms-tcm.txt scripts/terms-single-recipe.txt
       - name: Rebuild benchmark
         run: python scripts/build_bench.py && git diff --exit-code bench/
       - name: Score benchmark
@@ -56,9 +60,11 @@ jobs:
           corpus: corpus
           fail-on-error: "false"
       - name: Expect the planted failures
+        # Six planted problems: q04-q09 (q09, 麻黄汤→桂枝汤, is caught only by
+        # critical terms). The other five quotes are genuine and must pass.
         env:
           FAILED: ${{ steps.gate.outputs.failed-quotes }}
           PASSED: ${{ steps.gate.outputs.passed }}
         run: |
           test "$PASSED" = "false"
-          test "$FAILED" = "5"
+          test "$FAILED" = "6"
