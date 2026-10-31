@@ -1,10 +1,11 @@
 """Fetch the demo corpus from Chinese Wikisource and write it as plain text.
 
-The source texts are public domain (Han dynasty and earlier). We pin each
-page to the revision we fetched so the benchmark is reproducible; see
-corpus/SOURCES.md, which this script regenerates.
+The corpus has one directory per domain (corpus/tcm, ...), and each domain
+has its own benchmark. The source texts are public domain. We pin each page
+to the revision we fetched so the benchmarks are reproducible; see
+corpus/<domain>/SOURCES.md, which this script regenerates.
 
-Usage: python scripts/fetch_corpus.py [--out corpus]
+Usage: python scripts/fetch_corpus.py [--out corpus] [--domain tcm ...]
 """
 
 from __future__ import annotations
@@ -19,13 +20,15 @@ from pathlib import Path
 API = "https://zh.wikisource.org/w/api.php"
 UA = {"User-Agent": "citation-gate/0.1 (https://github.com/xiayu23123/citation-gate)"}
 
-# (book id, display title, wikisource page)
-PAGES = [
-    ("suwen-1", "素問", "黃帝內經/素問第一卷"),
-    ("suwen-2", "素問", "黃帝內經/素問第二卷"),
-    ("shanghan", "傷寒論", "傷寒論"),
-    ("jingui", "金匱要略", "金匱要略"),
-]
+# domain -> [(book id, display title, wikisource page)]
+DOMAINS = {
+    "tcm": [
+        ("suwen-1", "素問", "黃帝內經/素問第一卷"),
+        ("suwen-2", "素問", "黃帝內經/素問第二卷"),
+        ("shanghan", "傷寒論", "傷寒論"),
+        ("jingui", "金匱要略", "金匱要略"),
+    ],
+}
 
 
 def fetch(page: str) -> tuple[str, int]:
@@ -77,13 +80,8 @@ def clean(wikitext: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", "\n".join(out)).strip() + "\n"
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="corpus")
-    args = ap.parse_args()
-    out = Path(args.out)
+def fetch_domain(out: Path, pages: list[tuple[str, str, str]]) -> None:
     out.mkdir(parents=True, exist_ok=True)
-
     sources = [
         "# Sources\n",
         "Plain-text extracts of public-domain texts from Chinese Wikisource",
@@ -93,7 +91,7 @@ def main() -> None:
         "| file | book | page | revision |",
         "|---|---|---|---|",
     ]
-    for book_id, title, page in PAGES:
+    for book_id, title, page in pages:
         text, revid = fetch(page)
         body = clean(text)
         path = out / f"{book_id}.txt"
@@ -102,6 +100,15 @@ def main() -> None:
         sources.append(f"| `{path.name}` | {title} | {page} | [{revid}]({link}) |")
         print(f"{path}: {len(body):,} chars (rev {revid})")
     (out / "SOURCES.md").write_text("\n".join(sources) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="corpus")
+    ap.add_argument("--domain", action="append", choices=DOMAINS, help="fetch only this domain (default: all)")
+    args = ap.parse_args()
+    for domain in args.domain or DOMAINS:
+        fetch_domain(Path(args.out) / domain, DOMAINS[domain])
 
 
 if __name__ == "__main__":

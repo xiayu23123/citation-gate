@@ -24,7 +24,7 @@ scripts/extract_terms.py, which never reads either; herb_swap_offlist swaps
 only herbs that extraction left out of the herb list, so it shows what the
 gate does with names its list lacks.
 
-Usage: python scripts/build_bench.py [--corpus corpus] [--out bench]
+Usage: python scripts/build_bench.py [--corpus corpus/tcm] [--out bench]
 """
 
 from __future__ import annotations
@@ -366,7 +366,7 @@ def build(corpus: Corpus, split: str, seed: int, paraphrases: list[dict]) -> lis
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", default="corpus")
+    ap.add_argument("--corpus", default="corpus/tcm")
     ap.add_argument("--out", default="bench")
     args = ap.parse_args()
     corpus = Corpus.load(args.corpus)

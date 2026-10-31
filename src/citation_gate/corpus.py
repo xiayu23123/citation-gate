@@ -70,11 +70,20 @@ class Corpus:
         A book's title comes from `books.json` ("titles": {file: title}), else
         from a leading "# Title" line, else from the file name. Files sharing a
         title form one book. `books.json` may also list "aliases": {title: [...]}.
+        A `books.json` in a subdirectory (corpus/tcm/books.json) applies to the
+        files under it, so a corpus of several domains loads as one.
         """
         root = Path(root)
-        meta_path = root / "books.json"
-        meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
-        titles = meta.get("titles", {})
+        titles: dict[str, str] = {}
+        aliases: dict[str, list[str]] = {}
+        # Shallower files first, so a deeper books.json has the last word on its own files.
+        for meta_path in sorted(root.glob("**/books.json"), key=lambda p: (len(p.parts), p.as_posix())):
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            base = meta_path.parent.relative_to(root)
+            for file, title in meta.get("titles", {}).items():
+                titles[(base / file).as_posix()] = title
+            for title, names in meta.get("aliases", {}).items():
+                aliases.setdefault(title, []).extend(names)
         docs = []
         for path in sorted(root.glob(pattern)):
             if not path.is_file():
@@ -86,7 +95,7 @@ class Corpus:
             docs.append(Doc(rel, title, text, fold(text)))
         if not docs:
             raise FileNotFoundError(f"no files matching {pattern!r} under {root}")
-        return cls(docs, meta.get("aliases"))
+        return cls(docs, aliases or None)
 
     @classmethod
     def from_texts(cls, books: dict[str, str], aliases: dict[str, list[str]] | None = None) -> "Corpus":

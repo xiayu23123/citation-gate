@@ -30,7 +30,7 @@ Every name ending in 湯, 散 or 丸 found in such a heading is kept; a heading
 is not a parsing guess, so there is no frequency cut-off. Formulas without a
 heading in this corpus (吳茱萸湯 has none) are missing.
 
-Usage: python scripts/extract_terms.py [--corpus corpus]
+Usage: python scripts/extract_terms.py [--corpus corpus/tcm]
 """
 
 from __future__ import annotations
@@ -122,7 +122,7 @@ def write(path: Path, head: list[str], rows: list[str]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", default="corpus")
+    ap.add_argument("--corpus", default="corpus/tcm")
     args = ap.parse_args()
 
     counts: Counter[str] = Counter()

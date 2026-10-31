@@ -8,7 +8,7 @@ usable on any corpus of plain text.
 > 中文简介：给 RAG 回答做「引文闸门」。回答里每一段带引号的原文，都要能在你的典籍库里逐字（或仅差 OCR 噪声）找到，并且出处要对得上；改了关键字（寒→热、肾→肝、漏掉「不」）、换了药名或方名（麻黄汤→桂枝汤、白虎汤→真武汤）、张冠李戴、东拼西凑、凭空编造的引文，一律拦下。可作命令行、Python 库或 GitHub Action 使用。
 
 ```text
-$ citation-gate check examples/answers.jsonl --corpus corpus
+$ citation-gate check examples/answers.jsonl --corpus corpus/tcm
 q04-growth-wrong: altered 「女子七岁，肝气盛，齿更发长」 素問 suwen-1.txt:14 肾→肝
 q05-winter: altered 「故藏于精者，春病温。」 素問 suwen-1.txt:101 -不
 q06-taiyang: misattributed 「太阳之为病，脉浮，头项强痛而恶寒。」 傷寒論 shanghan.txt:156
@@ -274,9 +274,13 @@ same title form one book. An optional `books.json` adds aliases and titles:
 }
 ```
 
-The bundled `corpus/` contains public-domain texts from Chinese Wikisource,
-pinned to revisions in [corpus/SOURCES.md](corpus/SOURCES.md) and fetched by
-`scripts/fetch_corpus.py`.
+A `books.json` in a subdirectory applies to the files under it, so a corpus
+split into one directory per domain loads as a whole or one domain at a time.
+
+The bundled corpus has one directory per domain: `corpus/tcm/` holds the
+medical classics, pinned to revisions in
+[corpus/tcm/SOURCES.md](corpus/tcm/SOURCES.md). The texts are public domain,
+from Chinese Wikisource, fetched by `scripts/fetch_corpus.py`.
 
 ## Development
 

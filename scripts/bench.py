@@ -3,7 +3,7 @@
 The fuzzy threshold is picked on bench/dev.jsonl only (max balanced accuracy).
 bench/test.jsonl is scored once per configuration with that threshold.
 
-Usage: python scripts/bench.py [--corpus corpus] [--bench bench] [--summary FILE]
+Usage: python scripts/bench.py [--corpus corpus/tcm] [--bench bench] [--summary FILE]
 """
 
 from __future__ import annotations
@@ -49,7 +49,7 @@ def pct(x: float) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", default="corpus")
+    ap.add_argument("--corpus", default="corpus/tcm")
     ap.add_argument("--bench", default="bench")
     ap.add_argument("--summary", help="also append the Markdown here (e.g. $GITHUB_STEP_SUMMARY)")
     args = ap.parse_args()

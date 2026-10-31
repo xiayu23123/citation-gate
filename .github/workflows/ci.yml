@@ -57,7 +57,7 @@ jobs:
         uses: ./
         with:
           answers: examples/answers.jsonl
-          corpus: corpus
+          corpus: corpus/tcm
           fail-on-error: "false"
       - name: Expect the planted failures
         # Six planted problems: q04-q09 (q09, 麻黄汤→桂枝汤, is caught only by
