@@ -2,7 +2,10 @@
 
 Each benchmark line is a JSON object with an `answer`, the `quote` inside it
 that is under test, its `category`, and `should_pass`. A target quote the
-extractor misses is scored as passed: the gate failed open.
+extractor misses is scored as passed: the gate failed open. Items whose
+`should_pass` is null have no right answer (a confusable-character slip is
+by construction indistinguishable from a deliberate edit): they are counted
+by category and status but left out of every score, and out of `n`.
 """
 
 from __future__ import annotations
@@ -26,7 +29,7 @@ def run(corpus: Corpus, items: list[dict], policy: Policy) -> dict:
     by_category: dict[str, Counter] = defaultdict(Counter)
     confusion: dict[str, Counter] = defaultdict(Counter)
     errors = []
-    tp = fn = fp = tn = 0
+    n = tp = fn = fp = tn = 0
     for item in items:
         report = check_answer(corpus, item["answer"], policy, item["id"])
         hit = next((r for r in report.results if r.quote.text == item["quote"]), None)
@@ -36,6 +39,9 @@ def run(corpus: Corpus, items: list[dict], policy: Policy) -> dict:
         by_category[cat]["n"] += 1
         by_category[cat]["flagged"] += flagged
         confusion[cat][status] += 1
+        if item["should_pass"] is None:
+            continue
+        n += 1
         if item["should_pass"]:
             fp += flagged
             tn += not flagged
@@ -50,7 +56,7 @@ def run(corpus: Corpus, items: list[dict], policy: Policy) -> dict:
     precision = tp / (tp + fp) if tp + fp else 0.0
     f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     return {
-        "n": len(items),
+        "n": n,
         "recall": recall,  # bad quotes caught
         "false_alarm": false_alarm,  # good quotes rejected
         "precision": precision,

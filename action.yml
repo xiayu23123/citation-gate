@@ -22,13 +22,19 @@ inputs:
     description: Minimum similarity for a near-verbatim match.
     default: "0.85"
   critical:
-    description: "'tcm', 'none', or a path to a file of critical characters."
+    description: "'tcm', 'shushu', a comma-separated combination such as 'tcm,shushu', 'none', or a path to a file of critical characters."
     default: tcm
   critical-terms:
-    description: "'tcm' (herb and formula names), 'none', or a path to a file of critical terms, one per line."
+    description: "'tcm' (herb and formula names), 'shushu' (hexagram and other divination names), a combination such as 'tcm,shushu', 'none', or a path to a file of critical terms, one per line."
     default: tcm
+  confusable:
+    description: "Sets of characters confused for one another (己已巳): 'default' (the bundled list), 'none', or a path to a file."
+    default: default
   allow-unknown-sources:
     description: Warn instead of fail when an answer cites a work the corpus does not have.
+    default: "false"
+  review-as-pass:
+    description: Warn instead of fail on needs_review quotes, whose only critical differences are confusable characters (己/巳, 戊/戌).
     default: "false"
   require-citation:
     description: Fail answers that contain uncited sentences.
@@ -53,6 +59,9 @@ outputs:
   failed-quotes:
     description: Number of quotes that failed.
     value: ${{ steps.gate.outputs.failed-quotes }}
+  warned-quotes:
+    description: Number of quotes that passed only with a warning (needs_review under review-as-pass, unknown_source under allow-unknown-sources).
+    value: ${{ steps.gate.outputs.warned-quotes }}
   report:
     description: Path to the JSON report.
     value: ${{ steps.gate.outputs.report }}
@@ -81,18 +90,22 @@ runs:
         THRESHOLD: ${{ inputs.fuzzy-threshold }}
         CRITICAL: ${{ inputs.critical }}
         CRITICAL_TERMS: ${{ inputs.critical-terms }}
+        CONFUSABLE: ${{ inputs.confusable }}
         ALLOW_UNKNOWN: ${{ inputs.allow-unknown-sources }}
+        REVIEW_AS_PASS: ${{ inputs.review-as-pass }}
         REQUIRE_CITATION: ${{ inputs.require-citation }}
       run: |
         out="$RUNNER_TEMP/citation-gate"
         mkdir -p "$out"
         flags=()
         if [ "$ALLOW_UNKNOWN" = "true" ]; then flags+=(--allow-unknown-sources); fi
+        if [ "$REVIEW_AS_PASS" = "true" ]; then flags+=(--review-as-pass); fi
         if [ "$REQUIRE_CITATION" = "true" ]; then flags+=(--require-citation); fi
         set +e
         # $ANSWERS is left unquoted on purpose so globs expand.
         citation-gate check $ANSWERS --corpus "$CORPUS" --glob "$GLOB" --field "$FIELD" \
-          --fuzzy-threshold "$THRESHOLD" --critical "$CRITICAL" --critical-terms "$CRITICAL_TERMS" "${flags[@]}" \
+          --fuzzy-threshold "$THRESHOLD" --critical "$CRITICAL" --critical-terms "$CRITICAL_TERMS" \
+          --confusable "$CONFUSABLE" "${flags[@]}" \
           --json "$out/report.json" --markdown "$out/report.md"
         code=$?
         set -e
@@ -103,6 +116,7 @@ runs:
         s = json.load(open(sys.argv[1], encoding="utf-8"))["summary"]
         print(f"passed={str(s['passed']).lower()}")
         print(f"failed-quotes={s['failed_quotes']}")
+        print(f"warned-quotes={s['warned_quotes']}")
         EOF
         echo "report=$out/report.json" >> "$GITHUB_OUTPUT"
 

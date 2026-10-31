@@ -10,7 +10,7 @@ from pathlib import Path
 from . import __version__, evaluate, report
 from .corpus import Corpus
 from .gate import Policy, check_answer
-from .normalize import load_critical, load_terms
+from .normalize import ProfileError, load_confusable, load_critical, load_terms
 
 
 def _answers(paths: list[str], field: str, id_field: str) -> list[tuple[str, str]]:
@@ -41,8 +41,10 @@ def _policy(args: argparse.Namespace) -> Policy:
         fuzzy_threshold=args.fuzzy_threshold,
         critical=load_critical(args.critical),
         critical_terms=load_terms(args.critical_terms),
+        confusable=load_confusable(args.confusable),
         detect_splices=not args.no_splices,
         allow_unknown_sources=args.allow_unknown_sources,
+        review_as_pass=args.review_as_pass,
         require_citation=args.require_citation,
     )
 
@@ -69,6 +71,8 @@ def cmd_check(args: argparse.Namespace) -> int:
         for a in reports:
             for r in a.failures(policy):
                 print(f"{a.id}: {r.status} 「{r.quote.text[:30]}」 {r.note()}", file=sys.stderr)
+            for r in a.warnings(policy):
+                print(f"{a.id}: warning: {r.status} 「{r.quote.text[:30]}」 {r.note()}", file=sys.stderr)
         verdict = "PASS" if s["passed"] else "FAIL"
         print(
             f"citation-gate {verdict}: {s['failed_quotes']}/{s['quotes']} quotes failed "
@@ -94,11 +98,31 @@ def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--corpus", required=True, help="directory of source texts")
     p.add_argument("--glob", default="**/*.txt", help="corpus files to load (default: **/*.txt)")
     p.add_argument("--fuzzy-threshold", type=float, default=0.85, help="minimum similarity for a near-verbatim match")
-    p.add_argument("--critical", default="tcm", help="'tcm', 'none', or a file of critical characters")
-    p.add_argument("--critical-terms", default="tcm", help="'tcm' (herb and formula names), 'none', or a file of critical terms, one per line")
+    p.add_argument(
+        "--critical",
+        default="tcm",
+        help="critical characters: 'tcm', 'shushu', a comma-separated combination such as 'tcm,shushu', 'none', "
+        "or a file of critical characters (default: tcm)",
+    )
+    p.add_argument(
+        "--critical-terms",
+        default="tcm",
+        help="critical terms: 'tcm' (herb and formula names), 'shushu' (hexagram and other divination names), "
+        "a combination such as 'tcm,shushu', 'none', or a file of terms, one per line (default: tcm)",
+    )
+    p.add_argument(
+        "--confusable",
+        default="default",
+        help="sets of characters confused for one another (己已巳): 'default' (the bundled list), 'none', or a file",
+    )
     p.add_argument("--min-chars", type=int, default=4, help="ignore shorter quotations")
     p.add_argument("--no-splices", action="store_true", help="do not look for quotes stitched from fragments")
     p.add_argument("--allow-unknown-sources", action="store_true", help="warn instead of fail on works not in the corpus")
+    p.add_argument(
+        "--review-as-pass",
+        action="store_true",
+        help="warn instead of fail on needs_review quotes, whose only critical differences are confusable characters",
+    )
     p.add_argument("--require-citation", action="store_true", help="fail answers with uncited sentences")
     p.add_argument("--json", help="write the JSON report here ('-' for stdout)")
     p.add_argument("--markdown", help="write the Markdown report here ('-' for stdout)")
@@ -126,7 +150,10 @@ def main(argv: list[str] | None = None) -> int:
     ev.set_defaults(func=cmd_eval)
 
     args = ap.parse_args(argv)
-    return args.func(args)
+    try:
+        return args.func(args)
+    except ProfileError as e:
+        ap.error(str(e))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,19 @@
+# Critical characters for divination (術數) texts, in folded form: 納甲 and
+# 六爻 (增刪卜易, 火珠林), 京氏易傳, 周易. A fuzzy match is rejected if any
+# edit touches one of these: 吉→凶, 子孫→官鬼 or 子→午 inverts a reading.
+# Hand-made. Lines are "class: characters"; the class is only documentation.
+# Several of these are confused with a neighbour by OCR (己/巳, 戊/戌); see
+# confusable.txt for how the gate treats those.
+stems: 甲乙丙丁戊己庚辛壬癸
+branches: 子丑寅卯辰巳午未申酉戌亥
+six-relations: 父母兄弟子孫妻財官鬼
+prognosis: 吉凶悔吝咎厲
+negation: 不無勿毋莫非弗否
+seasonal-strength: 旺相休囚死
+interactions: 生剋冲合刑害破空墓絕
+line-roles: 世應動靜伏飛
+line-positions: 初上九六二三四五
+numerals: 一七八十百千萬
+trigrams: 乾坤震巽坎離艮兌
+five-phases: 金木水火土
+yin-yang: 陰陽

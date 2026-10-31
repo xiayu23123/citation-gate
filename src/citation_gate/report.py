@@ -44,6 +44,7 @@ def summary(reports: list[AnswerReport], policy: Policy) -> dict:
         "failed_answers": failed_answers,
         "quotes": len(results),
         "failed_quotes": failed_quotes,
+        "warned_quotes": sum(policy.warns(r.status) for r in results),
         "uncited_sentences": sum(len(a.uncited) for a in reports),
         "by_status": {s.value: by_status.get(s.value, 0) for s in Status},
     }
@@ -57,8 +58,10 @@ def to_json(reports: list[AnswerReport], policy: Policy) -> dict:
             "fuzzy_threshold": policy.fuzzy_threshold,
             "critical_chars": len(policy.critical),
             "critical_terms": len(policy.critical_terms),
+            "confusable_sets": len(policy.confusable),
             "detect_splices": policy.detect_splices,
             "allow_unknown_sources": policy.allow_unknown_sources,
+            "review_as_pass": policy.review_as_pass,
             "require_citation": policy.require_citation,
         },
         "answers": [
@@ -112,12 +115,22 @@ def to_markdown(reports: list[AnswerReport], policy: Policy) -> str:
     failing = [(a, r) for a in reports for r in a.results if policy.fails(r.status)]
     if failing:
         lines += ["#### Failed quotes", "", _HEAD] + [_row(a, r) for a, r in failing] + [""]
+    warned = [(a, r) for a in reports for r in a.warnings(policy)]
+    if warned:
+        lines += ["#### Passed with a warning", ""]
+        if any(r.status is Status.NEEDS_REVIEW for _, r in warned):
+            lines += [
+                "`needs_review`: the only critical differences are between characters that are easily "
+                "confused (己/已/巳, 戊/戍/戌 …). That may be an OCR slip or a real change; check the source.",
+                "",
+            ]
+        lines += [_HEAD] + [_row(a, r) for a, r in warned] + [""]
     if policy.require_citation:
         uncited = [(a, u) for a in reports for u in a.uncited]
         if uncited:
             lines += ["#### Uncited sentences", ""]
             lines += [f"- `{_cell(a.id, 24)}` {_cell(u, 80)}" for a, u in uncited] + [""]
-    passing = [(a, r) for a in reports for r in a.results if not policy.fails(r.status)]
+    passing = [(a, r) for a in reports for r in a.results if not policy.fails(r.status) and not policy.warns(r.status)]
     if passing:
         lines += ["<details><summary>Passed quotes</summary>", "", _HEAD]
         lines += [_row(a, r) for a, r in passing] + ["", "</details>", ""]

@@ -1,0 +1,14 @@
+# Sets of characters that OCR and copyists confuse with one another, where
+# at least one member of each set is a critical character in some bundled
+# profile. A fuzzy match whose only critical differences are substitutions
+# between two members of the same set gets the status needs_review instead
+# of altered: as a string, an OCR slip 己→已 and a deliberate 己→巳 look the
+# same, so a person has to decide. Hand-made and deliberately short.
+# One set per line, in folded form (于 is also 於, 干 is also 乾 and 幹);
+# only the first field of a line is read, the rest is a note.
+己已巳 stem 己, (non-critical) 已, branch 巳
+戊戍戌 stem 戊, (non-critical) 戍, branch 戌
+未末 branch and negation 未, (non-critical) 末
+土士 phase 土, (non-critical) 士
+干千于 干 (also 乾, the trigram), numeral 千, (non-critical) 于 (also 於)
+甲申由 stem 甲, branch 申, (non-critical) 由

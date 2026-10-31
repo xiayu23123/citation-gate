@@ -4,7 +4,7 @@ import pytest
 
 from citation_gate import Corpus, Policy, Status, check_answer
 from citation_gate.cli import main
-from citation_gate.normalize import load_terms
+from citation_gate.normalize import load_critical, load_terms
 
 BOOKS = {
     "素問": "女子七歲，腎氣盛，齒更髮長。二七而天癸至，任脈通，太衝脈盛，月事以時下，故有子。"
@@ -145,3 +145,71 @@ def test_cli_critical_terms_none(tmp_path):
     args = ["check", str(answers), "--corpus", str(tmp_path / "corpus"), "-q"]
     assert main(args) == 1
     assert main(args + ["--critical-terms", "none"]) == 0
+
+
+# A 六爻-style passage, for the divination profile.
+SHUSHU = {"增刪卜易": "己巳日占病，得天風姤卦，子孫持世，官鬼發動，戊戌月建，吉。"}
+SHUSHU_POLICY = {"critical": load_critical("shushu"), "critical_terms": frozenset({"天风姤"})}
+
+
+@pytest.fixture(scope="module")
+def shushu():
+    return Corpus.from_texts(SHUSHU)
+
+
+def test_confusable_critical_slip_needs_review(shushu):
+    answer = "《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊戍月建，吉」"  # 戌→戍
+    assert status(shushu, answer, **SHUSHU_POLICY) is Status.NEEDS_REVIEW
+    report = check_answer(shushu, answer, Policy(**SHUSHU_POLICY))
+    assert report.failed(Policy(**SHUSHU_POLICY))  # fail-closed by default
+    lenient = Policy(**SHUSHU_POLICY, review_as_pass=True)
+    assert not report.failed(lenient) and report.warnings(lenient) == report.results
+
+
+def test_confusable_partner_that_is_itself_critical(shushu):
+    answer = "《增删卜易》：「己己日占病，得天风姤卦，子孙持世，官鬼发动，戊戌月建，吉」"  # 巳→己, both critical
+    assert status(shushu, answer, **SHUSHU_POLICY) is Status.NEEDS_REVIEW
+
+
+def test_non_confusable_critical_change_is_altered(shushu):
+    branch = "《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊辰月建，吉」"  # 戌→辰
+    across = "《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊己月建，吉」"  # 戌→己: two sets
+    mixed = "《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊戍月建，凶」"  # 戌→戍 and 吉→凶
+    for answer in (branch, across, mixed):
+        assert status(shushu, answer, **SHUSHU_POLICY) is Status.ALTERED, answer
+
+
+def test_confusable_inside_a_term(shushu):
+    # 姤 and 遘 are not confusable: a change inside a listed name is altered.
+    answer = "《增删卜易》：「己巳日占病，得天风遘卦，子孙持世，官鬼发动，戊戌月建，吉」"
+    assert status(shushu, answer, **SHUSHU_POLICY) is Status.ALTERED
+
+
+def test_without_confusable_sets_a_slip_is_altered(shushu):
+    answer = "《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊戍月建，吉」"
+    assert status(shushu, answer, **SHUSHU_POLICY, confusable=frozenset()) is Status.ALTERED
+
+
+def test_cli_review_as_pass(tmp_path, capsys):
+    (tmp_path / "corpus").mkdir()
+    for book, text in SHUSHU.items():
+        (tmp_path / "corpus" / f"{book}.txt").write_text(f"# {book}\n\n{text}", encoding="utf-8")
+    answers = tmp_path / "answer.txt"
+    answers.write_text("《增删卜易》：「己巳日占病，得天风姤卦，子孙持世，官鬼发动，戊戍月建，吉」", encoding="utf-8")
+    md = tmp_path / "report.md"
+    args = ["check", str(answers), "--corpus", str(tmp_path / "corpus"), "--critical", "shushu", "--markdown", str(md)]
+    assert main(args) == 1
+    assert "needs_review" in capsys.readouterr().err
+    assert main(args + ["--review-as-pass"]) == 0
+    assert "warning: needs_review" in capsys.readouterr().err
+    assert "Passed with a warning" in md.read_text(encoding="utf-8")
+    assert main(args + ["--confusable", "none"]) == 1
+    assert ": altered" in capsys.readouterr().err
+
+
+def test_cli_unknown_profile_is_a_usage_error(tmp_path):
+    answers = tmp_path / "answer.txt"
+    answers.write_text("「甲乙丙丁」", encoding="utf-8")
+    with pytest.raises(SystemExit) as e:
+        main(["check", str(answers), "--corpus", str(tmp_path), "--critical", "tcm,nosuch"])
+    assert e.value.code == 2

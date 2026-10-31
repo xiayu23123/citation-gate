@@ -7,12 +7,14 @@ from enum import Enum
 
 from .corpus import Corpus, Match
 from .extract import Quote, extract_quotes, uncited_sentences
-from .normalize import fold_text, load_critical, load_terms
+from .align import Edit
+from .normalize import fold_text, load_confusable, load_critical, load_terms
 
 
 class Status(str, Enum):
     VERIFIED = "verified"  # verbatim in the cited work (or anywhere, if none cited)
     FUZZY = "fuzzy"  # near-verbatim; the differences touch no critical character or term
+    NEEDS_REVIEW = "needs_review"  # near-verbatim; the only critical differences are confusable characters
     ALTERED = "altered"  # near-verbatim, but a critical character or term differs
     MISATTRIBUTED = "misattributed"  # in the corpus, but not in the cited work
     SPLICED = "spliced"  # stitched from fragments of different passages
@@ -29,8 +31,12 @@ class Policy:
     fuzzy_threshold: float = 0.85
     critical: frozenset[str] = field(default_factory=lambda: load_critical("tcm"))
     critical_terms: frozenset[str] = field(default_factory=lambda: load_terms("tcm"))
+    # Sets of characters that are confused for one another (己已巳); a change
+    # within one set is needs_review, not altered.
+    confusable: frozenset[frozenset[str]] = field(default_factory=load_confusable)
     detect_splices: bool = True
     allow_unknown_sources: bool = False
+    review_as_pass: bool = False  # needs_review warns instead of failing
     require_citation: bool = False
 
     def fails(self, status: Status) -> bool:
@@ -38,7 +44,13 @@ class Policy:
             return False
         if status is Status.UNKNOWN_SOURCE:
             return not self.allow_unknown_sources
+        if status is Status.NEEDS_REVIEW:
+            return not self.review_as_pass
         return True
+
+    def warns(self, status: Status) -> bool:
+        """Passes only because a flag let it: a person should still look."""
+        return status in (Status.UNKNOWN_SOURCE, Status.NEEDS_REVIEW) and not self.fails(status)
 
 
 @dataclass(frozen=True)
@@ -83,6 +95,9 @@ class AnswerReport:
     def failures(self, policy: Policy) -> list[QuoteResult]:
         return [r for r in self.results if policy.fails(r.status)]
 
+    def warnings(self, policy: Policy) -> list[QuoteResult]:
+        return [r for r in self.results if policy.warns(r.status)]
+
     def failed(self, policy: Policy) -> bool:
         return bool(self.failures(policy)) or (policy.require_citation and bool(self.uncited))
 
@@ -97,20 +112,34 @@ def _in_term(text: str, pos: int, gap: bool, terms: frozenset[str], lengths: set
     return False
 
 
-def _touches_term(m: Match, quote: str, terms: frozenset[str]) -> bool:
-    """Whether an edit falls inside a critical term in the quote or in the
-    source span it was aligned to.
+def _critical_edits(m: Match, quote: str, policy: Policy) -> list[Edit]:
+    """Edits that touch a critical character, or fall inside a critical term
+    in the quote or in the source span it was aligned to.
 
-    Both sides matter: 桂枝→麻黄 breaks 桂枝 in the source and 麻黄 in the
-    quote, and either one alone is enough to know the prescription changed.
+    Both sides matter for terms: 桂枝→麻黄 breaks 桂枝 in the source and 麻黄
+    in the quote, and either one alone is enough to know the prescription
+    changed.
     """
+    terms = policy.critical_terms
     source = m.doc.folded.text[m.start : m.end]
     lengths = {len(t) for t in terms}
-    return any(
-        _in_term(quote, e.at, e.kind == "del", terms, lengths)
-        or _in_term(source, e.src, e.kind == "ins", terms, lengths)
+    return [
+        e
         for e in m.edits
-    )
+        if e.chars() & policy.critical
+        or (
+            terms
+            and (
+                _in_term(quote, e.at, e.kind == "del", terms, lengths)
+                or _in_term(source, e.src, e.kind == "ins", terms, lengths)
+            )
+        )
+    ]
+
+
+def _confusable(e: Edit, sets: frozenset[frozenset[str]]) -> bool:
+    """A substitution between two characters of one confusable set (己→巳)."""
+    return e.kind == "sub" and any({e.quote, e.source} <= s for s in sets)
 
 
 def _classify(m: Match, quote: str, policy: Policy) -> Status | None:
@@ -118,14 +147,17 @@ def _classify(m: Match, quote: str, policy: Policy) -> Status | None:
         return Status.VERIFIED
     if m.similarity(len(quote)) < policy.fuzzy_threshold:
         return None
-    if any(e.chars() & policy.critical for e in m.edits):
-        return Status.ALTERED
-    if policy.critical_terms and _touches_term(m, quote, policy.critical_terms):
-        return Status.ALTERED
-    return Status.FUZZY
+    hits = _critical_edits(m, quote, policy)
+    if not hits:
+        return Status.FUZZY
+    # 己→巳 and 已→己 are an OCR slip or a real change, and the string cannot
+    # say which. Anything else critical (子→午, -不) is simply altered.
+    if all(_confusable(e, policy.confusable) for e in hits):
+        return Status.NEEDS_REVIEW
+    return Status.ALTERED
 
 
-_RANK = {Status.VERIFIED: 0, Status.FUZZY: 1, Status.ALTERED: 2}
+_RANK = {Status.VERIFIED: 0, Status.FUZZY: 1, Status.NEEDS_REVIEW: 2, Status.ALTERED: 3}
 
 
 def _best(matches: list[Match], quote: str, policy: Policy) -> tuple[Status, Match] | None:
@@ -183,7 +215,7 @@ def check_quote(corpus: Corpus, quote: Quote, policy: Policy) -> QuoteResult | N
 
     everywhere = corpus.search(q) if cited else scoped
     elsewhere = _best(everywhere, q, policy)
-    if elsewhere and elsewhere[0] is not Status.ALTERED:
+    if elsewhere and elsewhere[0] in (Status.VERIFIED, Status.FUZZY):
         return QuoteResult(quote, q, Status.MISATTRIBUTED, elsewhere[1], cited)
 
     if policy.detect_splices:

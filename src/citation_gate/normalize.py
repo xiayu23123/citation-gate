@@ -7,6 +7,7 @@ though they are different words in traditional text.
 
 from __future__ import annotations
 
+import os
 import unicodedata
 from dataclasses import dataclass
 from functools import lru_cache
@@ -71,32 +72,73 @@ def simplify(s: str) -> str:
     return "".join(table.get(c, c) for c in s)
 
 
-def _profile(spec: str, *bundled: str) -> list[str]:
-    """Non-comment lines of the bundled profile (`tcm`, made of the files
-    `bundled`), of no profile (`none`), or of the file at path `spec`."""
-    if spec == "none":
-        return []
-    if spec == "tcm":
-        text = "\n".join(_read_data(name) for name in bundled)
-    else:
-        with open(spec, encoding="utf-8") as f:
-            text = f.read()
-    return [line for line in text.splitlines() if line.strip() and not line.startswith("#")]
+class ProfileError(ValueError):
+    """A profile spec names neither a bundled profile nor a file."""
+
+
+# Bundled profiles by name, and the data files each is made of.
+CRITICAL_PROFILES = {"tcm": ("critical-tcm.txt",), "shushu": ("critical-shushu.txt",)}
+TERM_PROFILES = {
+    "tcm": ("terms-tcm-herbs.txt", "terms-tcm-formulas.txt"),
+    "shushu": ("terms-shushu-hexagrams.txt", "terms-shushu-names.txt"),
+}
+
+
+def _profile(spec: str, bundled: dict[str, tuple[str, ...]]) -> list[str]:
+    """Non-comment lines of a profile spec: a comma-separated list whose items
+    are bundled profile names (`tcm`, `shushu`), `none` (contributes
+    nothing) or paths to files in the same format. `tcm,shushu` is the union
+    of both. A spec that is an existing file is read as one path, commas and all."""
+    parts = [spec] if os.path.isfile(spec) else [p.strip() for p in spec.split(",") if p.strip()]
+    texts = []
+    for part in parts:
+        if part == "none":
+            continue
+        if part in bundled:
+            texts += [_read_data(name) for name in bundled[part]]
+        elif os.path.isfile(part):
+            with open(part, encoding="utf-8") as f:
+                texts.append(f.read())
+        else:
+            names = ", ".join(sorted(bundled))
+            raise ProfileError(f"unknown profile {part!r}: expected {names}, none, or a file")
+    return [line for text in texts for line in text.splitlines() if line.strip() and not line.startswith("#")]
 
 
 def load_critical(spec: str) -> frozenset[str]:
-    """Critical characters: `tcm` for the bundled profile, `none` for none,
-    anything else is a path to a file in the same format."""
+    """Critical characters for a profile spec such as `tcm`, `shushu`,
+    `tcm,shushu`, `none` or a file path (see `_profile`). Lines are
+    "class: characters"; the class is only documentation."""
     chars: set[str] = set()
-    for line in _profile(spec, "critical-tcm.txt"):
+    for line in _profile(spec, CRITICAL_PROFILES):
         chars.update(fold_text(line.split(":", 1)[-1]))
     return frozenset(chars)
 
 
 def load_terms(spec: str) -> frozenset[str]:
-    """Critical terms, in folded form: `tcm` (herb and formula names), `none`,
-    or a path to a file with one term per line (only the first
-    whitespace-separated field is read)."""
-    lines = _profile(spec, "terms-tcm-herbs.txt", "terms-tcm-formulas.txt")
+    """Critical terms, in folded form, for a profile spec: `tcm` (herb and
+    formula names), `shushu` (hexagram and other names), a combination such
+    as `tcm,shushu`, `none`, or a path to a file with one term per line (only
+    the first whitespace-separated field is read)."""
+    lines = _profile(spec, TERM_PROFILES)
     terms = {fold_text(line.split()[0]) for line in lines}
     return frozenset(t for t in terms if t)
+
+
+def load_confusable(spec: str = "default") -> frozenset[frozenset[str]]:
+    """Sets of characters that OCR and copyists confuse with one another
+    (己已巳, 戊戍戌 …), in folded form: `default` for the bundled
+    `confusable.txt`, `none` for none, or a path to a file with one set per
+    line (only the first whitespace-separated field is read)."""
+    if spec == "none":
+        return frozenset()
+    if spec == "default":
+        text = _read_data("confusable.txt")
+    elif os.path.isfile(spec):
+        with open(spec, encoding="utf-8") as f:
+            text = f.read()
+    else:
+        raise ProfileError(f"unknown confusable sets {spec!r}: expected default, none, or a file")
+    lines = [line for line in text.splitlines() if line.strip() and not line.startswith("#")]
+    sets = (frozenset(fold_text(line.split()[0])) for line in lines)
+    return frozenset(s for s in sets if len(s) >= 2)
