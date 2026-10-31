@@ -1,0 +1,135 @@
+name: citation-gate
+description: Fail a check when generated answers quote passages that are not in your source texts.
+author: xixi
+branding:
+  icon: check-circle
+  color: green
+
+inputs:
+  answers:
+    description: Answer files, space-separated; globs allowed (.jsonl/.json records or plain text files).
+    required: true
+  corpus:
+    description: Directory of source texts.
+    required: true
+  glob:
+    description: Which corpus files to load.
+    default: "**/*.txt"
+  field:
+    description: Answer field in JSON records.
+    default: answer
+  fuzzy-threshold:
+    description: Minimum similarity for a near-verbatim match.
+    default: "0.85"
+  critical:
+    description: "'tcm', 'none', or a path to a file of critical characters."
+    default: tcm
+  allow-unknown-sources:
+    description: Warn instead of fail when an answer cites a work the corpus does not have.
+    default: "false"
+  require-citation:
+    description: Fail answers that contain uncited sentences.
+    default: "false"
+  fail-on-error:
+    description: Fail the step when any quote fails the gate.
+    default: "true"
+  comment:
+    description: On pull requests, post the report as a comment (updated in place on later runs).
+    default: "true"
+  github-token:
+    description: Token used to post the comment.
+    default: ${{ github.token }}
+  python-version:
+    description: Python used to run the gate.
+    default: "3.12"
+
+outputs:
+  passed:
+    description: "'true' if every answer passed."
+    value: ${{ steps.gate.outputs.passed }}
+  failed-quotes:
+    description: Number of quotes that failed.
+    value: ${{ steps.gate.outputs.failed-quotes }}
+  report:
+    description: Path to the JSON report.
+    value: ${{ steps.gate.outputs.report }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install citation-gate
+      shell: bash
+      run: python -m pip install --quiet "$ACTION_PATH"
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+
+    - name: Check quotes
+      id: gate
+      shell: bash
+      env:
+        ANSWERS: ${{ inputs.answers }}
+        CORPUS: ${{ inputs.corpus }}
+        GLOB: ${{ inputs.glob }}
+        FIELD: ${{ inputs.field }}
+        THRESHOLD: ${{ inputs.fuzzy-threshold }}
+        CRITICAL: ${{ inputs.critical }}
+        ALLOW_UNKNOWN: ${{ inputs.allow-unknown-sources }}
+        REQUIRE_CITATION: ${{ inputs.require-citation }}
+      run: |
+        out="$RUNNER_TEMP/citation-gate"
+        mkdir -p "$out"
+        flags=()
+        if [ "$ALLOW_UNKNOWN" = "true" ]; then flags+=(--allow-unknown-sources); fi
+        if [ "$REQUIRE_CITATION" = "true" ]; then flags+=(--require-citation); fi
+        set +e
+        # $ANSWERS is left unquoted on purpose so globs expand.
+        citation-gate check $ANSWERS --corpus "$CORPUS" --glob "$GLOB" --field "$FIELD" \
+          --fuzzy-threshold "$THRESHOLD" --critical "$CRITICAL" "${flags[@]}" \
+          --json "$out/report.json" --markdown "$out/report.md"
+        code=$?
+        set -e
+        if [ "$code" -gt 1 ]; then exit "$code"; fi
+        cat "$out/report.md" >> "$GITHUB_STEP_SUMMARY"
+        python - "$out/report.json" >> "$GITHUB_OUTPUT" <<'EOF'
+        import json, sys
+        s = json.load(open(sys.argv[1], encoding="utf-8"))["summary"]
+        print(f"passed={str(s['passed']).lower()}")
+        print(f"failed-quotes={s['failed_quotes']}")
+        EOF
+        echo "report=$out/report.json" >> "$GITHUB_OUTPUT"
+
+    - name: Comment on pull request
+      if: inputs.comment == 'true' && github.event_name == 'pull_request'
+      continue-on-error: true  # forks get a read-only token
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        PR: ${{ github.event.pull_request.number }}
+        REPO: ${{ github.repository }}
+      run: |
+        body="$RUNNER_TEMP/citation-gate/comment.md"
+        python - "$RUNNER_TEMP/citation-gate/report.md" "$body" <<'EOF'
+        import sys
+        text = open(sys.argv[1], encoding="utf-8").read()
+        if len(text) > 60000:  # GitHub caps comments at 65536 characters
+            text = text[:60000] + "\n\n…truncated; the full report is in the job summary.\n"
+        open(sys.argv[2], "w", encoding="utf-8").write(text)
+        EOF
+        id=$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
+          --jq '.[] | select(.body | startswith("<!-- citation-gate -->")) | .id' | head -n 1)
+        if [ -n "$id" ]; then
+          gh api -X PATCH "repos/$REPO/issues/comments/$id" -F "body=@$body" > /dev/null
+        else
+          gh api -X POST "repos/$REPO/issues/$PR/comments" -F "body=@$body" > /dev/null
+        fi
+
+    - name: Fail on unverifiable quotes
+      if: inputs.fail-on-error == 'true' && steps.gate.outputs.passed != 'true'
+      shell: bash
+      run: |
+        echo "::error::citation-gate: ${{ steps.gate.outputs.failed-quotes }} quotes could not be verified against the corpus"
+        exit 1

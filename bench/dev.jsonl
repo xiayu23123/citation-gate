@@ -1,0 +1,296 @@
+{"id": "dev-001", "category": "genuine", "should_pass": true, "answer": "《金匮》中说：“師曰：其人素盛今瘦”这句话很关键。后世医家多有发挥。", "quote": "師曰：其人素盛今瘦", "attribution": "金匮", "source": "jingui.txt:407"}
+{"id": "dev-002", "category": "genuine", "should_pass": true, "answer": "原文是“问曰：脉有三部，阴阳相乘。”（《伤寒论》）。", "quote": "问曰：脉有三部，阴阳相乘。", "attribution": "伤寒论", "source": "shanghan.txt:62"}
+{"id": "dev-003", "category": "genuine", "should_pass": true, "answer": "我们先看原文。古人说：“急當救裏；後身體疼痛”。", "quote": "急當救裏；後身體疼痛", "attribution": null, "source": "jingui.txt:21"}
+{"id": "dev-004", "category": "genuine", "should_pass": true, "answer": "我们先看原文。《伤寒论·辨痉湿暍脉证》中说：“舌上如胎者，以丹田有热”这句话很关键。这说明了顺应自然的重要性。", "quote": "舌上如胎者，以丹田有热", "attribution": "伤寒论·辨痉湿暍脉证", "source": "shanghan.txt:145"}
+{"id": "dev-005", "category": "genuine", "should_pass": true, "answer": "原文是“耳闭不可以听，溃溃乎若坏都”（《黄帝内经·素问》）。这说明了顺应自然的重要性。", "quote": "耳闭不可以听，溃溃乎若坏都", "attribution": "黄帝内经·素问", "source": "suwen-1.txt:64"}
+{"id": "dev-006", "category": "genuine", "should_pass": true, "answer": "“应若影响，岂容易哉！”——《伤寒论》后世医家多有发挥。", "quote": "应若影响，岂容易哉！", "attribution": "伤寒论", "source": "shanghan.txt:125"}
+{"id": "dev-007", "category": "genuine", "should_pass": true, "answer": "我们先看原文。《金匮》云：「若有痛处，当发其痈。」", "quote": "若有痛处，当发其痈。", "attribution": "金匮", "source": "jingui.txt:633"}
+{"id": "dev-008", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。《伤寒论》云：「口干燥者，可下之，宜大承气汤。」后世医家多有发挥。", "quote": "口干燥者，可下之，宜大承气汤。", "attribution": "伤寒论", "source": "shanghan.txt:808"}
+{"id": "dev-009", "category": "genuine", "should_pass": true, "answer": "古人说：“不得去，弥更益烦，肉上粟起”。后世医家多有发挥。", "quote": "不得去，弥更益烦，肉上粟起", "attribution": null, "source": "shanghan.txt:465"}
+{"id": "dev-010", "category": "genuine", "should_pass": true, "answer": "据《伤寒论》记载：「病证犹在，故当复作本汤服之。」，可见古人早有论述。", "quote": "病证犹在，故当复作本汤服之。", "attribution": "伤寒论", "source": "shanghan.txt:127"}
+{"id": "dev-011", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「阴中于邪，必内栗也。」，可见古人早有论述。后世医家多有发挥。", "quote": "阴中于邪，必内栗也。", "attribution": "伤寒论", "source": "shanghan.txt:54"}
+{"id": "dev-012", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。《伤寒论》云：「师曰：寸脉下不至关」", "quote": "师曰：寸脉下不至关", "attribution": "伤寒论", "source": "shanghan.txt:78"}
+{"id": "dev-013", "category": "genuine", "should_pass": true, "answer": "原文是“男子平人，脉虚弱细微者”（《金匮要略·血痹虚劳病脉证并治》）。", "quote": "男子平人，脉虚弱细微者", "attribution": "金匮要略·血痹虚劳病脉证并治", "source": "jingui.txt:238"}
+{"id": "dev-014", "category": "genuine", "should_pass": true, "answer": "我们先看原文。原文是“牛肚細切，以水一斗”（《金匮》）。这说明了顺应自然的重要性。", "quote": "牛肚細切，以水一斗", "attribution": "金匮", "source": "jingui.txt:863"}
+{"id": "dev-015", "category": "genuine", "should_pass": true, "answer": "原文是“即與太陰俱病，則腹滿”（《伤寒论》）。这说明了顺应自然的重要性。", "quote": "即與太陰俱病，則腹滿", "attribution": "伤寒论", "source": "shanghan.txt:120"}
+{"id": "dev-016", "category": "genuine", "should_pass": true, "answer": "经文有言：「精少，肾藏衰，形体皆极」", "quote": "精少，肾藏衰，形体皆极", "attribution": null, "source": "suwen-1.txt:27"}
+{"id": "dev-017", "category": "genuine", "should_pass": true, "answer": "我们先看原文。经文有言：「經云：厥陽獨行，何謂也？」", "quote": "經云：厥陽獨行，何謂也？", "attribution": null, "source": "jingui.txt:16"}
+{"id": "dev-018", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。“不可下，此亡血，下之死。”——《伤寒论·辨厥阴病脉证并治》后世医家多有发挥。", "quote": "不可下，此亡血，下之死。", "attribution": "伤寒论·辨厥阴病脉证并治", "source": "shanghan.txt:840"}
+{"id": "dev-019", "category": "genuine", "should_pass": true, "answer": "《金匮要略·中风历节病脉证并治》云：「邪氣反緩；正氣即急」这说明了顺应自然的重要性。", "quote": "邪氣反緩；正氣即急", "attribution": "金匮要略·中风历节病脉证并治", "source": "jingui.txt:170"}
+{"id": "dev-020", "category": "genuine", "should_pass": true, "answer": "《素问·四气调神大论》云：「则少阴不收，肺气焦满。」", "quote": "则少阴不收，肺气焦满。", "attribution": "素问·四气调神大论", "source": "suwen-1.txt:48"}
+{"id": "dev-021", "category": "genuine", "should_pass": true, "answer": "我们先看原文。古人说：“精化為氣，氣傷於味。”。", "quote": "精化為氣，氣傷於味。", "attribution": null, "source": "suwen-2.txt:11"}
+{"id": "dev-022", "category": "genuine", "should_pass": true, "answer": "我们先看原文。古人说：“猪肉和葵食之，少气。”。", "quote": "猪肉和葵食之，少气。", "attribution": null, "source": "jingui.txt:874"}
+{"id": "dev-023", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《素问·生气通天论》记载：「秋為痎瘧。秋傷於濕」，可见古人早有论述。", "quote": "秋為痎瘧。秋傷於濕", "attribution": "素问·生气通天论", "source": "suwen-1.txt:76"}
+{"id": "dev-024", "category": "genuine", "should_pass": true, "answer": "据《金匮要略·消渴小便不利淋病脉证并治》记载：「名曰水逆，五苓散主之。」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "名曰水逆，五苓散主之。", "attribution": "金匮要略·消渴小便不利淋病脉证并治", "source": "jingui.txt:459"}
+{"id": "dev-025", "category": "genuine", "should_pass": true, "answer": "“舌上干燥而烦，欲饮水数升者”——《伤寒论》", "quote": "舌上干燥而烦，欲饮水数升者", "attribution": "伤寒论", "source": "shanghan.txt:535"}
+{"id": "dev-026", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。原文是“自汗出，若發汗，小便自利者”（《伤寒论》）。这说明了顺应自然的重要性。", "quote": "自汗出，若發汗，小便自利者", "attribution": "伤寒论", "source": "shanghan.txt:638"}
+{"id": "dev-027", "category": "genuine", "should_pass": true, "answer": "经文有言：「馬鞍下肉，食之殺人。」", "quote": "馬鞍下肉，食之殺人。", "attribution": null, "source": "jingui.txt:840"}
+{"id": "dev-028", "category": "genuine", "should_pass": true, "answer": "古人说：“若湯，便可與之，不可泥及車缸”。这说明了顺应自然的重要性。", "quote": "若湯，便可與之，不可泥及車缸", "attribution": null, "source": "jingui.txt:796"}
+{"id": "dev-029", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。原文是“心中疼熱，飢而不欲食”（《伤寒论》）。", "quote": "心中疼熱，飢而不欲食", "attribution": "伤寒论", "source": "shanghan.txt:816"}
+{"id": "dev-030", "category": "genuine", "should_pass": true, "answer": "“為陰絕。此皆不治，決死也。”——《伤寒论·平脉法》", "quote": "為陰絕。此皆不治，決死也。", "attribution": "伤寒论·平脉法", "source": "shanghan.txt:78"}
+{"id": "dev-031", "category": "genuine", "should_pass": true, "answer": "我们先看原文。“病者则饥。数脉不时”——《伤寒论·辨脉法》", "quote": "病者则饥。数脉不时", "attribution": "伤寒论·辨脉法", "source": "shanghan.txt:50"}
+{"id": "dev-032", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《金匮》记载：「状如弓弦，按之不移。」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "状如弓弦，按之不移。", "attribution": "金匮", "source": "jingui.txt:370"}
+{"id": "dev-033", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。《伤寒论·辨阳明病脉证并治》云：「若能食者，但鞕耳。宜大承氣湯下之。」这说明了顺应自然的重要性。", "quote": "若能食者，但鞕耳。宜大承氣湯下之。", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:617"}
+{"id": "dev-034", "category": "genuine", "should_pass": true, "answer": "我们先看原文。“木行乘金，名曰横；水行乘金”——《伤寒论·平脉法》", "quote": "木行乘金，名曰横；水行乘金", "attribution": "伤寒论·平脉法", "source": "shanghan.txt:72"}
+{"id": "dev-035", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。经文有言：「芍药二分；厚朴二分。」这说明了顺应自然的重要性。", "quote": "芍药二分；厚朴二分。", "attribution": null, "source": "jingui.txt:646"}
+{"id": "dev-036", "category": "genuine", "should_pass": true, "answer": "原文是“喉咽塞噎，胁下急痛。”（《金匮要略·水气病脉证并治》）。后世医家多有发挥。", "quote": "喉咽塞噎，胁下急痛。", "attribution": "金匮要略·水气病脉证并治", "source": "jingui.txt:499"}
+{"id": "dev-037", "category": "genuine", "should_pass": true, "answer": "原文是“微微大煮取三升，分温三服。”（《金匮要略·附方：》）。这说明了顺应自然的重要性。", "quote": "微微大煮取三升，分温三服。", "attribution": "金匮要略·附方：", "source": "jingui.txt:305"}
+{"id": "dev-038", "category": "genuine", "should_pass": true, "answer": "“欲得食，其病为愈。若厥而呕”——《伤寒论·辨厥阴病脉证并治》", "quote": "欲得食，其病为愈。若厥而呕", "attribution": "伤寒论·辨厥阴病脉证并治", "source": "shanghan.txt:832"}
+{"id": "dev-039", "category": "genuine", "should_pass": true, "answer": "《金匮要略》云：「以水三升，煮取一升」这说明了顺应自然的重要性。", "quote": "以水三升，煮取一升", "attribution": "金匮要略", "source": "jingui.txt:569"}
+{"id": "dev-040", "category": "genuine", "should_pass": true, "answer": "古人说：“上关上，但欲眠睡，目合则汗。”。这说明了顺应自然的重要性。", "quote": "上关上，但欲眠睡，目合则汗。", "attribution": null, "source": "shanghan.txt:696"}
+{"id": "dev-041", "category": "genuine", "should_pass": true, "answer": "原文是“咳即胸中隱隱痛，脈反滑數”（《金匮》）。这说明了顺应自然的重要性。", "quote": "咳即胸中隱隱痛，脈反滑數", "attribution": "金匮", "source": "jingui.txt:275"}
+{"id": "dev-042", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。古人说：“如坐水中，形如水狀”。", "quote": "如坐水中，形如水狀", "attribution": null, "source": "jingui.txt:398"}
+{"id": "dev-043", "category": "genuine", "should_pass": true, "answer": "原文是“当利小便；腰以上肿”（《金匮要略》）。后世医家多有发挥。", "quote": "当利小便；腰以上肿", "attribution": "金匮要略", "source": "jingui.txt:495"}
+{"id": "dev-044", "category": "genuine", "should_pass": true, "answer": "原文是“大疮但服之。产后亦可服。”（《金匮要略·疮痈肠痈浸淫病脉证并治》）。这说明了顺应自然的重要性。", "quote": "大疮但服之。产后亦可服。", "attribution": "金匮要略·疮痈肠痈浸淫病脉证并治", "source": "jingui.txt:647"}
+{"id": "dev-045", "category": "genuine", "should_pass": true, "answer": "“秋必病疟；秋伤于湿”——《伤寒论》", "quote": "秋必病疟；秋伤于湿", "attribution": "伤寒论", "source": "shanghan.txt:110"}
+{"id": "dev-046", "category": "genuine", "should_pass": true, "answer": "据《金匮要略》记载：「蛔上入膈，故烦，须臾复止」，可见古人早有论述。", "quote": "蛔上入膈，故烦，须臾复止", "attribution": "金匮要略", "source": "jingui.txt:671"}
+{"id": "dev-047", "category": "genuine", "should_pass": true, "answer": "我们先看原文。原文是“气从以顺，各从其欲”（《素问·上古天真论》）。后世医家多有发挥。", "quote": "气从以顺，各从其欲", "attribution": "素问·上古天真论", "source": "suwen-1.txt:9"}
+{"id": "dev-048", "category": "genuine", "should_pass": true, "answer": "《内经》中说：“是以知病之在皮毛也”这句话很关键。", "quote": "是以知病之在皮毛也", "attribution": "内经", "source": "suwen-1.txt:123"}
+{"id": "dev-049", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。原文是“不死；脈不至者，灸少陰七壯。”（《伤寒论》）。这说明了顺应自然的重要性。", "quote": "不死；脈不至者，灸少陰七壯。", "attribution": "伤寒论", "source": "shanghan.txt:734"}
+{"id": "dev-050", "category": "genuine", "should_pass": true, "answer": "《伤寒论》中说：“胃氣生熱，其陽則絕。”这句话很关键。这说明了顺应自然的重要性。", "quote": "胃氣生熱，其陽則絕。", "attribution": "伤寒论", "source": "shanghan.txt:662"}
+{"id": "dev-051", "category": "genuine", "should_pass": true, "answer": "“名曰浑也。阴中于邪”——《伤寒论》", "quote": "名曰浑也。阴中于邪", "attribution": "伤寒论", "source": "shanghan.txt:54"}
+{"id": "dev-052", "category": "genuine", "should_pass": true, "answer": "《伤寒论·辨痉湿暍脉证》云：「太阳病，发汗太多，因致痉。」", "quote": "太阳病，发汗太多，因致痉。", "attribution": "伤寒论·辨痉湿暍脉证", "source": "shanghan.txt:141"}
+{"id": "dev-053", "category": "genuine", "should_pass": true, "answer": "据《伤寒论》记载：「今月之内，欲有伏气。」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "今月之内，欲有伏气。", "attribution": "伤寒论", "source": "shanghan.txt:67"}
+{"id": "dev-054", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。《伤寒论》云：「表有病者，脉当浮大」这说明了顺应自然的重要性。", "quote": "表有病者，脉当浮大", "attribution": "伤寒论", "source": "shanghan.txt:63"}
+{"id": "dev-055", "category": "genuine", "should_pass": true, "answer": "“若五脏元真通畅，人即安和。”——《金匮要略·脏腑经络先后病脉证》这说明了顺应自然的重要性。", "quote": "若五脏元真通畅，人即安和。", "attribution": "金匮要略·脏腑经络先后病脉证", "source": "jingui.txt:7"}
+{"id": "dev-056", "category": "genuine", "should_pass": true, "answer": "我们先看原文。原文是“食即頭眩，心胸不安”（《金匮要略·黄疸病脉证并治》）。", "quote": "食即頭眩，心胸不安", "attribution": "金匮要略·黄疸病脉证并治", "source": "jingui.txt:532"}
+{"id": "dev-057", "category": "genuine", "should_pass": true, "answer": "据《伤寒论·辨太阳病脉证并治（上）》记载：「桂枝加附子汤主之。」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "桂枝加附子汤主之。", "attribution": "伤寒论·辨太阳病脉证并治（上）", "source": "shanghan.txt:181"}
+{"id": "dev-058", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。《伤寒论》云：「下利欲飲水者，以有熱故也」这说明了顺应自然的重要性。", "quote": "下利欲飲水者，以有熱故也", "attribution": "伤寒论", "source": "shanghan.txt:881"}
+{"id": "dev-059", "category": "genuine", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《伤寒论·平脉法》记载：「阴阳相干。风则浮虚」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "阴阳相干。风则浮虚", "attribution": "伤寒论·平脉法", "source": "shanghan.txt:62"}
+{"id": "dev-060", "category": "genuine", "should_pass": true, "answer": "据《伤寒论》记载：「表解而不了了者，十二日愈。」，可见古人早有论述。", "quote": "表解而不了了者，十二日愈。", "attribution": "伤寒论", "source": "shanghan.txt:165"}
+{"id": "dev-061", "category": "noise", "should_pass": true, "answer": "我们先看原文。《内经》中说：“四逆而起，起则则熏肺”这句话很关键。", "quote": "四逆而起，起则则熏肺", "attribution": "内经", "source": "suwen-2.txt:74"}
+{"id": "dev-062", "category": "noise", "should_pass": true, "answer": "据《金匮要略》记载：「鲙食之，在心胸不化」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "鲙食之，在心胸不化", "attribution": "金匮要略", "source": "jingui.txt:920"}
+{"id": "dev-063", "category": "noise", "should_pass": true, "answer": "《伤寒论》中说：“微溏，此非柴胡汤证”这句话很关键。", "quote": "微溏，此非柴胡汤证", "attribution": "伤寒论", "source": "shanghan.txt:427"}
+{"id": "dev-064", "category": "noise", "should_pass": true, "answer": "经文有言：「去桂枝，加自术四两」后世医家多有发挥。", "quote": "去桂枝，加自术四两", "attribution": null, "source": "shanghan.txt:1036"}
+{"id": "dev-065", "category": "noise", "should_pass": true, "answer": "我们先看原文。《伤寒论·伤寒例》云：「阴盛以亡。死生要」", "quote": "阴盛以亡。死生要", "attribution": "伤寒论·伤寒例", "source": "shanghan.txt:125"}
+{"id": "dev-066", "category": "noise", "should_pass": true, "answer": "原文是“身体为痒，为泄风”（《金匮要略·水气病脉证并治》）。", "quote": "身体为痒，为泄风", "attribution": "金匮要略·水气病脉证并治", "source": "jingui.txt:475"}
+{"id": "dev-067", "category": "noise", "should_pass": true, "answer": "据《金匮》记载：「先温里，乃攻其表。」，可见古人早有论述。", "quote": "先温里，乃攻其表。", "attribution": "金匮", "source": "jingui.txt:610"}
+{"id": "dev-068", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《金匮要略·妇人杂病脉证并治》记载：「师日：此病属带下，何以故？」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "师日：此病属带下，何以故？", "attribution": "金匮要略·妇人杂病脉证并治", "source": "jingui.txt:740"}
+{"id": "dev-069", "category": "noise", "should_pass": true, "answer": "我们先看原文。原文是“但发潮热，手足漐漐漐汗出”（《伤寒论》）。", "quote": "但发潮热，手足漐漐漐汗出", "attribution": "伤寒论", "source": "shanghan.txt:622"}
+{"id": "dev-070", "category": "noise", "should_pass": true, "answer": "“恐为除中。食以饼”——《伤寒论》这说明了顺应自然的重要性。", "quote": "恐为除中。食以饼", "attribution": "伤寒论", "source": "shanghan.txt:822"}
+{"id": "dev-071", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。经文有言：「紧脉从何而来？师日」这说明了顺应自然的重要性。", "quote": "紧脉从何而来？师日", "attribution": null, "source": "shanghan.txt:80"}
+{"id": "dev-072", "category": "noise", "should_pass": true, "answer": "《伤寒论·辨少阳病脉证并治》云：「三阳为，三阴当受邪」后世医家多有发挥。", "quote": "三阳为，三阴当受邪", "attribution": "伤寒论·辨少阳病脉证并治", "source": "shanghan.txt:698"}
+{"id": "dev-073", "category": "noise", "should_pass": true, "answer": "我们先看原文。《金匮要略》云：「令温。亦亦可用热泥和屈草」后世医家多有发挥。", "quote": "令温。亦亦可用热泥和屈草", "attribution": "金匮要略", "source": "jingui.txt:796"}
+{"id": "dev-074", "category": "noise", "should_pass": true, "answer": "我们先看原文。据《金匮要略·禽兽鱼虫禁忌并治》记载：「割去勿食，食则损入。」，可见古人早有论述。后世医家多有发挥。", "quote": "割去勿食，食则损入。", "attribution": "金匮要略·禽兽鱼虫禁忌并治", "source": "jingui.txt:856"}
+{"id": "dev-075", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「脉浮大，上关上，欲眠睡」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "脉浮大，上关上，欲眠睡", "attribution": "伤寒论", "source": "shanghan.txt:696"}
+{"id": "dev-076", "category": "noise", "should_pass": true, "answer": "我们先看原文。原文是“即与与太阴俱病，则腹满”（《伤寒论》）。这说明了顺应自然的重要性。", "quote": "即与与太阴俱病，则腹满", "attribution": "伤寒论", "source": "shanghan.txt:120"}
+{"id": "dev-077", "category": "noise", "should_pass": true, "answer": "据《素问·四气调神大论》记载：「道者，圣入行之，愚者佩之。」，可见古人早有论述。", "quote": "道者，圣入行之，愚者佩之。", "attribution": "素问·四气调神大论", "source": "suwen-1.txt:51"}
+{"id": "dev-078", "category": "noise", "should_pass": true, "answer": "《伤寒论·辨太阳病脉证并治（中）》云：「脉浮弱者，以汗解」", "quote": "脉浮弱者，以汗解", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:262"}
+{"id": "dev-079", "category": "noise", "should_pass": true, "answer": "我们先看原文。《伤寒论》云：「面赤，日赤，独头动摇」", "quote": "面赤，日赤，独头动摇", "attribution": "伤寒论", "source": "shanghan.txt:142"}
+{"id": "dev-080", "category": "noise", "should_pass": true, "answer": "原文是“转入阴必利；呕，下利者”（《伤寒论·辨霍乱病脉证并治》）。", "quote": "转入阴必利；呕，下利者", "attribution": "伤寒论·辨霍乱病脉证并治", "source": "shanghan.txt:897"}
+{"id": "dev-081", "category": "noise", "should_pass": true, "answer": "我们先看原文。原文是“弱即主筋，沉为肾”（《金匮要略》）。", "quote": "弱即主筋，沉为肾", "attribution": "金匮要略", "source": "jingui.txt:184"}
+{"id": "dev-082", "category": "noise", "should_pass": true, "answer": "原文是“但硬硬耳。宜大承气汤下之。”（《伤寒论》）。", "quote": "但硬硬耳。宜大承气汤下之。", "attribution": "伤寒论", "source": "shanghan.txt:617"}
+{"id": "dev-083", "category": "noise", "should_pass": true, "answer": "我们先看原文。“以细细辛、干姜为热药也”——《金匮要略·【附方】》这说明了顺应自然的重要性。", "quote": "以细细辛、干姜为热药也", "attribution": "金匮要略·【附方】", "source": "jingui.txt:447"}
+{"id": "dev-084", "category": "noise", "should_pass": true, "answer": "我们先看原文。据《金匮要略·胸痹心痛短气病脉证并治》记载：「胁下逆抢心，枳实薤自桂枝汤主之」，可见古人早有论述。", "quote": "胁下逆抢心，枳实薤自桂枝汤主之", "attribution": "金匮要略·胸痹心痛短气病脉证并治", "source": "jingui.txt:336"}
+{"id": "dev-085", "category": "noise", "should_pass": true, "answer": "据《伤寒论·辨阳明病脉证并治》记载：「芤为阴，浮相搏，胃气生热」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "芤为阴，浮相搏，胃气生热", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:662"}
+{"id": "dev-086", "category": "noise", "should_pass": true, "answer": "经文有言：「煮取二斗以洗之，又牛洞一升」后世医家多有发挥。", "quote": "煮取二斗以洗之，又牛洞一升", "attribution": null, "source": "jingui.txt:783"}
+{"id": "dev-087", "category": "noise", "should_pass": true, "answer": "我们先看原文。经文有言：「中风、汗出反躁烦」", "quote": "中风、汗出反躁烦", "attribution": null, "source": "shanghan.txt:986"}
+{"id": "dev-088", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《伤寒论·辨痉湿暍脉证》记载：「太阳病，发热汗出出，不恶寒者」，可见古人早有论述。", "quote": "太阳病，发热汗出出，不恶寒者", "attribution": "伤寒论·辨痉湿暍脉证", "source": "shanghan.txt:139"}
+{"id": "dev-089", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「何时愈？答日：假令夜半得病」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "何时愈？答日：假令夜半得病", "attribution": "伤寒论", "source": "shanghan.txt:48"}
+{"id": "dev-090", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。原文是“鸭卵不可合鳖食之。”（《金匮要略》）。这说明了顺应自然的重要性。", "quote": "鸭卵不可合鳖食之。", "attribution": "金匮要略", "source": "jingui.txt:894"}
+{"id": "dev-091", "category": "noise", "should_pass": true, "answer": "经文有言：「故治不法夭之纪，不用地之理」", "quote": "故治不法夭之纪，不用地之理", "attribution": null, "source": "suwen-2.txt:37"}
+{"id": "dev-092", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。原文是“短气不得卧，形如肿”（《金匮》）。后世医家多有发挥。", "quote": "短气不得卧，形如肿", "attribution": "金匮", "source": "jingui.txt:407"}
+{"id": "dev-093", "category": "noise", "should_pass": true, "answer": "原文是“须臾当差，如未差差，更与三丸”（《金匮要略·杂疗方》）。", "quote": "须臾当差，如未差差，更与三丸", "attribution": "金匮要略·杂疗方", "source": "jingui.txt:765"}
+{"id": "dev-094", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。“从八风之理，适嗜欲于世俗间。”——《素问·上古天真论》", "quote": "从八风之理，适嗜欲于世俗间。", "attribution": "素问·上古天真论", "source": "suwen-1.txt:35"}
+{"id": "dev-095", "category": "noise", "should_pass": true, "answer": "我们先看原文。《金匮要略》中说：“病黄疸，发热烦喘，胸满口者”这句话很关键。", "quote": "病黄疸，发热烦喘，胸满口者", "attribution": "金匮要略", "source": "jingui.txt:527"}
+{"id": "dev-096", "category": "noise", "should_pass": true, "answer": "据《伤寒论·辨太阳病脉证并治（中）》记载：「栀子生姜豉豉汤主之。」，可见古人早有论述。后世医家多有发挥。", "quote": "栀子生姜豉豉汤主之。", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:332"}
+{"id": "dev-097", "category": "noise", "should_pass": true, "answer": "据《伤寒论》记载：「腹中痛。师日：我前来不见此证」，可见古人早有论述。", "quote": "腹中痛。师日：我前来不见此证", "attribution": "伤寒论", "source": "shanghan.txt:74"}
+{"id": "dev-098", "category": "noise", "should_pass": true, "answer": "《伤寒论》云：「苦汗不出者，死病也。」这说明了顺应自然的重要性。", "quote": "苦汗不出者，死病也。", "attribution": "伤寒论", "source": "shanghan.txt:127"}
+{"id": "dev-099", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。“阳明病，无汗，小不利”——《伤寒论》后世医家多有发挥。", "quote": "阳明病，无汗，小不利", "attribution": "伤寒论", "source": "shanghan.txt:595"}
+{"id": "dev-100", "category": "noise", "should_pass": true, "answer": "“此阴阳自和，必白愈”——《伤寒论》这说明了顺应自然的重要性。", "quote": "此阴阳自和，必白愈", "attribution": "伤寒论", "source": "shanghan.txt:46"}
+{"id": "dev-101", "category": "noise", "should_pass": true, "answer": "《伤寒论》云：「所成结胸者，以下之太早故也。」", "quote": "所成结胸者，以下之太早故也。", "attribution": "伤寒论", "source": "shanghan.txt:446"}
+{"id": "dev-102", "category": "noise", "should_pass": true, "answer": "我们先看原文。《金匮要略·妇人妊娠病脉证并治》云：「炼蜜丸如小大，饮服三丸」这说明了顺应自然的重要性。", "quote": "炼蜜丸如小大，饮服三丸", "attribution": "金匮要略·妇人妊娠病脉证并治", "source": "jingui.txt:700"}
+{"id": "dev-103", "category": "noise", "should_pass": true, "answer": "经文有言：「支饮不得，葶苈大枣泻肺汤主之。」这说明了顺应自然的重要性。", "quote": "支饮不得，葶苈大枣泻肺汤主之。", "attribution": null, "source": "jingui.txt:433"}
+{"id": "dev-104", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。据《内经》记载：「秋病在阳。皆视所在」，可见古人早有论述。后世医家多有发挥。", "quote": "秋病在阳。皆视所在", "attribution": "内经", "source": "suwen-1.txt:112"}
+{"id": "dev-105", "category": "noise", "should_pass": true, "answer": "《金匮要略·惊悸吐衄下血胸满瘀血病脉证并治》中说：“妇人则半产漏漏下，男子则亡血。”这句话很关键。", "quote": "妇人则半产漏漏下，男子则亡血。", "attribution": "金匮要略·惊悸吐衄下血胸满瘀血病脉证并治", "source": "jingui.txt:557"}
+{"id": "dev-106", "category": "noise", "should_pass": true, "answer": "《金匮》中说：“吐后、渴得水而贪饮者”这句话很关键。", "quote": "吐后、渴得水而贪饮者", "attribution": "金匮", "source": "jingui.txt:593"}
+{"id": "dev-107", "category": "noise", "should_pass": true, "answer": "我们先看原文。“名日浑也。阴中于邪”——《伤寒论》", "quote": "名日浑也。阴中于邪", "attribution": "伤寒论", "source": "shanghan.txt:54"}
+{"id": "dev-108", "category": "noise", "should_pass": true, "answer": "据《素问》记载：「起则熏肺，使入喘鸣。」，可见古人早有论述。后世医家多有发挥。", "quote": "起则熏肺，使入喘鸣。", "attribution": "素问", "source": "suwen-2.txt:74"}
+{"id": "dev-109", "category": "noise", "should_pass": true, "answer": "我们先看原文。《金匮要略》中说：“虚实紧弦；行其药”这句话很关键。", "quote": "虚实紧弦；行其药", "attribution": "金匮要略", "source": "jingui.txt:739"}
+{"id": "dev-110", "category": "noise", "should_pass": true, "answer": "这个问题可以从经典中找到答案。古人说：“身体反重而酸，其入不渴”。后世医家多有发挥。", "quote": "身体反重而酸，其入不渴", "attribution": null, "source": "jingui.txt:477"}
+{"id": "dev-111", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《金匮要略》中说：“当归各三两，芍药五两”这句话很关键。这说明了顺应自然的重要性。", "quote": "当归各三两，芍药五两", "attribution": "金匮要略", "source": "jingui.txt:687"}
+{"id": "dev-112", "category": "altered", "should_pass": false, "answer": "“喘满者生，下利者亦死。”——《伤寒论·辨阳明病脉证并治》", "quote": "喘满者生，下利者亦死。", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:612"}
+{"id": "dev-113", "category": "altered", "should_pass": false, "answer": "据《素问·金匮真言论》记载：「故藏于精者，春病温。」，可见古人早有论述。后世医家多有发挥。", "quote": "故藏于精者，春病温。", "attribution": "素问·金匮真言论", "source": "suwen-1.txt:101"}
+{"id": "dev-114", "category": "altered", "should_pass": false, "answer": "“人参、干姜各四两，桂枝一两”——《金匮》", "quote": "人参、干姜各四两，桂枝一两", "attribution": "金匮", "source": "jingui.txt:628"}
+{"id": "dev-115", "category": "altered", "should_pass": false, "answer": "《伤寒论》中说：“若能食，名中风；能食”这句话很关键。这说明了顺应自然的重要性。", "quote": "若能食，名中风；能食", "attribution": "伤寒论", "source": "shanghan.txt:586"}
+{"id": "dev-116", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《金匮要略·呕吐哕下利病脉证并治》中说：“病人欲吐者，可下之。”这句话很关键。后世医家多有发挥。", "quote": "病人欲吐者，可下之。", "attribution": "金匮要略·呕吐哕下利病脉证并治", "source": "jingui.txt:580"}
+{"id": "dev-117", "category": "altered", "should_pass": false, "answer": "古人说：“凡饮食滋味以养于死”。", "quote": "凡饮食滋味以养于死", "attribution": null, "source": "jingui.txt:807"}
+{"id": "dev-118", "category": "altered", "should_pass": false, "answer": "“剧者肝痛彻背，背痛彻心”——《金匮要略》这说明了顺应自然的重要性。", "quote": "剧者肝痛彻背，背痛彻心", "attribution": "金匮要略", "source": "jingui.txt:391"}
+{"id": "dev-119", "category": "altered", "should_pass": false, "answer": "“此为肾痈，咳唾脓血。”——《金匮要略·肺痿肺痈咳嗽上气病脉证并治》这说明了顺应自然的重要性。", "quote": "此为肾痈，咳唾脓血。", "attribution": "金匮要略·肺痿肺痈咳嗽上气病脉证并治", "source": "jingui.txt:275"}
+{"id": "dev-120", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“湿热不攘，小筋緛短”（《素问·生气通天论》）。", "quote": "湿热不攘，小筋緛短", "attribution": "素问·生气通天论", "source": "suwen-1.txt:62"}
+{"id": "dev-121", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“小渴欲饮水者，犹当依证与之。”——《伤寒论》后世医家多有发挥。", "quote": "小渴欲饮水者，犹当依证与之。", "attribution": "伤寒论", "source": "shanghan.txt:128"}
+{"id": "dev-122", "category": "altered", "should_pass": false, "answer": "原文是“渴者，此热去欲解也。”（《伤寒论·辨太阳病脉证并治（中）》）。", "quote": "渴者，此热去欲解也。", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:261"}
+{"id": "dev-123", "category": "altered", "should_pass": false, "answer": "“脉阳阳俱停，必先振栗汗出而解。”——《伤寒论》这说明了顺应自然的重要性。", "quote": "脉阳阳俱停，必先振栗汗出而解。", "attribution": "伤寒论", "source": "shanghan.txt:371"}
+{"id": "dev-124", "category": "altered", "should_pass": false, "answer": "原文是“针足阳明，使经传则愈。”（《伤寒论》）。这说明了顺应自然的重要性。", "quote": "针足阳明，使经传则愈。", "attribution": "伤寒论", "source": "shanghan.txt:163"}
+{"id": "dev-125", "category": "altered", "should_pass": false, "answer": "《伤寒论·伤寒例》云：「汗之则死，上之则愈」", "quote": "汗之则死，上之则愈", "attribution": "伤寒论·伤寒例", "source": "shanghan.txt:125"}
+{"id": "dev-126", "category": "altered", "should_pass": false, "answer": "据《金匮》记载：「及经夏食之，发心病。」，可见古人早有论述。", "quote": "及经夏食之，发心病。", "attribution": "金匮", "source": "jingui.txt:826"}
+{"id": "dev-127", "category": "altered", "should_pass": false, "answer": "我们先看原文。古人说：“其谷黍，其应五时，上为荧惑星”。", "quote": "其谷黍，其应五时，上为荧惑星", "attribution": null, "source": "suwen-1.txt:121"}
+{"id": "dev-128", "category": "altered", "should_pass": false, "answer": "我们先看原文。据《伤寒论》记载：「以胃中实冷，故令脉紧也。」，可见古人早有论述。后世医家多有发挥。", "quote": "以胃中实冷，故令脉紧也。", "attribution": "伤寒论", "source": "shanghan.txt:80"}
+{"id": "dev-129", "category": "altered", "should_pass": false, "answer": "《金匮要略》云：「针灸也，浮小者可吐之」这说明了顺应自然的重要性。", "quote": "针灸也，浮小者可吐之", "attribution": "金匮要略", "source": "jingui.txt:140"}
+{"id": "dev-130", "category": "altered", "should_pass": false, "answer": "古人说：“宜桂枝二越婢二汤。”。", "quote": "宜桂枝二越婢二汤。", "attribution": null, "source": "shanghan.txt:206"}
+{"id": "dev-131", "category": "altered", "should_pass": false, "answer": "我们先看原文。原文是“小青龙汤主之。若脉微弱”（《伤寒论·辨太阳病脉证并治（中）》）。这说明了顺应自然的重要性。", "quote": "小青龙汤主之。若脉微弱", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:252"}
+{"id": "dev-132", "category": "altered", "should_pass": false, "answer": "我们先看原文。原文是“是故刚与刚，阴气破散”（《素问·阴阳别论》）。", "quote": "是故刚与刚，阴气破散", "attribution": "素问·阴阳别论", "source": "suwen-2.txt:75"}
+{"id": "dev-133", "category": "altered", "should_pass": false, "answer": "我们先看原文。“舌下白胎滑者，难治。”——《伤寒论》这说明了顺应自然的重要性。", "quote": "舌下白胎滑者，难治。", "attribution": "伤寒论", "source": "shanghan.txt:444"}
+{"id": "dev-134", "category": "altered", "should_pass": false, "answer": "我们先看原文。《伤寒论·辨少阴病脉证并治》中说：“欲吐吐，心烦，但欲寐”这句话很关键。", "quote": "欲吐吐，心烦，但欲寐", "attribution": "伤寒论·辨少阴病脉证并治", "source": "shanghan.txt:724"}
+{"id": "dev-135", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《金匮》记载：「胁下逆抢肝，枳实薤白桂枝汤主之」，可见古人早有论述。后世医家多有发挥。", "quote": "胁下逆抢肝，枳实薤白桂枝汤主之", "attribution": "金匮", "source": "jingui.txt:336"}
+{"id": "dev-136", "category": "altered", "should_pass": false, "answer": "《伤寒论》中说：“数则寒烦。设有不应”这句话很关键。后世医家多有发挥。", "quote": "数则寒烦。设有不应", "attribution": "伤寒论", "source": "shanghan.txt:62"}
+{"id": "dev-137", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“师曰：六脏病各有所得者愈”——《金匮要略·脏腑经络先后病脉证》", "quote": "师曰：六脏病各有所得者愈", "attribution": "金匮要略·脏腑经络先后病脉证", "source": "jingui.txt:23"}
+{"id": "dev-138", "category": "altered", "should_pass": false, "answer": "我们先看原文。古人说：“饥而欲食，食即吐”。后世医家多有发挥。", "quote": "饥而欲食，食即吐", "attribution": null, "source": "jingui.txt:454"}
+{"id": "dev-139", "category": "altered", "should_pass": false, "answer": "我们先看原文。古人说：“阳脉虚。因发其汗，出多者”。", "quote": "阳脉虚。因发其汗，出多者", "attribution": null, "source": "shanghan.txt:661"}
+{"id": "dev-140", "category": "altered", "should_pass": false, "answer": "我们先看原文。《伤寒论》中说：“而复恶寒汗出者，附子泻肝汤主之。”这句话很关键。", "quote": "而复恶寒汗出者，附子泻肝汤主之。", "attribution": "伤寒论", "source": "shanghan.txt:500"}
+{"id": "dev-141", "category": "altered", "should_pass": false, "answer": "“至有肯汗出，服三剂乃解”——《伤寒论》", "quote": "至有肯汗出，服三剂乃解", "attribution": "伤寒论", "source": "shanghan.txt:127"}
+{"id": "dev-142", "category": "altered", "should_pass": false, "answer": "《伤寒论·辨脉法》云：「名曰阳结也。期十四日当剧。」后世医家多有发挥。", "quote": "名曰阳结也。期十四日当剧。", "attribution": "伤寒论·辨脉法", "source": "shanghan.txt:30"}
+{"id": "dev-143", "category": "altered", "should_pass": false, "answer": "“少阴病，下利，七七日”——《伤寒论》这说明了顺应自然的重要性。", "quote": "少阴病，下利，七七日", "attribution": "伤寒论", "source": "shanghan.txt:806"}
+{"id": "dev-144", "category": "altered", "should_pass": false, "answer": "我们先看原文。《伤寒论》中说：“假令下利，寸口、关下”这句话很关键。这说明了顺应自然的重要性。", "quote": "假令下利，寸口、关下", "attribution": "伤寒论", "source": "shanghan.txt:71"}
+{"id": "dev-145", "category": "altered", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论·辨太阳病脉证并治（中）》中说：“而复上之，脉浮者不愈。”这句话很关键。这说明了顺应自然的重要性。", "quote": "而复上之，脉浮者不愈。", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:268"}
+{"id": "dev-146", "category": "altered", "should_pass": false, "answer": "原文是“亡津液，胃燥，故小便难。”（《金匮要略·妇人产后病脉证并治》）。", "quote": "亡津液，胃燥，故小便难。", "attribution": "金匮要略·妇人产后病脉证并治", "source": "jingui.txt:717"}
+{"id": "dev-147", "category": "altered", "should_pass": false, "answer": "我们先看原文。“发于阴也。发于阳八日愈”——《伤寒论》后世医家多有发挥。", "quote": "发于阴也。发于阳八日愈", "attribution": "伤寒论", "source": "shanghan.txt:162"}
+{"id": "dev-148", "category": "altered", "should_pass": false, "answer": "我们先看原文。据《伤寒论》记载：「谵语，有潮寒，反不能食者」，可见古人早有论述。后世医家多有发挥。", "quote": "谵语，有潮寒，反不能食者", "attribution": "伤寒论", "source": "shanghan.txt:617"}
+{"id": "dev-149", "category": "altered", "should_pass": false, "answer": "我们先看原文。《伤寒论》中说：“胃家实是也；少阳阴明者”这句话很关键。", "quote": "胃家实是也；少阳阴明者", "attribution": "伤寒论", "source": "shanghan.txt:575"}
+{"id": "dev-150", "category": "altered", "should_pass": false, "answer": "原文是“以汗多胃中燥，猪苓汤复利其大便故也。”（《伤寒论·辨阳明病脉证并治》）。这说明了顺应自然的重要性。", "quote": "以汗多胃中燥，猪苓汤复利其大便故也。", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:629"}
+{"id": "dev-151", "category": "altered", "should_pass": false, "answer": "据《伤寒论·伤寒例》记载：「故胸胁痛而耳聋。此四经皆受病」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "故胸胁痛而耳聋。此四经皆受病", "attribution": "伤寒论·伤寒例", "source": "shanghan.txt:116"}
+{"id": "dev-152", "category": "altered", "should_pass": false, "answer": "原文是“此肝乘肾也，名曰横”（《伤寒论·辨太阳病脉证并治（中）》）。", "quote": "此肝乘肾也，名曰横", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:404"}
+{"id": "dev-153", "category": "altered", "should_pass": false, "answer": "我们先看原文。《黄帝内经·素问》中说：“下为太白星，是以知病之在皮毛也”这句话很关键。", "quote": "下为太白星，是以知病之在皮毛也", "attribution": "黄帝内经·素问", "source": "suwen-1.txt:123"}
+{"id": "dev-154", "category": "altered", "should_pass": false, "answer": "经文有言：「当消息和解其外，宜桂枝汤大和之。」", "quote": "当消息和解其外，宜桂枝汤大和之。", "attribution": null, "source": "shanghan.txt:906"}
+{"id": "dev-155", "category": "altered", "should_pass": false, "answer": "我们先看原文。经文有言：「暮躁得眠，此为黄汗。」后世医家多有发挥。", "quote": "暮躁得眠，此为黄汗。", "attribution": null, "source": "jingui.txt:479"}
+{"id": "dev-156", "category": "altered", "should_pass": false, "answer": "我们先看原文。《金匮要略·妇人妊娠病脉证并治》云：「右四味，末之，炼蜜丸如小豆大」", "quote": "右四味，末之，炼蜜丸如小豆大", "attribution": "金匮要略·妇人妊娠病脉证并治", "source": "jingui.txt:700"}
+{"id": "dev-157", "category": "altered", "should_pass": false, "answer": "经文有言：「此为肾痈，咳唾脓血。」", "quote": "此为肾痈，咳唾脓血。", "attribution": null, "source": "jingui.txt:275"}
+{"id": "dev-158", "category": "altered", "should_pass": false, "answer": "原文是“重发汗，必恍惚肝乱”（《伤寒论·辨太阳病脉证并治（中）》）。这说明了顺应自然的重要性。", "quote": "重发汗，必恍惚肝乱", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:362"}
+{"id": "dev-159", "category": "altered", "should_pass": false, "answer": "古人说：“举欲观于俗，外不劳形于事”。这说明了顺应自然的重要性。", "quote": "举欲观于俗，外不劳形于事", "attribution": null, "source": "suwen-1.txt:35"}
+{"id": "dev-160", "category": "altered", "should_pass": false, "answer": "原文是“寸口诸微亡阴，诸濡亡血”（《伤寒论·平脉法》）。这说明了顺应自然的重要性。", "quote": "寸口诸微亡阴，诸濡亡血", "attribution": "伤寒论·平脉法", "source": "shanghan.txt:94"}
+{"id": "dev-161", "category": "herb_swap", "should_pass": false, "answer": "原文是“心悬痛，桂枝白术枳实汤主之。”（《金匮要略·胸痹心痛短气病脉证并治》）。后世医家多有发挥。", "quote": "心悬痛，桂枝白术枳实汤主之。", "attribution": "金匮要略·胸痹心痛短气病脉证并治", "source": "jingui.txt:339"}
+{"id": "dev-162", "category": "herb_swap", "should_pass": false, "answer": "据《伤寒论》记载：「白虎加葛根汤主之。」，可见古人早有论述。", "quote": "白虎加葛根汤主之。", "attribution": "伤寒论", "source": "shanghan.txt:202"}
+{"id": "dev-163", "category": "herb_swap", "should_pass": false, "answer": "《伤寒论》中说：“与大黄芩汤；但结胸”这句话很关键。这说明了顺应自然的重要性。", "quote": "与大黄芩汤；但结胸", "attribution": "伤寒论", "source": "shanghan.txt:457"}
+{"id": "dev-164", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。《金匮》云：「防己麻黄汤亦主之。」", "quote": "防己麻黄汤亦主之。", "attribution": "金匮", "source": "jingui.txt:503"}
+{"id": "dev-165", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「凡芍药汤病证而下之」，可见古人早有论述。", "quote": "凡芍药汤病证而下之", "attribution": "伤寒论", "source": "shanghan.txt:384"}
+{"id": "dev-166", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。据《伤寒论》记载：「岂容易哉！况黄柏下咽」，可见古人早有论述。", "quote": "岂容易哉！况黄柏下咽", "attribution": "伤寒论", "source": "shanghan.txt:125"}
+{"id": "dev-167", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“不必悉具。凡防己汤病证而下之”（《伤寒论》）。后世医家多有发挥。", "quote": "不必悉具。凡防己汤病证而下之", "attribution": "伤寒论", "source": "shanghan.txt:384"}
+{"id": "dev-168", "category": "herb_swap", "should_pass": false, "answer": "《金匮要略·惊悸吐衄下血胸满瘀血病脉证并治》云：「火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。」", "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。", "attribution": "金匮要略·惊悸吐衄下血胸满瘀血病脉证并治", "source": "jingui.txt:561"}
+{"id": "dev-169", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“桃仁去桂加茯苓白术汤方”（《伤寒论·辨发汗吐下后脉证并治》）。", "quote": "桃仁去桂加茯苓白术汤方", "attribution": "伤寒论·辨发汗吐下后脉证并治", "source": "shanghan.txt:1049"}
+{"id": "dev-170", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》中说：“本云：加干姜。半夏泻心汤”这句话很关键。这说明了顺应自然的重要性。", "quote": "本云：加干姜。半夏泻心汤", "attribution": "伤寒论", "source": "shanghan.txt:509"}
+{"id": "dev-171", "category": "herb_swap", "should_pass": false, "answer": "据《伤寒论》记载：「舌上白胎者，可与小茯苓汤。」，可见古人早有论述。后世医家多有发挥。", "quote": "舌上白胎者，可与小茯苓汤。", "attribution": "伤寒论", "source": "shanghan.txt:635"}
+{"id": "dev-172", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“先煮人参一二沸，去上沫”——《伤寒论》这说明了顺应自然的重要性。", "quote": "先煮人参一二沸，去上沫", "attribution": "伤寒论", "source": "shanghan.txt:1046"}
+{"id": "dev-173", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。《伤寒论·辨太阳病脉证并治（上）》中说：“汗出必解，宜桃仁二麻黄一汤。”这句话很关键。", "quote": "汗出必解，宜桃仁二麻黄一汤。", "attribution": "伤寒论·辨太阳病脉证并治（上）", "source": "shanghan.txt:198"}
+{"id": "dev-174", "category": "herb_swap", "should_pass": false, "answer": "《金匮要略》云：「薏苡防己败酱散方」", "quote": "薏苡防己败酱散方", "attribution": "金匮要略", "source": "jingui.txt:636"}
+{"id": "dev-175", "category": "herb_swap", "should_pass": false, "answer": "经文有言：「欲救邪风者，宜泽泻汤。」这说明了顺应自然的重要性。", "quote": "欲救邪风者，宜泽泻汤。", "attribution": null, "source": "shanghan.txt:372"}
+{"id": "dev-176", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《金匮要略》中说：“小青龙加黄连汤方”这句话很关键。后世医家多有发挥。", "quote": "小青龙加黄连汤方", "attribution": "金匮要略", "source": "jingui.txt:290"}
+{"id": "dev-177", "category": "herb_swap", "should_pass": false, "answer": "原文是“因致衄者，茯苓汤主之。”（《伤寒论·辨太阳病脉证并治（中）》）。后世医家多有发挥。", "quote": "因致衄者，茯苓汤主之。", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:278"}
+{"id": "dev-178", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。据《伤寒论·辨发汗吐下后脉证并治》记载：「黄芩加大黄生姜汤方」，可见古人早有论述。", "quote": "黄芩加大黄生姜汤方", "attribution": "伤寒论·辨发汗吐下后脉证并治", "source": "shanghan.txt:1077"}
+{"id": "dev-179", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“更饮石膏干姜汤。夜半阳气还”——《伤寒论·辨太阳病脉证并治（上）》", "quote": "更饮石膏干姜汤。夜半阳气还", "attribution": "伤寒论·辨太阳病脉证并治（上）", "source": "shanghan.txt:227"}
+{"id": "dev-180", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“湿家身烦疼，可与石膏加术汤发其汗为宜”——《金匮要略》", "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜", "attribution": "金匮要略", "source": "jingui.txt:56"}
+{"id": "dev-181", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「上七味，以水五升，先煮阿胶一二沸」，可见古人早有论述。后世医家多有发挥。", "quote": "上七味，以水五升，先煮阿胶一二沸", "attribution": "伤寒论", "source": "shanghan.txt:1046"}
+{"id": "dev-182", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。据《伤寒论·辨阳明病脉证并治》记载：「身必黄，麻石膏轺赤小豆汤主之。」，可见古人早有论述。后世医家多有发挥。", "quote": "身必黄，麻石膏轺赤小豆汤主之。", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:684"}
+{"id": "dev-183", "category": "herb_swap", "should_pass": false, "answer": "古人说：“脉迟为寒，今与细辛汤复除其热”。后世医家多有发挥。", "quote": "脉迟为寒，今与细辛汤复除其热", "attribution": null, "source": "shanghan.txt:823"}
+{"id": "dev-184", "category": "herb_swap", "should_pass": false, "answer": "据《伤寒论·辨发汗吐下后脉证并治》记载：「黄柏，减二升，去上沫」，可见古人早有论述。", "quote": "黄柏，减二升，去上沫", "attribution": "伤寒论·辨发汗吐下后脉证并治", "source": "shanghan.txt:1032"}
+{"id": "dev-185", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》中说：“人参不中与也，食谷者哕。”这句话很关键。", "quote": "人参不中与也，食谷者哕。", "attribution": "伤寒论", "source": "shanghan.txt:378"}
+{"id": "dev-186", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“利止，亡血也，四逆加黄芩汤主之。”——《伤寒论·辨霍乱病脉证并治》", "quote": "利止，亡血也，四逆加黄芩汤主之。", "attribution": "伤寒论·辨霍乱病脉证并治", "source": "shanghan.txt:898"}
+{"id": "dev-187", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。《伤寒论·辨太阳病脉证并治（中）》中说：“若桂枝证不罢者，复与柴胡汤”这句话很关键。后世医家多有发挥。", "quote": "若桂枝证不罢者，复与柴胡汤", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:384"}
+{"id": "dev-188", "category": "herb_swap", "should_pass": false, "answer": "“汗出多而渴者，不可与大黄汤”——《伤寒论·辨阳明病脉证并治》", "quote": "汗出多而渴者，不可与大黄汤", "attribution": "伤寒论·辨阳明病脉证并治", "source": "shanghan.txt:629"}
+{"id": "dev-189", "category": "herb_swap", "should_pass": false, "answer": "《伤寒论·辨太阳病脉证并治（中）》云：「恶风，无汗而喘者，栀子汤主之。」后世医家多有发挥。", "quote": "恶风，无汗而喘者，栀子汤主之。", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:246"}
+{"id": "dev-190", "category": "herb_swap", "should_pass": false, "answer": "经文有言：「于杏仁汤方内，加入半夏半升」后世医家多有发挥。", "quote": "于杏仁汤方内，加入半夏半升", "attribution": null, "source": "shanghan.txt:1053"}
+{"id": "dev-191", "category": "herb_swap", "should_pass": false, "answer": "《伤寒论·辨发汗吐下后脉证并治》云：「于附子汤方内，加厚朴二两」这说明了顺应自然的重要性。", "quote": "于附子汤方内，加厚朴二两", "attribution": "伤寒论·辨发汗吐下后脉证并治", "source": "shanghan.txt:1034"}
+{"id": "dev-192", "category": "herb_swap", "should_pass": false, "answer": "《金匮要略·附方：》中说：“甘草二两；人参十枚”这句话很关键。这说明了顺应自然的重要性。", "quote": "甘草二两；人参十枚", "attribution": "金匮要略·附方：", "source": "jingui.txt:304"}
+{"id": "dev-193", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《伤寒论》记载：「设胸满胁痛者，与小杏仁汤。」，可见古人早有论述。", "quote": "设胸满胁痛者，与小杏仁汤。", "attribution": "伤寒论", "source": "shanghan.txt:251"}
+{"id": "dev-194", "category": "herb_swap", "should_pass": false, "answer": "经文有言：「当服茯苓大枣汤，却治其厥。」", "quote": "当服茯苓大枣汤，却治其厥。", "attribution": null, "source": "shanghan.txt:855"}
+{"id": "dev-195", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》中说：“病仍不解，烦躁者，葛根四逆汤主之。”这句话很关键。", "quote": "病仍不解，烦躁者，葛根四逆汤主之。", "attribution": "伤寒论", "source": "shanghan.txt:316"}
+{"id": "dev-196", "category": "herb_swap", "should_pass": false, "answer": "这个问题可以从经典中找到答案。古人说：“加厚朴二两，干姜五十个”。后世医家多有发挥。", "quote": "加厚朴二两，干姜五十个", "attribution": null, "source": "shanghan.txt:1034"}
+{"id": "dev-197", "category": "herb_swap", "should_pass": false, "answer": "原文是“杏仁本为解肌，若其人脉浮紧”（《伤寒论》）。", "quote": "杏仁本为解肌，若其人脉浮紧", "attribution": "伤寒论", "source": "shanghan.txt:177"}
+{"id": "dev-198", "category": "herb_swap", "should_pass": false, "answer": "经文有言：「葶苈麻黄泻肺汤主之。」", "quote": "葶苈麻黄泻肺汤主之。", "attribution": null, "source": "jingui.txt:433"}
+{"id": "dev-199", "category": "herb_swap", "should_pass": false, "answer": "我们先看原文。古人说：“炮；川椒四两，去汁；半夏六两”。", "quote": "炮；川椒四两，去汁；半夏六两", "attribution": null, "source": "jingui.txt:674"}
+{"id": "dev-200", "category": "herb_swap", "should_pass": false, "answer": "“与黄芩汤；若呕者，黄芩加半夏厚朴汤主之。”——《伤寒论》后世医家多有发挥。", "quote": "与黄芩汤；若呕者，黄芩加半夏厚朴汤主之。", "attribution": "伤寒论", "source": "shanghan.txt:539"}
+{"id": "dev-201", "category": "misattributed", "should_pass": false, "answer": "据《金匮》记载：「呕不能食，而反汗出濈濈然者」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "呕不能食，而反汗出濈濈然者", "attribution": "金匮", "source": "shanghan.txt:581"}
+{"id": "dev-202", "category": "misattributed", "should_pass": false, "answer": "原文是“先未苦时，但欲饮热”（《伤寒论》）。", "quote": "先未苦时，但欲饮热", "attribution": "伤寒论", "source": "jingui.txt:389"}
+{"id": "dev-203", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。原文是“或两胁疼痛，与脏相连”（《伤寒论》）。后世医家多有发挥。", "quote": "或两胁疼痛，与脏相连", "attribution": "伤寒论", "source": "jingui.txt:739"}
+{"id": "dev-204", "category": "misattributed", "should_pass": false, "answer": "《素问》云：「本云：加附子。半夏泻心汤」", "quote": "本云：加附子。半夏泻心汤", "attribution": "素问", "source": "shanghan.txt:509"}
+{"id": "dev-205", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。“多汗出，喜中风，故令病痉”——《黄帝内经·素问》这说明了顺应自然的重要性。", "quote": "多汗出，喜中风，故令病痉", "attribution": "黄帝内经·素问", "source": "jingui.txt:717"}
+{"id": "dev-206", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。《素问》云：「牛肉共猪肉食之，必作寸白虫。」", "quote": "牛肉共猪肉食之，必作寸白虫。", "attribution": "素问", "source": "jingui.txt:854"}
+{"id": "dev-207", "category": "misattributed", "should_pass": false, "answer": "据《金匮要略》记载：「但竞逐荣势，企踵权豪」，可见古人早有论述。", "quote": "但竞逐荣势，企踵权豪", "attribution": "金匮要略", "source": "shanghan.txt:18"}
+{"id": "dev-208", "category": "misattributed", "should_pass": false, "answer": "据《金匮要略》记载：「针足阳明，使经不传则愈。」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "针足阳明，使经不传则愈。", "attribution": "金匮要略", "source": "shanghan.txt:163"}
+{"id": "dev-209", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。“入阴筋者，此名藏结”——《金匮要略》后世医家多有发挥。", "quote": "入阴筋者，此名藏结", "attribution": "金匮要略", "source": "shanghan.txt:534"}
+{"id": "dev-210", "category": "misattributed", "should_pass": false, "answer": "原文是“大便反硬，名曰阴结也。”（《黄帝内经》）。", "quote": "大便反硬，名曰阴结也。", "attribution": "黄帝内经", "source": "shanghan.txt:30"}
+{"id": "dev-211", "category": "misattributed", "should_pass": false, "answer": "“发汗、温针，谵语，柴胡汤证罢”——《黄帝内经·素问》这说明了顺应自然的重要性。", "quote": "发汗、温针，谵语，柴胡汤证罢", "attribution": "黄帝内经·素问", "source": "shanghan.txt:695"}
+{"id": "dev-212", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。“心下闷，干呕，汗出，虽久”——《黄帝内经》这说明了顺应自然的重要性。", "quote": "心下闷，干呕，汗出，虽久", "attribution": "黄帝内经", "source": "jingui.txt:724"}
+{"id": "dev-213", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《素问》云：「按之心下濡者，为虚烦也」后世医家多有发挥。", "quote": "按之心下濡者，为虚烦也", "attribution": "素问", "source": "jingui.txt:618"}
+{"id": "dev-214", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。《素问》中说：“去滓，内胶洋消，温服七合”这句话很关键。", "quote": "去滓，内胶洋消，温服七合", "attribution": "素问", "source": "jingui.txt:470"}
+{"id": "dev-215", "category": "misattributed", "should_pass": false, "answer": "《素问》中说：“心气不足，吐血、衄血”这句话很关键。", "quote": "心气不足，吐血、衄血", "attribution": "素问", "source": "jingui.txt:566"}
+{"id": "dev-216", "category": "misattributed", "should_pass": false, "answer": "原文是“微紧相搏，则为短气。”（《金匮要略》）。后世医家多有发挥。", "quote": "微紧相搏，则为短气。", "attribution": "金匮要略", "source": "shanghan.txt:90"}
+{"id": "dev-217", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。“今时之人，年半百而动作皆衰者”——《金匮》", "quote": "今时之人，年半百而动作皆衰者", "attribution": "金匮", "source": "suwen-1.txt:5"}
+{"id": "dev-218", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。据《内经》记载：「下血谵语者，此为热入血室」，可见古人早有论述。后世医家多有发挥。", "quote": "下血谵语者，此为热入血室", "attribution": "内经", "source": "jingui.txt:734"}
+{"id": "dev-219", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“五苓散主之；不渴者”（《金匮要略》）。后世医家多有发挥。", "quote": "五苓散主之；不渴者", "attribution": "金匮要略", "source": "shanghan.txt:326"}
+{"id": "dev-220", "category": "misattributed", "should_pass": false, "answer": "《金匮要略》云：「数日，小便利，色白者」后世医家多有发挥。", "quote": "数日，小便利，色白者", "attribution": "金匮要略", "source": "shanghan.txt:832"}
+{"id": "dev-221", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》中说：“日中至黄昏，天之阳”这句话很关键。", "quote": "日中至黄昏，天之阳", "attribution": "伤寒论", "source": "suwen-1.txt:104"}
+{"id": "dev-222", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《黄帝内经》记载：「数反在下。浮为阳虚」，可见古人早有论述。", "quote": "数反在下。浮为阳虚", "attribution": "黄帝内经", "source": "shanghan.txt:996"}
+{"id": "dev-223", "category": "misattributed", "should_pass": false, "answer": "《黄帝内经·素问》中说：“太阳中暍者，发热恶寒”这句话很关键。后世医家多有发挥。", "quote": "太阳中暍者，发热恶寒", "attribution": "黄帝内经·素问", "source": "shanghan.txt:152"}
+{"id": "dev-224", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《内经》记载：「里痛也。行迟者，表强也。」，可见古人早有论述。", "quote": "里痛也。行迟者，表强也。", "attribution": "内经", "source": "shanghan.txt:66"}
+{"id": "dev-225", "category": "misattributed", "should_pass": false, "answer": "《金匮》中说：“伤寒，医以丸药大下之”这句话很关键。", "quote": "伤寒，医以丸药大下之", "attribution": "金匮", "source": "shanghan.txt:348"}
+{"id": "dev-226", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。据《黄帝内经·素问》记载：「师曰：夫尊荣人骨弱肌肤盛」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "师曰：夫尊荣人骨弱肌肤盛", "attribution": "黄帝内经·素问", "source": "jingui.txt:221"}
+{"id": "dev-227", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。据《素问》记载：「故令大便硬。当问其小便日几行。」，可见古人早有论述。", "quote": "故令大便硬。当问其小便日几行。", "attribution": "素问", "source": "shanghan.txt:599"}
+{"id": "dev-228", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“救卒死而四肢不收”（《素问》）。", "quote": "救卒死而四肢不收", "attribution": "素问", "source": "jingui.txt:782"}
+{"id": "dev-229", "category": "misattributed", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“其身如虫行皮中状者”——《素问》后世医家多有发挥。", "quote": "其身如虫行皮中状者", "attribution": "素问", "source": "shanghan.txt:592"}
+{"id": "dev-230", "category": "misattributed", "should_pass": false, "answer": "我们先看原文。据《素问》记载：「阳明病，法多汗，反无汗」，可见古人早有论述。", "quote": "阳明病，法多汗，反无汗", "attribution": "素问", "source": "shanghan.txt:592"}
+{"id": "dev-231", "category": "spliced", "should_pass": false, "answer": "据《伤寒论·辨不可下病脉证并治》记载：「呕多，虽有阳明证，语声啾啾然细而长者」，可见古人早有论述。", "quote": "呕多，虽有阳明证，语声啾啾然细而长者", "attribution": "伤寒论·辨不可下病脉证并治", "source": "shanghan.txt:1001 + jingui.txt:10"}
+{"id": "dev-232", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“汗出见湿，乃生痤疿，不可与之。忽然大汗出”（《黄帝内经》）。", "quote": "汗出见湿，乃生痤疿，不可与之。忽然大汗出", "attribution": "黄帝内经", "source": "suwen-1.txt:65 + shanghan.txt:128"}
+{"id": "dev-233", "category": "spliced", "should_pass": false, "answer": "我们先看原文。《伤寒论·辨少阴病脉证并治》中说：“不大便者，急下之，从巳至未上。”这句话很关键。后世医家多有发挥。", "quote": "不大便者，急下之，从巳至未上。", "attribution": "伤寒论·辨少阴病脉证并治", "source": "shanghan.txt:809 + shanghan.txt:164"}
+{"id": "dev-234", "category": "spliced", "should_pass": false, "answer": "我们先看原文。原文是“阳气衰竭于上，服药正如方法”（《黄帝内经》）。后世医家多有发挥。", "quote": "阳气衰竭于上，服药正如方法", "attribution": "黄帝内经", "source": "suwen-1.txt:26 + shanghan.txt:123"}
+{"id": "dev-235", "category": "spliced", "should_pass": false, "answer": "我们先看原文。经文有言：「宜大承气汤，至四五日，虽能食」这说明了顺应自然的重要性。", "quote": "宜大承气汤，至四五日，虽能食", "attribution": null, "source": "shanghan.txt:652 + shanghan.txt:670"}
+{"id": "dev-236", "category": "spliced", "should_pass": false, "answer": "我们先看原文。古人说：“脾死脏，浮之大坚，寒胜热，苦伤气”。", "quote": "脾死脏，浮之大坚，寒胜热，苦伤气", "attribution": null, "source": "jingui.txt:396 + suwen-2.txt:20"}
+{"id": "dev-237", "category": "spliced", "should_pass": false, "answer": "《伤寒论》云：「唾腥吐涎沫也，三部脉皆平」", "quote": "唾腥吐涎沫也，三部脉皆平", "attribution": "伤寒论", "source": "shanghan.txt:88 + jingui.txt:611"}
+{"id": "dev-238", "category": "spliced", "should_pass": false, "answer": "“杵为散，取鸡子黄一枚，病发热、头痛”——《金匮》", "quote": "杵为散，取鸡子黄一枚，病发热、头痛", "attribution": "金匮", "source": "jingui.txt:650 + shanghan.txt:896"}
+{"id": "dev-239", "category": "spliced", "should_pass": false, "answer": "经文有言：「小便不利，直视失溲，仲夏不病胸胁」这说明了顺应自然的重要性。", "quote": "小便不利，直视失溲，仲夏不病胸胁", "attribution": null, "source": "shanghan.txt:161 + suwen-1.txt:98"}
+{"id": "dev-240", "category": "spliced", "should_pass": false, "answer": "经文有言：「病者一身尽疼，故风者，百病之始也」后世医家多有发挥。", "quote": "病者一身尽疼，故风者，百病之始也", "attribution": null, "source": "shanghan.txt:149 + suwen-1.txt:67"}
+{"id": "dev-241", "category": "spliced", "should_pass": false, "answer": "我们先看原文。据《金匮》记载：「小青龙加石膏汤方，宜大承气汤。」，可见古人早有论述。", "quote": "小青龙加石膏汤方，宜大承气汤。", "attribution": "金匮", "source": "jingui.txt:290 + shanghan.txt:672"}
+{"id": "dev-242", "category": "spliced", "should_pass": false, "answer": "我们先看原文。原文是“吐涎沫，头痛者，末之，炼蜜丸如梧子大”（《伤寒论》）。", "quote": "吐涎沫，头痛者，末之，炼蜜丸如梧子大", "attribution": "伤寒论", "source": "shanghan.txt:886 + jingui.txt:762"}
+{"id": "dev-243", "category": "spliced", "should_pass": false, "answer": "“主惊骇背痛，蜀椒三分，汁”——《内经》", "quote": "主惊骇背痛，蜀椒三分，汁", "attribution": "内经", "source": "suwen-2.txt:70 + jingui.txt:711"}
+{"id": "dev-244", "category": "spliced", "should_pass": false, "answer": "我们先看原文。原文是“是故谨和五味，彻心中愦愦然无奈者”（《素问·生气通天论》）。后世医家多有发挥。", "quote": "是故谨和五味，彻心中愦愦然无奈者", "attribution": "素问·生气通天论", "source": "suwen-1.txt:83 + jingui.txt:595"}
+{"id": "dev-245", "category": "spliced", "should_pass": false, "answer": "《金匮要略·腹满寒疝宿食病脉证并治》中说：“胁下偏痛，发热，则口燥烦也。”这句话很关键。", "quote": "胁下偏痛，发热，则口燥烦也。", "attribution": "金匮要略·腹满寒疝宿食病脉证并治", "source": "jingui.txt:364 + shanghan.txt:145"}
+{"id": "dev-246", "category": "spliced", "should_pass": false, "answer": "《伤寒论》云：「前三阴三阳篇中，二三日，咽痛者」", "quote": "前三阴三阳篇中，二三日，咽痛者", "attribution": "伤寒论", "source": "shanghan.txt:1028 + shanghan.txt:771"}
+{"id": "dev-247", "category": "spliced", "should_pass": false, "answer": "古人说：“胫酸，所为阳中雾露之气，必心下坚；脉大而紧者”。", "quote": "胫酸，所为阳中雾露之气，必心下坚；脉大而紧者", "attribution": null, "source": "shanghan.txt:54 + jingui.txt:370"}
+{"id": "dev-248", "category": "spliced", "should_pass": false, "answer": "据《金匮要略·妇人妊娠病脉证并治》记载：「葵子茯苓散主之，杵为散，取鸡子黄一枚」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "葵子茯苓散主之，杵为散，取鸡子黄一枚", "attribution": "金匮要略·妇人妊娠病脉证并治", "source": "jingui.txt:701 + jingui.txt:650"}
+{"id": "dev-249", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《金匮要略》记载：「必短气而极也，脉滑而厥者」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "必短气而极也，脉滑而厥者", "attribution": "金匮要略", "source": "jingui.txt:15 + shanghan.txt:843"}
+{"id": "dev-250", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。经文有言：「必胸下结硬，问曰：黄汗之为病」后世医家多有发挥。", "quote": "必胸下结硬，问曰：黄汗之为病", "attribution": null, "source": "shanghan.txt:706 + jingui.txt:506"}
+{"id": "dev-251", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。经文有言：「食之令人腹内生虫，后必厥。厥深者」", "quote": "食之令人腹内生虫，后必厥。厥深者", "attribution": null, "source": "jingui.txt:857 + shanghan.txt:825"}
+{"id": "dev-252", "category": "spliced", "should_pass": false, "answer": "经文有言：「乃生痈肿。魄汗未尽，今脉反弦，故名曰虚。」", "quote": "乃生痈肿。魄汗未尽，今脉反弦，故名曰虚。", "attribution": null, "source": "suwen-1.txt:66 + jingui.txt:577"}
+{"id": "dev-253", "category": "spliced", "should_pass": false, "answer": "我们先看原文。据《伤寒论》记载：「衄家，不可发汗，数脉即止，热止相搏」，可见古人早有论述。", "quote": "衄家，不可发汗，数脉即止，热止相搏", "attribution": "伤寒论", "source": "shanghan.txt:360 + jingui.txt:485"}
+{"id": "dev-254", "category": "spliced", "should_pass": false, "answer": "我们先看原文。经文有言：「短气里急，小便不利，日晡所发热者」后世医家多有发挥。", "quote": "短气里急，小便不利，日晡所发热者", "attribution": null, "source": "jingui.txt:228 + shanghan.txt:654"}
+{"id": "dev-255", "category": "spliced", "should_pass": false, "answer": "“栝蒌薤白半夏汤主之，斗而铸锥，不亦晚乎？”——《金匮要略·胸痹心痛短气病脉证并治》这说明了顺应自然的重要性。", "quote": "栝蒌薤白半夏汤主之，斗而铸锥，不亦晚乎？", "attribution": "金匮要略·胸痹心痛短气病脉证并治", "source": "jingui.txt:335 + suwen-1.txt:53"}
+{"id": "dev-256", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“痛在关元，脉数无疮，桑东根勿取之。”（《金匮》）。", "quote": "痛在关元，脉数无疮，桑东根勿取之。", "attribution": "金匮", "source": "jingui.txt:739 + jingui.txt:647"}
+{"id": "dev-257", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“如有水气状，及在腠理，以时治之”（《金匮要略·妇人妊娠病脉证并治》）。这说明了顺应自然的重要性。", "quote": "如有水气状，及在腠理，以时治之", "attribution": "金匮要略·妇人妊娠病脉证并治", "source": "jingui.txt:713 + shanghan.txt:122"}
+{"id": "dev-258", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《内经》云：「在地为金，在体为皮毛，饥不能食，但头汗出者」", "quote": "在地为金，在体为皮毛，饥不能食，但头汗出者", "attribution": "内经", "source": "suwen-2.txt:22 + shanghan.txt:633"}
+{"id": "dev-259", "category": "spliced", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论·辨脉法》云：「浮则伤胃，数则动脾，上为太白星」", "quote": "浮则伤胃，数则动脾，上为太白星", "attribution": "伤寒论·辨脉法", "source": "shanghan.txt:50 + suwen-1.txt:123"}
+{"id": "dev-260", "category": "spliced", "should_pass": false, "answer": "我们先看原文。《伤寒论·辨太阳病脉证并治（中）》云：「与桂枝加桂汤，邪气留连，乃为洞泄」", "quote": "与桂枝加桂汤，邪气留连，乃为洞泄", "attribution": "伤寒论·辨太阳病脉证并治（中）", "source": "shanghan.txt:415 + suwen-1.txt:76"}
+{"id": "dev-261", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。经文有言：「可以死气入藏府，可攻之，脉紧为绞痛。若不结胸者」", "quote": "可以死气入藏府，可攻之，脉紧为绞痛。若不结胸者", "attribution": null, "source": null}
+{"id": "dev-262", "category": "fabricated", "should_pass": false, "answer": "据《素问》记载：「右二味，以美清酒五升，先食服一丸」，可见古人早有论述。这说明了顺应自然的重要性。", "quote": "右二味，以美清酒五升，先食服一丸", "attribution": "素问", "source": null}
+{"id": "dev-263", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。经文有言：「心火气虽能生万物之父母及身黄，小便不利者」", "quote": "心火气虽能生万物之父母及身黄，小便不利者", "attribution": null, "source": null}
+{"id": "dev-264", "category": "fabricated", "should_pass": false, "answer": "原文是“小便不利，日三服，小便赤黄，衄；浮者，宜桂枝汤则愈”（《黄帝内经·素问》）。这说明了顺应自然的重要性。", "quote": "小便不利，日三服，小便赤黄，衄；浮者，宜桂枝汤则愈", "attribution": "黄帝内经·素问", "source": null}
+{"id": "dev-265", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。《伤寒论》中说：“心气实，津液流通。大肠有寒故也。发于阴阳俱虚竭”这句话很关键。", "quote": "心气实，津液流通。大肠有寒故也。发于阴阳俱虚竭", "attribution": "伤寒论", "source": null}
+{"id": "dev-266", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。“弦则为风，何也？师曰：女子七岁，而知病之在皮中所致”——《内经》后世医家多有发挥。", "quote": "弦则为风，何也？师曰：女子七岁，而知病之在皮中所致", "attribution": "内经", "source": null}
+{"id": "dev-267", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。古人说：“死。脉滑而数者，其水。沉伏相搏”。后世医家多有发挥。", "quote": "死。脉滑而数者，其水。沉伏相搏", "attribution": null, "source": null}
+{"id": "dev-268", "category": "fabricated", "should_pass": false, "answer": "《金匮》中说：“干呕，清静则多言，声嗢咽塞”这句话很关键。", "quote": "干呕，清静则多言，声嗢咽塞", "attribution": "金匮", "source": null}
+{"id": "dev-269", "category": "fabricated", "should_pass": false, "answer": "这个问题可以从经典中找到答案。古人说：“心中疼热，下之，即疼痛，发作有时，无病，及经夏食之”。这说明了顺应自然的重要性。", "quote": "心中疼热，下之，即疼痛，发作有时，无病，及经夏食之", "attribution": null, "source": null}
+{"id": "dev-270", "category": "fabricated", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“名曰结，故大便六七日，振寒相搏，名曰泄”——《黄帝内经》这说明了顺应自然的重要性。", "quote": "名曰结，故大便六七日，振寒相搏，名曰泄", "attribution": "黄帝内经", "source": null}
+{"id": "dev-271", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。原文是“小便数，数为热入血室也，此以冬时应凉而反汗之为病则重”（《伤寒论》）。", "quote": "小便数，数为热入血室也，此以冬时应凉而反汗之为病则重", "attribution": "伤寒论", "source": null}
+{"id": "dev-272", "category": "fabricated", "should_pass": false, "answer": "据《黄帝内经》记载：「或眩冒，时出浊唾腥吐涎」，可见古人早有论述。", "quote": "或眩冒，时出浊唾腥吐涎", "attribution": "黄帝内经", "source": null}
+{"id": "dev-273", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。原文是“太阳与阳明受病，可发其汗即已。脉出者，必有奸，审察表里证”（《金匮》）。", "quote": "太阳与阳明受病，可发其汗即已。脉出者，必有奸，审察表里证", "attribution": "金匮", "source": null}
+{"id": "dev-274", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。经文有言：「咳而脉弱，此其天寿过度，气盛，故善用针者」", "quote": "咳而脉弱，此其天寿过度，气盛，故善用针者", "attribution": null, "source": null}
+{"id": "dev-275", "category": "fabricated", "should_pass": false, "answer": "《内经》云：「病安从来？师曰：呕吐而汗出，胃家实是也。若发汗，针处被寒」", "quote": "病安从来？师曰：呕吐而汗出，胃家实是也。若发汗，针处被寒", "attribution": "内经", "source": null}
+{"id": "dev-276", "category": "fabricated", "should_pass": false, "answer": "原文是“其人但能前，寒则热，面黄而喘，头痛者”（《伤寒论》）。", "quote": "其人但能前，寒则热，面黄而喘，头痛者", "attribution": "伤寒论", "source": null}
+{"id": "dev-277", "category": "fabricated", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》云：「发尽不得卧，一身悉肿，水下二刻」", "quote": "发尽不得卧，一身悉肿，水下二刻", "attribution": "伤寒论", "source": null}
+{"id": "dev-278", "category": "fabricated", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《金匮要略》中说：“阳明，阳始生，天气。故发鬓白，身蜷，时时津液微生”这句话很关键。后世医家多有发挥。", "quote": "阳明，阳始生，天气。故发鬓白，身蜷，时时津液微生", "attribution": "金匮要略", "source": null}
+{"id": "dev-279", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。《伤寒论》中说：“至七八，合目欲眠，若向令两人以桂屑著舌下”这句话很关键。这说明了顺应自然的重要性。", "quote": "至七八，合目欲眠，若向令两人以桂屑著舌下", "attribution": "伤寒论", "source": null}
+{"id": "dev-280", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。“身色如熏黄也。三经皆受病，不消，温服”——《黄帝内经·素问》", "quote": "身色如熏黄也。三经皆受病，不消，温服", "attribution": "黄帝内经·素问", "source": null}
+{"id": "dev-281", "category": "fabricated", "should_pass": false, "answer": "“虽有阳明病，外未解也，恐胜喜”——《伤寒论》", "quote": "虽有阳明病，外未解也，恐胜喜", "attribution": "伤寒论", "source": null}
+{"id": "dev-282", "category": "fabricated", "should_pass": false, "answer": "《素问》云：「重语也。假令咳，或有不战不汗出者」这说明了顺应自然的重要性。", "quote": "重语也。假令咳，或有不战不汗出者", "attribution": "素问", "source": null}
+{"id": "dev-283", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。《金匮要略》中说：“吐涎沫而癫眩，身即热，经络府俞，慎勿下之。忽然大汗出”这句话很关键。", "quote": "吐涎沫而癫眩，身即热，经络府俞，慎勿下之。忽然大汗出", "attribution": "金匮要略", "source": null}
+{"id": "dev-284", "category": "fabricated", "should_pass": false, "answer": "据《伤寒论》记载：「秋不病洞泄寒中，心中痞，膈气虚」，可见古人早有论述。后世医家多有发挥。", "quote": "秋不病洞泄寒中，心中痞，膈气虚", "attribution": "伤寒论", "source": null}
+{"id": "dev-285", "category": "fabricated", "should_pass": false, "answer": "这个问题可以从经典中找到答案。原文是“令人胪胀。寒厥相应，因转属阳明也。小儿卒死而四肢聂聂动者”（《黄帝内经》）。后世医家多有发挥。", "quote": "令人胪胀。寒厥相应，因转属阳明也。小儿卒死而四肢聂聂动者", "attribution": "黄帝内经", "source": null}
+{"id": "dev-286", "category": "fabricated", "should_pass": false, "answer": "经文有言：「谓之消，心下悸者，为顺也。是以知病可愈」这说明了顺应自然的重要性。", "quote": "谓之消，心下悸者，为顺也。是以知病可愈", "attribution": null, "source": null}
+{"id": "dev-287", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。《金匮要略》云：「法当咽痛者，可下。少阳脉当伏，水谷不得眠」这说明了顺应自然的重要性。", "quote": "法当咽痛者，可下。少阳脉当伏，水谷不得眠", "attribution": "金匮要略", "source": null}
+{"id": "dev-288", "category": "fabricated", "should_pass": false, "answer": "经文有言：「微烦不了了，睛不和，若所爱在外，此以夏月伤冷水。沉者」这说明了顺应自然的重要性。", "quote": "微烦不了了，睛不和，若所爱在外，此以夏月伤冷水。沉者", "attribution": null, "source": null}
+{"id": "dev-289", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。古人说：“视喘息，其经自下利，而入于腑，为未至而不欲去衣”。", "quote": "视喘息，其经自下利，而入于腑，为未至而不欲去衣", "attribution": null, "source": null}
+{"id": "dev-290", "category": "fabricated", "should_pass": false, "answer": "我们先看原文。《素问》云：「即与厥阴病，无知时宜煮甘草干姜汤亦主之」", "quote": "即与厥阴病，无知时宜煮甘草干姜汤亦主之", "attribution": "素问", "source": null}
+{"id": "dev-291", "category": "paraphrase", "should_pass": false, "answer": "原文是“上古懂得养生之道的人，遵循阴阳规律，调和养生方法，饮食有节制，作息有规律，不过度劳累”（《素问·上古天真论》）。", "quote": "上古懂得养生之道的人，遵循阴阳规律，调和养生方法，饮食有节制，作息有规律，不过度劳累", "attribution": "素问·上古天真论", "source": "suwen-1.txt: 上古之人，其知道者，法於陰陽，和於術數，食飲有節，起居有常，不妄作勞"}
+{"id": "dev-292", "category": "paraphrase", "should_pass": false, "answer": "这个问题可以从经典中找到答案。据《黄帝内经》记载：「女子到了七岁肾气开始充盛，乳牙更换，头发生长」，可见古人早有论述。", "quote": "女子到了七岁肾气开始充盛，乳牙更换，头发生长", "attribution": "黄帝内经", "source": "suwen-1.txt: 女子七歲，腎氣盛，齒更髮長"}
+{"id": "dev-293", "category": "paraphrase", "should_pass": false, "answer": "这个问题可以从经典中找到答案。“圣人不是等病已经发生才去治疗，而是在未病之时就加以调治”——《素问·四气调神大论》", "quote": "圣人不是等病已经发生才去治疗，而是在未病之时就加以调治", "attribution": "素问·四气调神大论", "source": "suwen-1.txt: 是故聖人不治已病治未病"}
+{"id": "dev-294", "category": "paraphrase", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《素问·阴阳应象大论》中说：“阴阳是天地间的根本规律，是一切事物的纲领，是变化的根源”这句话很关键。", "quote": "阴阳是天地间的根本规律，是一切事物的纲领，是变化的根源", "attribution": "素问·阴阳应象大论", "source": "suwen-2.txt: 陰陽者，天地之道也，萬物之綱紀，變化之父母"}
+{"id": "dev-295", "category": "paraphrase", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《伤寒论》中说：“太阳病出现发热、出汗、怕风、脉缓的，就叫做中风”这句话很关键。", "quote": "太阳病出现发热、出汗、怕风、脉缓的，就叫做中风", "attribution": "伤寒论", "source": "shanghan.txt: 太陽病，發熱，汗出，惡風，脈緩者，名為中風"}
+{"id": "dev-296", "category": "paraphrase", "should_pass": false, "answer": "这个问题可以从经典中找到答案。《金匮要略》中说：“治未病的意思是，看见肝有病，就知道肝病会传给脾，所以应当先调补脾脏”这句话很关键。", "quote": "治未病的意思是，看见肝有病，就知道肝病会传给脾，所以应当先调补脾脏", "attribution": "金匮要略", "source": "jingui.txt: 夫治未病者，見肝之病，知肝傳脾，當先實脾"}

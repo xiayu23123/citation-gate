@@ -1,0 +1,2478 @@
+{
+ "chosen_threshold": 0.85,
+ "dev_sweep": {
+  "0.7": {
+   "n": 296,
+   "recall": 0.8333333333333334,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9090909090909091,
+   "balanced_accuracy": 0.9166666666666667,
+   "counts": {
+    "tp": 155,
+    "fn": 31,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 9
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "altered": 9,
+     "fuzzy": 31
+    },
+    "misattributed": {
+     "misattributed": 29,
+     "altered": 1
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-162",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "白虎加葛根汤主之。"
+    },
+    {
+     "id": "dev-163",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "与大黄芩汤；但结胸"
+    },
+    {
+     "id": "dev-164",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "防己麻黄汤亦主之。"
+    },
+    {
+     "id": "dev-165",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "凡芍药汤病证而下之"
+    },
+    {
+     "id": "dev-166",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "岂容易哉！况黄柏下咽"
+    },
+    {
+     "id": "dev-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "不必悉具。凡防己汤病证而下之"
+    },
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "dev-169",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桃仁去桂加茯苓白术汤方"
+    },
+    {
+     "id": "dev-170",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "本云：加干姜。半夏泻心汤"
+    },
+    {
+     "id": "dev-171",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "舌上白胎者，可与小茯苓汤。"
+    },
+    {
+     "id": "dev-172",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "先煮人参一二沸，去上沫"
+    },
+    {
+     "id": "dev-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "汗出必解，宜桃仁二麻黄一汤。"
+    },
+    {
+     "id": "dev-174",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "薏苡防己败酱散方"
+    },
+    {
+     "id": "dev-176",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "小青龙加黄连汤方"
+    },
+    {
+     "id": "dev-177",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "因致衄者，茯苓汤主之。"
+    },
+    {
+     "id": "dev-179",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "更饮石膏干姜汤。夜半阳气还"
+    },
+    {
+     "id": "dev-180",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
+    },
+    {
+     "id": "dev-181",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "上七味，以水五升，先煮阿胶一二沸"
+    },
+    {
+     "id": "dev-182",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
+    },
+    {
+     "id": "dev-183",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "脉迟为寒，今与细辛汤复除其热"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-185",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "人参不中与也，食谷者哕。"
+    },
+    {
+     "id": "dev-186",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "利止，亡血也，四逆加黄芩汤主之。"
+    },
+    {
+     "id": "dev-187",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "若桂枝证不罢者，复与柴胡汤"
+    },
+    {
+     "id": "dev-189",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "恶风，无汗而喘者，栀子汤主之。"
+    },
+    {
+     "id": "dev-190",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于杏仁汤方内，加入半夏半升"
+    },
+    {
+     "id": "dev-191",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于附子汤方内，加厚朴二两"
+    },
+    {
+     "id": "dev-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "设胸满胁痛者，与小杏仁汤。"
+    },
+    {
+     "id": "dev-195",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+    },
+    {
+     "id": "dev-196",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "加厚朴二两，干姜五十个"
+    },
+    {
+     "id": "dev-197",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "杏仁本为解肌，若其人脉浮紧"
+    }
+   ]
+  },
+  "0.75": {
+   "n": 296,
+   "recall": 0.8333333333333334,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9090909090909091,
+   "balanced_accuracy": 0.9166666666666667,
+   "counts": {
+    "tp": 155,
+    "fn": 31,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 9
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "altered": 9,
+     "fuzzy": 31
+    },
+    "misattributed": {
+     "misattributed": 29,
+     "altered": 1
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-162",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "白虎加葛根汤主之。"
+    },
+    {
+     "id": "dev-163",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "与大黄芩汤；但结胸"
+    },
+    {
+     "id": "dev-164",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "防己麻黄汤亦主之。"
+    },
+    {
+     "id": "dev-165",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "凡芍药汤病证而下之"
+    },
+    {
+     "id": "dev-166",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "岂容易哉！况黄柏下咽"
+    },
+    {
+     "id": "dev-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "不必悉具。凡防己汤病证而下之"
+    },
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "dev-169",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桃仁去桂加茯苓白术汤方"
+    },
+    {
+     "id": "dev-170",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "本云：加干姜。半夏泻心汤"
+    },
+    {
+     "id": "dev-171",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "舌上白胎者，可与小茯苓汤。"
+    },
+    {
+     "id": "dev-172",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "先煮人参一二沸，去上沫"
+    },
+    {
+     "id": "dev-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "汗出必解，宜桃仁二麻黄一汤。"
+    },
+    {
+     "id": "dev-174",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "薏苡防己败酱散方"
+    },
+    {
+     "id": "dev-176",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "小青龙加黄连汤方"
+    },
+    {
+     "id": "dev-177",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "因致衄者，茯苓汤主之。"
+    },
+    {
+     "id": "dev-179",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "更饮石膏干姜汤。夜半阳气还"
+    },
+    {
+     "id": "dev-180",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
+    },
+    {
+     "id": "dev-181",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "上七味，以水五升，先煮阿胶一二沸"
+    },
+    {
+     "id": "dev-182",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
+    },
+    {
+     "id": "dev-183",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "脉迟为寒，今与细辛汤复除其热"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-185",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "人参不中与也，食谷者哕。"
+    },
+    {
+     "id": "dev-186",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "利止，亡血也，四逆加黄芩汤主之。"
+    },
+    {
+     "id": "dev-187",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "若桂枝证不罢者，复与柴胡汤"
+    },
+    {
+     "id": "dev-189",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "恶风，无汗而喘者，栀子汤主之。"
+    },
+    {
+     "id": "dev-190",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于杏仁汤方内，加入半夏半升"
+    },
+    {
+     "id": "dev-191",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于附子汤方内，加厚朴二两"
+    },
+    {
+     "id": "dev-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "设胸满胁痛者，与小杏仁汤。"
+    },
+    {
+     "id": "dev-195",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+    },
+    {
+     "id": "dev-196",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "加厚朴二两，干姜五十个"
+    },
+    {
+     "id": "dev-197",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "杏仁本为解肌，若其人脉浮紧"
+    }
+   ]
+  },
+  "0.8": {
+   "n": 296,
+   "recall": 0.8763440860215054,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9340974212034383,
+   "balanced_accuracy": 0.9381720430107527,
+   "counts": {
+    "tp": 163,
+    "fn": 23,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 17
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "altered": 5,
+     "not_found": 10,
+     "fuzzy": 23,
+     "spliced": 2
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "不必悉具。凡防己汤病证而下之"
+    },
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "dev-169",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桃仁去桂加茯苓白术汤方"
+    },
+    {
+     "id": "dev-170",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "本云：加干姜。半夏泻心汤"
+    },
+    {
+     "id": "dev-171",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "舌上白胎者，可与小茯苓汤。"
+    },
+    {
+     "id": "dev-172",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "先煮人参一二沸，去上沫"
+    },
+    {
+     "id": "dev-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "汗出必解，宜桃仁二麻黄一汤。"
+    },
+    {
+     "id": "dev-179",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "更饮石膏干姜汤。夜半阳气还"
+    },
+    {
+     "id": "dev-180",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
+    },
+    {
+     "id": "dev-181",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "上七味，以水五升，先煮阿胶一二沸"
+    },
+    {
+     "id": "dev-182",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
+    },
+    {
+     "id": "dev-183",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "脉迟为寒，今与细辛汤复除其热"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-185",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "人参不中与也，食谷者哕。"
+    },
+    {
+     "id": "dev-186",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "利止，亡血也，四逆加黄芩汤主之。"
+    },
+    {
+     "id": "dev-187",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "若桂枝证不罢者，复与柴胡汤"
+    },
+    {
+     "id": "dev-189",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "恶风，无汗而喘者，栀子汤主之。"
+    },
+    {
+     "id": "dev-190",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于杏仁汤方内，加入半夏半升"
+    },
+    {
+     "id": "dev-191",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "于附子汤方内，加厚朴二两"
+    },
+    {
+     "id": "dev-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "设胸满胁痛者，与小杏仁汤。"
+    },
+    {
+     "id": "dev-195",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+    },
+    {
+     "id": "dev-196",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "加厚朴二两，干姜五十个"
+    },
+    {
+     "id": "dev-197",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "杏仁本为解肌，若其人脉浮紧"
+    }
+   ]
+  },
+  "0.85": {
+   "n": 296,
+   "recall": 0.9731182795698925,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9863760217983651,
+   "balanced_accuracy": 0.9865591397849462,
+   "counts": {
+    "tp": 181,
+    "fn": 5,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 35
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 29,
+     "fuzzy": 5,
+     "spliced": 5,
+     "altered": 1
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "dev-180",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
+    },
+    {
+     "id": "dev-181",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "上七味，以水五升，先煮阿胶一二沸"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-195",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+    }
+   ]
+  },
+  "0.9": {
+   "n": 296,
+   "recall": 0.9946236559139785,
+   "false_alarm": 0.2545454545454545,
+   "precision": 0.8685446009389671,
+   "f1": 0.9273182957393484,
+   "balanced_accuracy": 0.870039100684262,
+   "counts": {
+    "tp": 185,
+    "fn": 1,
+    "fp": 28,
+    "tn": 82
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 39
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 28
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "not_found": 27,
+     "altered": 23
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 32,
+     "fuzzy": 1,
+     "spliced": 7
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "not_found": 27,
+     "fuzzy": 22,
+     "spliced": 1
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-061",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "四逆而起，起则则熏肺"
+    },
+    {
+     "id": "dev-062",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "鲙食之，在心胸不化"
+    },
+    {
+     "id": "dev-063",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "微溏，此非柴胡汤证"
+    },
+    {
+     "id": "dev-064",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "去桂枝，加自术四两"
+    },
+    {
+     "id": "dev-065",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阴盛以亡。死生要"
+    },
+    {
+     "id": "dev-066",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "身体为痒，为泄风"
+    },
+    {
+     "id": "dev-067",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "先温里，乃攻其表。"
+    },
+    {
+     "id": "dev-070",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "恐为除中。食以饼"
+    },
+    {
+     "id": "dev-071",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "紧脉从何而来？师日"
+    },
+    {
+     "id": "dev-072",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "三阳为，三阴当受邪"
+    },
+    {
+     "id": "dev-074",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "割去勿食，食则损入。"
+    },
+    {
+     "id": "dev-075",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "脉浮大，上关上，欲眠睡"
+    },
+    {
+     "id": "dev-078",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "脉浮弱者，以汗解"
+    },
+    {
+     "id": "dev-079",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "面赤，日赤，独头动摇"
+    },
+    {
+     "id": "dev-080",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "转入阴必利；呕，下利者"
+    },
+    {
+     "id": "dev-081",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "弱即主筋，沉为肾"
+    },
+    {
+     "id": "dev-087",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "中风、汗出反躁烦"
+    },
+    {
+     "id": "dev-090",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "鸭卵不可合鳖食之。"
+    },
+    {
+     "id": "dev-092",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "短气不得卧，形如肿"
+    },
+    {
+     "id": "dev-096",
+     "category": "noise",
+     "status": "spliced",
+     "quote": "栀子生姜豉豉汤主之。"
+    },
+    {
+     "id": "dev-098",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "苦汗不出者，死病也。"
+    },
+    {
+     "id": "dev-099",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阳明病，无汗，小不利"
+    },
+    {
+     "id": "dev-100",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "此阴阳自和，必白愈"
+    },
+    {
+     "id": "dev-104",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "秋病在阳。皆视所在"
+    },
+    {
+     "id": "dev-106",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "吐后、渴得水而贪饮者"
+    },
+    {
+     "id": "dev-107",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "名日浑也。阴中于邪"
+    },
+    {
+     "id": "dev-108",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "起则熏肺，使入喘鸣。"
+    },
+    {
+     "id": "dev-109",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "虚实紧弦；行其药"
+    },
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    }
+   ]
+  },
+  "0.95": {
+   "n": 296,
+   "recall": 1.0,
+   "false_alarm": 0.45454545454545453,
+   "precision": 0.788135593220339,
+   "f1": 0.8815165876777251,
+   "balanced_accuracy": 0.7727272727272727,
+   "counts": {
+    "tp": 186,
+    "fn": 0,
+    "fp": 50,
+    "tn": 60
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 50
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "not_found": 47,
+     "spliced": 3
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 33,
+     "spliced": 7
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "not_found": 46,
+     "spliced": 4
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-061",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "四逆而起，起则则熏肺"
+    },
+    {
+     "id": "dev-062",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "鲙食之，在心胸不化"
+    },
+    {
+     "id": "dev-063",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "微溏，此非柴胡汤证"
+    },
+    {
+     "id": "dev-064",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "去桂枝，加自术四两"
+    },
+    {
+     "id": "dev-065",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阴盛以亡。死生要"
+    },
+    {
+     "id": "dev-066",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "身体为痒，为泄风"
+    },
+    {
+     "id": "dev-067",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "先温里，乃攻其表。"
+    },
+    {
+     "id": "dev-068",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "师日：此病属带下，何以故？"
+    },
+    {
+     "id": "dev-069",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "但发潮热，手足漐漐漐汗出"
+    },
+    {
+     "id": "dev-070",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "恐为除中。食以饼"
+    },
+    {
+     "id": "dev-071",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "紧脉从何而来？师日"
+    },
+    {
+     "id": "dev-072",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "三阳为，三阴当受邪"
+    },
+    {
+     "id": "dev-073",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "令温。亦亦可用热泥和屈草"
+    },
+    {
+     "id": "dev-074",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "割去勿食，食则损入。"
+    },
+    {
+     "id": "dev-075",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "脉浮大，上关上，欲眠睡"
+    },
+    {
+     "id": "dev-076",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "即与与太阴俱病，则腹满"
+    },
+    {
+     "id": "dev-077",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "道者，圣入行之，愚者佩之。"
+    },
+    {
+     "id": "dev-078",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "脉浮弱者，以汗解"
+    },
+    {
+     "id": "dev-079",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "面赤，日赤，独头动摇"
+    },
+    {
+     "id": "dev-080",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "转入阴必利；呕，下利者"
+    },
+    {
+     "id": "dev-081",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "弱即主筋，沉为肾"
+    },
+    {
+     "id": "dev-082",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "但硬硬耳。宜大承气汤下之。"
+    },
+    {
+     "id": "dev-083",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "以细细辛、干姜为热药也"
+    },
+    {
+     "id": "dev-084",
+     "category": "noise",
+     "status": "spliced",
+     "quote": "胁下逆抢心，枳实薤自桂枝汤主之"
+    },
+    {
+     "id": "dev-085",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "芤为阴，浮相搏，胃气生热"
+    },
+    {
+     "id": "dev-086",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "煮取二斗以洗之，又牛洞一升"
+    },
+    {
+     "id": "dev-087",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "中风、汗出反躁烦"
+    },
+    {
+     "id": "dev-088",
+     "category": "noise",
+     "status": "spliced",
+     "quote": "太阳病，发热汗出出，不恶寒者"
+    },
+    {
+     "id": "dev-089",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "何时愈？答日：假令夜半得病"
+    },
+    {
+     "id": "dev-090",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "鸭卵不可合鳖食之。"
+    },
+    {
+     "id": "dev-091",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "故治不法夭之纪，不用地之理"
+    },
+    {
+     "id": "dev-092",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "短气不得卧，形如肿"
+    },
+    {
+     "id": "dev-093",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "须臾当差，如未差差，更与三丸"
+    },
+    {
+     "id": "dev-094",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "从八风之理，适嗜欲于世俗间。"
+    },
+    {
+     "id": "dev-095",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "病黄疸，发热烦喘，胸满口者"
+    },
+    {
+     "id": "dev-096",
+     "category": "noise",
+     "status": "spliced",
+     "quote": "栀子生姜豉豉汤主之。"
+    },
+    {
+     "id": "dev-097",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "腹中痛。师日：我前来不见此证"
+    },
+    {
+     "id": "dev-098",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "苦汗不出者，死病也。"
+    },
+    {
+     "id": "dev-099",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阳明病，无汗，小不利"
+    },
+    {
+     "id": "dev-100",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "此阴阳自和，必白愈"
+    },
+    {
+     "id": "dev-101",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "所成结胸者，以下之太早故也。"
+    },
+    {
+     "id": "dev-102",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "炼蜜丸如小大，饮服三丸"
+    },
+    {
+     "id": "dev-103",
+     "category": "noise",
+     "status": "spliced",
+     "quote": "支饮不得，葶苈大枣泻肺汤主之。"
+    },
+    {
+     "id": "dev-104",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "秋病在阳。皆视所在"
+    },
+    {
+     "id": "dev-105",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "妇人则半产漏漏下，男子则亡血。"
+    },
+    {
+     "id": "dev-106",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "吐后、渴得水而贪饮者"
+    },
+    {
+     "id": "dev-107",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "名日浑也。阴中于邪"
+    },
+    {
+     "id": "dev-108",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "起则熏肺，使入喘鸣。"
+    },
+    {
+     "id": "dev-109",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "虚实紧弦；行其药"
+    },
+    {
+     "id": "dev-110",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "身体反重而酸，其入不渴"
+    }
+   ]
+  }
+ },
+ "test": {
+  "exact match only": {
+   "n": 296,
+   "recall": 1.0,
+   "false_alarm": 0.45454545454545453,
+   "precision": 0.788135593220339,
+   "f1": 0.8815165876777251,
+   "balanced_accuracy": 0.7727272727272727,
+   "counts": {
+    "tp": 186,
+    "fn": 0,
+    "fp": 50,
+    "tn": 60
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 50
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "not_found": 50
+    },
+    "fabricated": {
+     "not_found": 30
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 40
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "not_found": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "not_found": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-061",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "服之，吐出即差，或以水煮亦得。"
+    },
+    {
+     "id": "test-062",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "持贵之重器，委付凡医"
+    },
+    {
+     "id": "test-063",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "其次治六府，其次治治五藏。"
+    },
+    {
+     "id": "test-064",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "支饮亦喘而不卧"
+    },
+    {
+     "id": "test-065",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "有少阳阳明，谓也？"
+    },
+    {
+     "id": "test-066",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "不可下，此血，下之死。"
+    },
+    {
+     "id": "test-067",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "若失小者，不可发汗"
+    },
+    {
+     "id": "test-068",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "嚏而出，声嗢咽塞。"
+    },
+    {
+     "id": "test-069",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "宜大承气汤之。热在里"
+    },
+    {
+     "id": "test-070",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阴前通痹不仁；阴阳相得"
+    },
+    {
+     "id": "test-071",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "硬为实，汗而解。何以故？"
+    },
+    {
+     "id": "test-072",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "其在上右甚，在下则左甚"
+    },
+    {
+     "id": "test-073",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "少腹里急，腹，手掌烦热"
+    },
+    {
+     "id": "test-074",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "此为热在里，身必发黄"
+    },
+    {
+     "id": "test-075",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "在音为，在声为歌"
+    },
+    {
+     "id": "test-076",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "治伤寒今愈不复，紫石寒食散方"
+    },
+    {
+     "id": "test-077",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "栝蒌薤薤白白酒汤主之。"
+    },
+    {
+     "id": "test-078",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "此为为藏寒。蛔上入其膈故烦"
+    },
+    {
+     "id": "test-079",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "少阴病，吐利，手足冷"
+    },
+    {
+     "id": "test-080",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "心下满而烦，不能食者"
+    },
+    {
+     "id": "test-081",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "告穷归夭，束手受败。"
+    },
+    {
+     "id": "test-082",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "伤寒解后后，虚羸少气"
+    },
+    {
+     "id": "test-083",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "外舍分分肉之间，令人消铄脱肉。"
+    },
+    {
+     "id": "test-084",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "则血虚。血虚则筋也。"
+    },
+    {
+     "id": "test-085",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "但心下者，此以医下之也。"
+    },
+    {
+     "id": "test-086",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "气利，诃黎散主之。"
+    },
+    {
+     "id": "test-087",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "尺寸参差，或或长。"
+    },
+    {
+     "id": "test-088",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "胸中寒实，而不止者"
+    },
+    {
+     "id": "test-089",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "二十日愈。其其证或未病而预见"
+    },
+    {
+     "id": "test-090",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "脉而洪，身汗如油"
+    },
+    {
+     "id": "test-091",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "中古之时，有至至人者"
+    },
+    {
+     "id": "test-092",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "柔则养筋。开不得"
+    },
+    {
+     "id": "test-093",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "其人叉手白冒心，心下悸"
+    },
+    {
+     "id": "test-094",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "寸缓、关浮浮、尺弱，其人发热汗出"
+    },
+    {
+     "id": "test-095",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "则腹满满、身热、不欲食"
+    },
+    {
+     "id": "test-096",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "诸紧为寒。乘寒者"
+    },
+    {
+     "id": "test-097",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "清邪中上，名曰洁洁也"
+    },
+    {
+     "id": "test-098",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "手足温者者生。逆冷，脉沉细者"
+    },
+    {
+     "id": "test-099",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "雷鸣切痛，胸胁满"
+    },
+    {
+     "id": "test-100",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "喜怒不节，寒过度"
+    },
+    {
+     "id": "test-101",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "有微热汗出、今白愈"
+    },
+    {
+     "id": "test-102",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "阳气怫郁在表，解之"
+    },
+    {
+     "id": "test-103",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "心者，火也，名少阴。脉洪大而长"
+    },
+    {
+     "id": "test-104",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "下之而。若欲下之"
+    },
+    {
+     "id": "test-105",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "烦热不卧，而反倚息者"
+    },
+    {
+     "id": "test-106",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "至六曰，与承气汤一升。"
+    },
+    {
+     "id": "test-107",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "少阴中风，脉阳阴浮者"
+    },
+    {
+     "id": "test-108",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "胃中干，烦不得眠"
+    },
+    {
+     "id": "test-109",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "屎定硬，乃攻之，宜大承气汤。"
+    },
+    {
+     "id": "test-110",
+     "category": "noise",
+     "status": "not_found",
+     "quote": "唇痿舌青，燥，但欲漱水不欲咽"
+    }
+   ]
+  },
+  "+ fuzzy match": {
+   "n": 296,
+   "recall": 0.7043010752688172,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.8264984227129338,
+   "balanced_accuracy": 0.8521505376344086,
+   "counts": {
+    "tp": 131,
+    "fn": 55,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 0
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 35
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "fuzzy": 50
+    },
+    "fabricated": {
+     "not_found": 30
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 35,
+     "fuzzy": 5
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "not_found": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-111",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "鲙食之，在心胸间化"
+    },
+    {
+     "id": "test-112",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "一逆二从，阴阳表里"
+    },
+    {
+     "id": "test-113",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "其脉实者必苦冒。其人本有支饮在胸中故也。"
+    },
+    {
+     "id": "test-114",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "肝中懊𢙐者，身必发黄。"
+    },
+    {
+     "id": "test-115",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "上利脉数，有微热汗出"
+    },
+    {
+     "id": "test-116",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "炮；死狼牙一两，炙香"
+    },
+    {
+     "id": "test-117",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "猪苓汤复利其大便故也。"
+    },
+    {
+     "id": "test-118",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "腹满，手掌烦寒，唇口干燥"
+    },
+    {
+     "id": "test-119",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "胆胃大肠小肠膀胱三焦六府皆为阴。"
+    },
+    {
+     "id": "test-120",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "其冲在下，名曰太阳"
+    },
+    {
+     "id": "test-121",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "但头汗出，往来热热"
+    },
+    {
+     "id": "test-122",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "支饮不得息，葶苈大枣补肺汤主之。"
+    },
+    {
+     "id": "test-123",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "心下痞，按之濡，其脉关下浮者"
+    },
+    {
+     "id": "test-124",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "桂枝附子汤主之。若其人小便硬"
+    },
+    {
+     "id": "test-125",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "滑则为气，虚气相搏"
+    },
+    {
+     "id": "test-126",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "平旦人气生，日中而阴气隆"
+    },
+    {
+     "id": "test-127",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "房室勿令竭乏，服食节其冷寒苦酸辛甘"
+    },
+    {
+     "id": "test-128",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "热除者，必便脓血。"
+    },
+    {
+     "id": "test-129",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "温表宜四逆汤，攻表宜桂枝汤。"
+    },
+    {
+     "id": "test-130",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "其不两感于热，更不传经"
+    },
+    {
+     "id": "test-131",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "胸上有寒，渴欲得饮而能"
+    },
+    {
+     "id": "test-132",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "和煮取六升，去滓，温分五服。"
+    },
+    {
+     "id": "test-133",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "重寒则寒。寒伤形，热伤气。"
+    },
+    {
+     "id": "test-134",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "中病即止，必尽剂也。"
+    },
+    {
+     "id": "test-135",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "地道通，故形坏而无子也。"
+    },
+    {
+     "id": "test-136",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "无汗，心上满微痛，小便不利者"
+    },
+    {
+     "id": "test-137",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "诸四逆厥者，不可上之"
+    },
+    {
+     "id": "test-138",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "紧为热，沉紧相搏，结在关元"
+    },
+    {
+     "id": "test-139",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "脉浮而迟，表热里热"
+    },
+    {
+     "id": "test-140",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "少腹拘急，大便不利者"
+    },
+    {
+     "id": "test-141",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "若小便色白者，少阳病形悉具。"
+    },
+    {
+     "id": "test-142",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "问曰：热在上焦者，因咳为肾痿。"
+    },
+    {
+     "id": "test-143",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "阴狐疝气者，偏有小小"
+    },
+    {
+     "id": "test-144",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "法当上利。何以知之？"
+    },
+    {
+     "id": "test-145",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "赤石脂二两，一法二分。"
+    },
+    {
+     "id": "test-146",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "其应五时，上为太白星"
+    },
+    {
+     "id": "test-147",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "若太阴病证不罢者"
+    },
+    {
+     "id": "test-148",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "夫肝之病，泻用酸，助用焦苦"
+    },
+    {
+     "id": "test-149",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "阳脉濡弱者，更遇于风"
+    },
+    {
+     "id": "test-150",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "藏精于脾，其病发惊骇"
+    },
+    {
+     "id": "test-151",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "吐之则生，其脉何类？"
+    },
+    {
+     "id": "test-152",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "又治连年积冷，流注肝胸痛"
+    },
+    {
+     "id": "test-153",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "阴气者，若天与日，失其所则折寿而不彰"
+    },
+    {
+     "id": "test-154",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "诸浮数脉，应当发寒"
+    },
+    {
+     "id": "test-155",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "师曰：六脏病各有所得者愈"
+    },
+    {
+     "id": "test-156",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "手足热，骨节痛，脉沉者"
+    },
+    {
+     "id": "test-157",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "形体不敝，精神散"
+    },
+    {
+     "id": "test-158",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "为实烦也，栀子豉汤主之。"
+    },
+    {
+     "id": "test-159",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "九日死；肺至悬绝，十二日生"
+    },
+    {
+     "id": "test-160",
+     "category": "altered",
+     "status": "fuzzy",
+     "quote": "脉数者，可下，下之则必烦"
+    },
+    {
+     "id": "test-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身为振振摇者，细辛桂枝白术甘草汤主之。"
+    },
+    {
+     "id": "test-169",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "脉浮者，心下有水，小青龙加大黄汤主之。"
+    },
+    {
+     "id": "test-171",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "大病差后，劳复者，桂枝栀子豉汤主之。"
+    },
+    {
+     "id": "test-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "test-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    }
+   ]
+  },
+  "+ critical characters": {
+   "n": 296,
+   "recall": 0.9838709677419355,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.991869918699187,
+   "balanced_accuracy": 0.9919354838709677,
+   "counts": {
+    "tp": 183,
+    "fn": 3,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 37
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 30
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 35,
+     "fuzzy": 3,
+     "altered": 2
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "not_found": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身为振振摇者，细辛桂枝白术甘草汤主之。"
+    },
+    {
+     "id": "test-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "test-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    }
+   ]
+  },
+  "+ splice detection (full)": {
+   "n": 296,
+   "recall": 0.9838709677419355,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.991869918699187,
+   "balanced_accuracy": 0.9919354838709677,
+   "counts": {
+    "tp": 183,
+    "fn": 3,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 37
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 19,
+     "spliced": 11
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 23,
+     "spliced": 12,
+     "fuzzy": 3,
+     "altered": 2
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-167",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身为振振摇者，细辛桂枝白术甘草汤主之。"
+    },
+    {
+     "id": "test-173",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "test-193",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    }
+   ]
+  }
+ }
+}

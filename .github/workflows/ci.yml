@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.10", "3.14"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest -q
+
+  bench:
+    # The benchmark is rebuilt and rescored from scratch on every run; the
+    # job fails if either differs from what is committed.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: python -m pip install -e .
+      - name: Rebuild benchmark
+        run: python scripts/build_bench.py && git diff --exit-code bench/
+      - name: Score benchmark
+        run: python scripts/bench.py --summary "$GITHUB_STEP_SUMMARY" > /dev/null && git diff --exit-code bench/
+
+  action:
+    # Run this repository's own action on the bundled example and check that
+    # it flags exactly the planted problems.
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - id: gate
+        uses: ./
+        with:
+          answers: examples/answers.jsonl
+          corpus: corpus
+          fail-on-error: "false"
+      - name: Expect the planted failures
+        env:
+          FAILED: ${{ steps.gate.outputs.failed-quotes }}
+          PASSED: ${{ steps.gate.outputs.passed }}
+        run: |
+          test "$PASSED" = "false"
+          test "$FAILED" = "5"

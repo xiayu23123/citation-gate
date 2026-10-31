@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "citation-gate"
+version = "0.1.0"
+description = "Check that the passages an LLM answer quotes actually exist in your source texts, with Chinese classical text in mind."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "xixi" }]
+keywords = ["rag", "evaluation", "citation", "hallucination", "chinese", "classical-chinese"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: Chinese (Traditional)",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+citation-gate = "citation_gate.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/xiayu23123/citation-gate"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/citation_gate"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

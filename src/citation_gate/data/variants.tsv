@@ -1,0 +1,57 @@
+# Variant characters folded on top of OpenCC's TSCharacters table.
+# Each target is the form TSCharacters would produce, so the two tables compose.
+# Scope: orthographic variants common in received medical classics, not
+# synonyms. A fold only has to be applied consistently to both sides; it does
+# not claim the two characters are interchangeable everywhere.
+# variant	folded	note
+鞕	硬	心下痞鞕
+濇	涩	脉濇
+澀	涩
+欬	咳	欬逆
+噉	啖
+荅	答
+蚘	蛔	蚘厥
+讝	谵	讝语
+譫	谵
+痺	痹
+脇	胁
+脅	胁
+煖	暖
+衂	衄
+飡	餐
+悮	误
+倣	仿
+稾	稿
+鬬	斗
+麤	粗
+俛	俯
+踡	蜷	踡卧
+耎	软	脉耎
+撚	捻
+谿	溪
+剉	锉
+瘈	瘛	瘈疭
+沈	沉	脉沈; also a surname, harmless when both sides fold
+靑	青
+衞	卫
+眞	真
+內	内
+黃	黄
+説	说
+衇	脉
+鍼	针
+峯	峰
+疎	疏
+甞	尝
+囘	回
+羣	群
+牀	床
+遶	绕
+嚥	咽
+欝	郁
+彊	强
+箇	个
+敍	叙
+啓	启
+臥	卧
+淸	清

@@ -1,0 +1,15 @@
+# Critical characters for traditional Chinese medicine texts, in folded form.
+# A fuzzy match is rejected if any edit touches one of these: an OCR slip on
+# 曰/日 is noise, but 寒→热 or a dropped 不 inverts the passage.
+# Lines are "class: characters"; the class is only documentation.
+numerals: 一二三四五六七八九十百千万两半廿〇零0123456789
+negation: 不无勿毋莫非未弗否
+organs: 心肝脾肺肾胆胃肠膀胱焦
+eight-principles: 阴阳表里寒热虚实
+six-channels: 太少厥
+five-phases: 木火土金水
+substances: 气血
+treatment: 补泻汗吐下温清升降
+position: 上左右大小
+prognosis: 生死愈
+persons: 男女夫
