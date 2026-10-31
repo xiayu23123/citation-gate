@@ -10,7 +10,7 @@ from pathlib import Path
 from . import __version__, evaluate, report
 from .corpus import Corpus
 from .gate import Policy, check_answer
-from .normalize import load_critical
+from .normalize import load_critical, load_terms
 
 
 def _answers(paths: list[str], field: str, id_field: str) -> list[tuple[str, str]]:
@@ -40,6 +40,7 @@ def _policy(args: argparse.Namespace) -> Policy:
         min_chars=args.min_chars,
         fuzzy_threshold=args.fuzzy_threshold,
         critical=load_critical(args.critical),
+        critical_terms=load_terms(args.critical_terms),
         detect_splices=not args.no_splices,
         allow_unknown_sources=args.allow_unknown_sources,
         require_citation=args.require_citation,
@@ -94,6 +95,7 @@ def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--glob", default="**/*.txt", help="corpus files to load (default: **/*.txt)")
     p.add_argument("--fuzzy-threshold", type=float, default=0.85, help="minimum similarity for a near-verbatim match")
     p.add_argument("--critical", default="tcm", help="'tcm', 'none', or a file of critical characters")
+    p.add_argument("--critical-terms", default="tcm", help="'tcm' (herb and formula names), 'none', or a file of critical terms, one per line")
     p.add_argument("--min-chars", type=int, default=4, help="ignore shorter quotations")
     p.add_argument("--no-splices", action="store_true", help="do not look for quotes stitched from fragments")
     p.add_argument("--allow-unknown-sources", action="store_true", help="warn instead of fail on works not in the corpus")

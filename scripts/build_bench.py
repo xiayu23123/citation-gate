@@ -12,6 +12,17 @@ substring tests on folded text, not the gate's matcher.
   spliced        two real fragments from different places, joined   should fail
   fabricated     classical-looking text from a character Markov model should fail
   paraphrase     hand-written modern paraphrase presented as a quote should fail
+  herb_swap_long     herb_swap in a quote of 30-60 characters       should fail
+  herb_swap_offlist  herb_swap among herbs the herb list lacks       should fail
+  formula_swap       one formula name swapped, 30-60 characters      should fail
+  formula_swap_bare  formula_swap among names with no listed herb    should fail
+                     and no critical character in them
+
+herb_swap and formula_swap draw from HERBS and FORMULAS, hand-written lists.
+The gate's critical terms are extracted from the corpus by
+scripts/extract_terms.py, which never reads either; herb_swap_offlist swaps
+only herbs that extraction left out of the herb list, so it shows what the
+gate does with names its list lacks.
 
 Usage: python scripts/build_bench.py [--corpus corpus] [--out bench]
 """
@@ -26,7 +37,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from citation_gate import Corpus
-from citation_gate.normalize import fold_text, load_critical, simplify
+from citation_gate.normalize import fold_text, load_critical, load_terms, simplify
+from extract_terms import HERBS_OUT, SINGLE
 
 SPLITS = {"dev": 1, "test": 2}
 COUNTS = {
@@ -38,6 +50,9 @@ COUNTS = {
     "spliced": 30,
     "fabricated": 30,
 }
+# Added after v0.1.0. They are built after the paraphrases, from the same
+# random stream, so that every earlier item stays byte-for-byte the same.
+LATER = {"herb_swap_long": 40, "herb_swap_offlist": 40, "formula_swap": 40, "formula_swap_bare": 40}
 
 TITLES = {"素問": ["素问", "黄帝内经·素问", "内经", "黄帝内经"], "傷寒論": ["伤寒论"], "金匱要略": ["金匮要略", "金匮"]}
 WITH_CHAPTER = {"素問": "素问", "傷寒論": "伤寒论", "金匱要略": "金匮要略"}
@@ -64,6 +79,15 @@ HERBS = (
     "桂枝 麻黄 葛根 柴胡 黄芩 黄连 附子 干姜 人参 甘草 芍药 茯苓 白术 半夏 大枣 生姜 石膏 知母 "
     "杏仁 厚朴 枳实 细辛 当归 大黄 芒硝 栀子 阿胶 猪苓 泽泻 桃仁 黄柏 防己"
 ).split()
+# Well-known formulas under their usual modern names, some of which this
+# corpus writes differently (麻黄细辛附子汤) or not at all (苓桂术甘汤).
+FORMULAS = (
+    "桂枝汤 麻黄汤 葛根汤 大青龙汤 小青龙汤 小柴胡汤 大柴胡汤 白虎汤 白虎加人参汤 大承气汤 小承气汤 "
+    "调胃承气汤 桃核承气汤 四逆汤 通脉四逆汤 四逆散 理中丸 真武汤 附子汤 五苓散 猪苓汤 小建中汤 炙甘草汤 "
+    "半夏泻心汤 甘草泻心汤 生姜泻心汤 大陷胸汤 小陷胸汤 抵当汤 栀子豉汤 茵陈蒿汤 吴茱萸汤 黄连阿胶汤 "
+    "当归四逆汤 乌梅丸 白头翁汤 麻黄附子细辛汤 苓桂术甘汤 肾气丸 当归芍药散 桂枝茯苓丸 酸枣仁汤 "
+    "甘麦大枣汤 大黄牡丹皮汤 麻子仁丸 十枣汤 竹叶石膏汤"
+).split()
 ORGANS = "心肝脾肺肾"
 NUMERALS = "一二三四五六七八九"
 POLAR = dict(zip("寒热虚实阴阳表里上下左右大小生死男女补泻", "热寒实虚阳阴里表下上右左小大死生女男泻补"))
@@ -74,11 +98,31 @@ CLAUSE_NO = re.compile(r"^[〇一二三四五六七八九十百]+、")
 PROSE = re.compile(rf"[㐀-鿿\U00020000-\U0003134F{PUNCT}]+")
 
 
+def bare_names(names: list[str], herbs: frozenset[str], critical: frozenset[str]) -> list[str]:
+    """Names with no listed herb and no critical character in them, which
+    only formula terms can protect (白虎汤, 真武汤)."""
+    return [f for f in names if not set(f) & critical and not any(h in f for h in herbs)]
+
+
 class Builder:
     def __init__(self, corpus: Corpus, seed: int):
         self.corpus = corpus
         self.rng = random.Random(seed)
         self.critical = load_critical("tcm")
+        # Herbs only: formula names were added to the profile after
+        # herb_swap_offlist was built, and its items must not change.
+        self.herbs = load_terms(str(HERBS_OUT))
+        # Herbs that extraction saw in only one recipe, so not in the herb list.
+        # Drop any the gate could still catch another way: those with a
+        # critical character, and those inside a listed herb or containing one.
+        lines = SINGLE.read_text(encoding="utf-8").splitlines()
+        single = [line.split()[0] for line in lines if line and not line.startswith("#")]
+        self.offlist = [
+            h
+            for h in single
+            if 2 <= len(h) <= 4 and not set(h) & self.critical and not any(t in h or h in t for t in self.herbs)
+        ]
+        self.bare = bare_names(FORMULAS, self.herbs, self.critical)
         self.confusions = {
             a: b for a, b in CONFUSIONS.items() if not (set(fold_text(a + b)) & self.critical)
         }
@@ -191,19 +235,56 @@ class Builder:
                 attr = self.attribution(d.book, chapter) if self.rng.random() < 0.8 else None
                 return quote, attr, f"{d.path}:{n}"
 
-    def herb_swap(self):
+    def swap(self, names: list[str], lo: int, hi: int):
+        """One name in a real passage replaced by another from `names`."""
         while True:
-            d, n, chapter, text = self.span(8, 30)
+            d, n, chapter, text = self.span(lo, hi)
             s = simplify(text)
-            present = [h for h in HERBS if h in s]
+            # Not 四逆汤 where the passage has it only inside 当归四逆汤.
+            present = [a for a in names if a in s and not any(a != b and a in b and b in s for b in names)]
             if not present:
                 continue
             old = self.rng.choice(present)
-            new = self.rng.choice([h for h in HERBS if h not in s])
+            new = self.rng.choice([h for h in names if h not in s])
             quote = s.replace(old, new, 1)
             if not self.in_corpus(quote):
                 attr = self.attribution(d.book, chapter) if self.rng.random() < 0.8 else None
                 return quote, attr, f"{d.path}:{n}"
+
+    def herb_swap(self):
+        return self.swap(HERBS, 8, 30)
+
+    def herb_swap_long(self):
+        return self.swap(HERBS, 30, 60)
+
+    def formula_swap(self):
+        return self.swap(FORMULAS, 30, 60)
+
+    def formula_swap_bare(self):
+        return self.swap(self.bare, 30, 60)
+
+    def near_term(self, s: str, i: int, k: int) -> bool:
+        """Whether a listed herb occurs in fold(s) overlapping the folded s[i:i+k]."""
+        f = fold_text(s)
+        lo = len(fold_text(s[:i]))
+        hi = lo + len(fold_text(s[i : i + k]))
+        return any(f.find(t, max(0, lo - len(t) + 1), hi + len(t) - 1) >= 0 for t in self.herbs)
+
+    def herb_swap_offlist(self):
+        while True:
+            d, n, chapter, text = self.span(8, 30)
+            s = simplify(text)
+            present = [h for h in self.offlist if h in s]
+            if not present:
+                continue
+            old = self.rng.choice(present)
+            new = self.rng.choice([h for h in self.offlist if h not in s])
+            i = s.index(old)
+            quote = s[:i] + new + s[i + len(old) :]
+            if self.near_term(s, i, len(old)) or self.near_term(quote, i, len(new)) or self.in_corpus(quote):
+                continue
+            attr = self.attribution(d.book, chapter) if self.rng.random() < 0.8 else None
+            return quote, attr, f"{d.path}:{n}"
 
     def misattributed(self):
         while True:
@@ -255,32 +336,29 @@ class Builder:
 def build(corpus: Corpus, split: str, seed: int, paraphrases: list[dict]) -> list[dict]:
     b = Builder(corpus, seed)
     items = []
-    for category, count in COUNTS.items():
-        make = getattr(b, category)
-        for _ in range(count):
-            quote, attr, source = make()
-            items.append(
-                {
-                    "category": category,
-                    "should_pass": category in ("genuine", "noise"),
-                    "answer": b.answer(quote, attr),
-                    "quote": quote,
-                    "attribution": attr,
-                    "source": source,
-                }
-            )
-    for p in paraphrases[seed - 1 :: 2]:
-        quote, attr = p["quote"], p["attribution"]
+
+    def add(category: str, quote: str, attr: str | None, source: str | None) -> None:
         items.append(
             {
-                "category": "paraphrase",
-                "should_pass": False,
+                "category": category,
+                "should_pass": category in ("genuine", "noise"),
                 "answer": b.answer(quote, attr),
                 "quote": quote,
                 "attribution": attr,
-                "source": p["source"],
+                "source": source,
             }
         )
+
+    def generate(counts: dict[str, int]) -> None:
+        for category, count in counts.items():
+            make = getattr(b, category)
+            for _ in range(count):
+                add(category, *make())
+
+    generate(COUNTS)
+    for p in paraphrases[seed - 1 :: 2]:
+        add("paraphrase", p["quote"], p["attribution"], p["source"])
+    generate(LATER)
     for i, item in enumerate(items, 1):
         item["id"] = f"{split}-{i:03d}"
     return items

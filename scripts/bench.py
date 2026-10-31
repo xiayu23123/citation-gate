@@ -13,21 +13,34 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
+from build_bench import FORMULAS, HERBS, bare_names
 from citation_gate import Corpus, Policy
 from citation_gate.evaluate import load_bench, run
-from citation_gate.normalize import load_critical
+from citation_gate.normalize import load_critical, load_terms
+from extract_terms import FORMULAS_OUT, HERBS_OUT
 
 THRESHOLDS = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+FULL = "+ formula names (full)"
 
 
 def configs(threshold: float) -> dict[str, Policy]:
-    full = Policy(fuzzy_threshold=threshold, critical=load_critical("tcm"))
+    full = Policy(fuzzy_threshold=threshold, critical=load_critical("tcm"), critical_terms=load_terms("tcm"))
+    none = frozenset()
     return {
-        "exact match only": replace(full, fuzzy_threshold=1.0, critical=frozenset(), detect_splices=False),
-        "+ fuzzy match": replace(full, critical=frozenset(), detect_splices=False),
-        "+ critical characters": replace(full, detect_splices=False),
-        "+ splice detection (full)": full,
+        "exact match only": replace(full, fuzzy_threshold=1.0, critical=none, critical_terms=none, detect_splices=False),
+        "+ fuzzy match": replace(full, critical=none, critical_terms=none, detect_splices=False),
+        "+ critical characters": replace(full, critical_terms=none, detect_splices=False),
+        "+ splice detection": replace(full, critical_terms=none),
+        "+ herb names": replace(full, critical_terms=load_terms(str(HERBS_OUT))),
+        FULL: full,
     }
+
+
+def overlap(names: list[str], terms: frozenset[str]) -> str:
+    missing = [n for n in names if n not in terms]
+    return f"{len(names) - len(missing)} of its {len(names)} names are on the list" + (
+        f" (not: {'、'.join(missing)})." if missing else "."
+    )
 
 
 def pct(x: float) -> str:
@@ -52,8 +65,11 @@ def main() -> None:
     tied = [t for t in THRESHOLDS if sweep[t]["balanced_accuracy"] == best]
     chosen = tied[len(tied) // 2]
 
+    # Not used for any choice; they show what critical terms cost on dev.
+    dev_by_terms = {name: run(corpus, dev, configs(chosen)[name]) for name in ("+ splice detection", "+ herb names")}
     results = {name: run(corpus, test, policy) for name, policy in configs(chosen).items()}
-    full = results["+ splice detection (full)"]
+    full = results[FULL]
+    herbs, formulas = load_terms(str(HERBS_OUT)), load_terms(str(FORMULAS_OUT))
 
     lines = [
         "# Benchmark results",
@@ -69,6 +85,9 @@ def main() -> None:
     for t, r in sweep.items():
         mark = " **← chosen**" if t == chosen else ""
         lines.append(f"| {t:.2f}{mark} | {pct(r['recall'])} | {pct(r['false_alarm'])} | {r['balanced_accuracy']:.3f} |")
+    lines += ["", f"The sweep uses the full gate. Other configurations on dev at {chosen:.2f}:", ""]
+    for name, r in dev_by_terms.items():
+        lines.append(f"- {name}: caught {pct(r['recall'])}, false alarms {pct(r['false_alarm'])}")
 
     lines += [
         "",
@@ -81,6 +100,23 @@ def main() -> None:
     ]
     for name, r in results.items():
         lines.append(f"| {name} | {pct(r['recall'])} | {pct(r['false_alarm'])} | {pct(r['precision'])} | {r['f1']:.3f} |")
+
+    lines += [
+        "",
+        "## Critical terms",
+        "",
+        f"Extracted from the corpus by `scripts/extract_terms.py`: {len(herbs)} herb names from ingredient lines "
+        f"and {len(formulas)} formula names from recipe headings. "
+        f"{len(bare_names(sorted(formulas), herbs, load_critical('tcm')))} of the formula names contain no listed herb "
+        "and no critical character.",
+        "",
+        f"- herb_swap and herb_swap_long swap names from `HERBS` in `scripts/build_bench.py`; "
+        + overlap(HERBS, herbs),
+        "- herb_swap_offlist swaps only herbs the herb list does not contain.",
+        f"- formula_swap swaps names from `FORMULAS` in `scripts/build_bench.py`; " + overlap(FORMULAS, formulas),
+        "- formula_swap_bare swaps among the names in `FORMULAS` that contain no listed herb and no critical "
+        f"character: {'、'.join(bare_names(FORMULAS, herbs, load_critical('tcm')))}.",
+    ]
 
     cats = list(full["by_category"])
     lines += [
@@ -108,7 +144,12 @@ def main() -> None:
     md = "\n".join(lines) + "\n"
     (bench / "RESULTS.md").write_text(md, encoding="utf-8", newline="\n")
     (bench / "results.json").write_text(
-        json.dumps({"chosen_threshold": chosen, "dev_sweep": sweep, "test": results}, ensure_ascii=False, indent=1) + "\n",
+        json.dumps(
+            {"chosen_threshold": chosen, "dev_sweep": sweep, "dev_by_terms": dev_by_terms, "test": results},
+            ensure_ascii=False,
+            indent=1,
+        )
+        + "\n",
         encoding="utf-8",
         newline="\n",
     )

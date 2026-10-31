@@ -2,17 +2,17 @@
  "chosen_threshold": 0.85,
  "dev_sweep": {
   "0.7": {
-   "n": 296,
-   "recall": 0.8333333333333334,
-   "false_alarm": 0.0,
-   "precision": 1.0,
-   "f1": 0.9090909090909091,
-   "balanced_accuracy": 0.9166666666666667,
+   "n": 456,
+   "recall": 0.930635838150289,
+   "false_alarm": 0.01818181818181818,
+   "precision": 0.9938271604938271,
+   "f1": 0.9611940298507463,
+   "balanced_accuracy": 0.9562270099842355,
    "counts": {
-    "tp": 155,
-    "fn": 31,
-    "fp": 0,
-    "tn": 110
+    "tp": 322,
+    "fn": 24,
+    "fp": 2,
+    "tn": 108
    },
    "by_category": {
     "altered": {
@@ -22,6 +22,14 @@
     "fabricated": {
      "n": 30,
      "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
     },
     "genuine": {
      "n": 60,
@@ -29,535 +37,13 @@
     },
     "herb_swap": {
      "n": 40,
-     "flagged": 9
+     "flagged": 39
     },
-    "misattributed": {
-     "n": 30,
-     "flagged": 30
-    },
-    "noise": {
-     "n": 50,
-     "flagged": 0
-    },
-    "paraphrase": {
-     "n": 6,
-     "flagged": 6
-    },
-    "spliced": {
-     "n": 30,
-     "flagged": 30
-    }
-   },
-   "confusion": {
-    "altered": {
-     "altered": 50
-    },
-    "fabricated": {
-     "not_found": 20,
-     "spliced": 10
-    },
-    "genuine": {
-     "verified": 60
-    },
-    "herb_swap": {
-     "altered": 9,
-     "fuzzy": 31
-    },
-    "misattributed": {
-     "misattributed": 29,
-     "altered": 1
-    },
-    "noise": {
-     "fuzzy": 50
-    },
-    "paraphrase": {
-     "not_found": 6
-    },
-    "spliced": {
-     "spliced": 30
-    }
-   },
-   "errors": [
-    {
-     "id": "dev-162",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "白虎加葛根汤主之。"
-    },
-    {
-     "id": "dev-163",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "与大黄芩汤；但结胸"
-    },
-    {
-     "id": "dev-164",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "防己麻黄汤亦主之。"
-    },
-    {
-     "id": "dev-165",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "凡芍药汤病证而下之"
-    },
-    {
-     "id": "dev-166",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "岂容易哉！况黄柏下咽"
-    },
-    {
-     "id": "dev-167",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "不必悉具。凡防己汤病证而下之"
-    },
-    {
-     "id": "dev-168",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
-    },
-    {
-     "id": "dev-169",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "桃仁去桂加茯苓白术汤方"
-    },
-    {
-     "id": "dev-170",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "本云：加干姜。半夏泻心汤"
-    },
-    {
-     "id": "dev-171",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "舌上白胎者，可与小茯苓汤。"
-    },
-    {
-     "id": "dev-172",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "先煮人参一二沸，去上沫"
-    },
-    {
-     "id": "dev-173",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "汗出必解，宜桃仁二麻黄一汤。"
-    },
-    {
-     "id": "dev-174",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "薏苡防己败酱散方"
-    },
-    {
-     "id": "dev-176",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "小青龙加黄连汤方"
-    },
-    {
-     "id": "dev-177",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "因致衄者，茯苓汤主之。"
-    },
-    {
-     "id": "dev-179",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "更饮石膏干姜汤。夜半阳气还"
-    },
-    {
-     "id": "dev-180",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
-    },
-    {
-     "id": "dev-181",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "上七味，以水五升，先煮阿胶一二沸"
-    },
-    {
-     "id": "dev-182",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
-    },
-    {
-     "id": "dev-183",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "脉迟为寒，今与细辛汤复除其热"
-    },
-    {
-     "id": "dev-184",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "黄柏，减二升，去上沫"
-    },
-    {
-     "id": "dev-185",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "人参不中与也，食谷者哕。"
-    },
-    {
-     "id": "dev-186",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "利止，亡血也，四逆加黄芩汤主之。"
-    },
-    {
-     "id": "dev-187",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "若桂枝证不罢者，复与柴胡汤"
-    },
-    {
-     "id": "dev-189",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "恶风，无汗而喘者，栀子汤主之。"
-    },
-    {
-     "id": "dev-190",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "于杏仁汤方内，加入半夏半升"
-    },
-    {
-     "id": "dev-191",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "于附子汤方内，加厚朴二两"
-    },
-    {
-     "id": "dev-193",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "设胸满胁痛者，与小杏仁汤。"
-    },
-    {
-     "id": "dev-195",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
-    },
-    {
-     "id": "dev-196",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "加厚朴二两，干姜五十个"
-    },
-    {
-     "id": "dev-197",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "杏仁本为解肌，若其人脉浮紧"
-    }
-   ]
-  },
-  "0.75": {
-   "n": 296,
-   "recall": 0.8333333333333334,
-   "false_alarm": 0.0,
-   "precision": 1.0,
-   "f1": 0.9090909090909091,
-   "balanced_accuracy": 0.9166666666666667,
-   "counts": {
-    "tp": 155,
-    "fn": 31,
-    "fp": 0,
-    "tn": 110
-   },
-   "by_category": {
-    "altered": {
-     "n": 50,
-     "flagged": 50
-    },
-    "fabricated": {
-     "n": 30,
-     "flagged": 30
-    },
-    "genuine": {
-     "n": 60,
-     "flagged": 0
-    },
-    "herb_swap": {
+    "herb_swap_long": {
      "n": 40,
-     "flagged": 9
+     "flagged": 40
     },
-    "misattributed": {
-     "n": 30,
-     "flagged": 30
-    },
-    "noise": {
-     "n": 50,
-     "flagged": 0
-    },
-    "paraphrase": {
-     "n": 6,
-     "flagged": 6
-    },
-    "spliced": {
-     "n": 30,
-     "flagged": 30
-    }
-   },
-   "confusion": {
-    "altered": {
-     "altered": 50
-    },
-    "fabricated": {
-     "not_found": 20,
-     "spliced": 10
-    },
-    "genuine": {
-     "verified": 60
-    },
-    "herb_swap": {
-     "altered": 9,
-     "fuzzy": 31
-    },
-    "misattributed": {
-     "misattributed": 29,
-     "altered": 1
-    },
-    "noise": {
-     "fuzzy": 50
-    },
-    "paraphrase": {
-     "not_found": 6
-    },
-    "spliced": {
-     "spliced": 30
-    }
-   },
-   "errors": [
-    {
-     "id": "dev-162",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "白虎加葛根汤主之。"
-    },
-    {
-     "id": "dev-163",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "与大黄芩汤；但结胸"
-    },
-    {
-     "id": "dev-164",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "防己麻黄汤亦主之。"
-    },
-    {
-     "id": "dev-165",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "凡芍药汤病证而下之"
-    },
-    {
-     "id": "dev-166",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "岂容易哉！况黄柏下咽"
-    },
-    {
-     "id": "dev-167",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "不必悉具。凡防己汤病证而下之"
-    },
-    {
-     "id": "dev-168",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
-    },
-    {
-     "id": "dev-169",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "桃仁去桂加茯苓白术汤方"
-    },
-    {
-     "id": "dev-170",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "本云：加干姜。半夏泻心汤"
-    },
-    {
-     "id": "dev-171",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "舌上白胎者，可与小茯苓汤。"
-    },
-    {
-     "id": "dev-172",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "先煮人参一二沸，去上沫"
-    },
-    {
-     "id": "dev-173",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "汗出必解，宜桃仁二麻黄一汤。"
-    },
-    {
-     "id": "dev-174",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "薏苡防己败酱散方"
-    },
-    {
-     "id": "dev-176",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "小青龙加黄连汤方"
-    },
-    {
-     "id": "dev-177",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "因致衄者，茯苓汤主之。"
-    },
-    {
-     "id": "dev-179",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "更饮石膏干姜汤。夜半阳气还"
-    },
-    {
-     "id": "dev-180",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
-    },
-    {
-     "id": "dev-181",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "上七味，以水五升，先煮阿胶一二沸"
-    },
-    {
-     "id": "dev-182",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
-    },
-    {
-     "id": "dev-183",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "脉迟为寒，今与细辛汤复除其热"
-    },
-    {
-     "id": "dev-184",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "黄柏，减二升，去上沫"
-    },
-    {
-     "id": "dev-185",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "人参不中与也，食谷者哕。"
-    },
-    {
-     "id": "dev-186",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "利止，亡血也，四逆加黄芩汤主之。"
-    },
-    {
-     "id": "dev-187",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "若桂枝证不罢者，复与柴胡汤"
-    },
-    {
-     "id": "dev-189",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "恶风，无汗而喘者，栀子汤主之。"
-    },
-    {
-     "id": "dev-190",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "于杏仁汤方内，加入半夏半升"
-    },
-    {
-     "id": "dev-191",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "于附子汤方内，加厚朴二两"
-    },
-    {
-     "id": "dev-193",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "设胸满胁痛者，与小杏仁汤。"
-    },
-    {
-     "id": "dev-195",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
-    },
-    {
-     "id": "dev-196",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "加厚朴二两，干姜五十个"
-    },
-    {
-     "id": "dev-197",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "杏仁本为解肌，若其人脉浮紧"
-    }
-   ]
-  },
-  "0.8": {
-   "n": 296,
-   "recall": 0.8763440860215054,
-   "false_alarm": 0.0,
-   "precision": 1.0,
-   "f1": 0.9340974212034383,
-   "balanced_accuracy": 0.9381720430107527,
-   "counts": {
-    "tp": 163,
-    "fn": 23,
-    "fp": 0,
-    "tn": 110
-   },
-   "by_category": {
-    "altered": {
-     "n": 50,
-     "flagged": 50
-    },
-    "fabricated": {
-     "n": 30,
-     "flagged": 30
-    },
-    "genuine": {
-     "n": 60,
-     "flagged": 0
-    },
-    "herb_swap": {
+    "herb_swap_offlist": {
      "n": 40,
      "flagged": 17
     },
@@ -567,7 +53,7 @@
     },
     "noise": {
      "n": 50,
-     "flagged": 0
+     "flagged": 2
     },
     "paraphrase": {
      "n": 6,
@@ -586,20 +72,35 @@
      "not_found": 20,
      "spliced": 10
     },
+    "formula_swap": {
+     "altered": 40
+    },
+    "formula_swap_bare": {
+     "altered": 40
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
-     "altered": 5,
-     "not_found": 10,
+     "altered": 39,
+     "fuzzy": 1
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "altered": 13,
+     "spliced": 1,
      "fuzzy": 23,
-     "spliced": 2
+     "not_found": 3
     },
     "misattributed": {
-     "misattributed": 30
+     "misattributed": 29,
+     "altered": 1
     },
     "noise": {
-     "fuzzy": 50
+     "fuzzy": 48,
+     "altered": 2
     },
     "paraphrase": {
      "not_found": 6
@@ -610,76 +111,16 @@
    },
    "errors": [
     {
-     "id": "dev-167",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "不必悉具。凡防己汤病证而下之"
+     "id": "dev-064",
+     "category": "noise",
+     "status": "altered",
+     "quote": "去桂枝，加自术四两"
     },
     {
-     "id": "dev-168",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
-    },
-    {
-     "id": "dev-169",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "桃仁去桂加茯苓白术汤方"
-    },
-    {
-     "id": "dev-170",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "本云：加干姜。半夏泻心汤"
-    },
-    {
-     "id": "dev-171",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "舌上白胎者，可与小茯苓汤。"
-    },
-    {
-     "id": "dev-172",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "先煮人参一二沸，去上沫"
-    },
-    {
-     "id": "dev-173",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "汗出必解，宜桃仁二麻黄一汤。"
-    },
-    {
-     "id": "dev-179",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "更饮石膏干姜汤。夜半阳气还"
-    },
-    {
-     "id": "dev-180",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
-    },
-    {
-     "id": "dev-181",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "上七味，以水五升，先煮阿胶一二沸"
-    },
-    {
-     "id": "dev-182",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "身必黄，麻石膏轺赤小豆汤主之。"
-    },
-    {
-     "id": "dev-183",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "脉迟为寒，今与细辛汤复除其热"
+     "id": "dev-096",
+     "category": "noise",
+     "status": "altered",
+     "quote": "栀子生姜豉豉汤主之。"
     },
     {
      "id": "dev-184",
@@ -688,79 +129,157 @@
      "quote": "黄柏，减二升，去上沫"
     },
     {
-     "id": "dev-185",
-     "category": "herb_swap",
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "人参不中与也，食谷者哕。"
+     "quote": "右三味，杵为散，取葵子黄一枚"
     },
     {
-     "id": "dev-186",
-     "category": "herb_swap",
+     "id": "dev-341",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "利止，亡血也，四逆加黄芩汤主之。"
+     "quote": "脉萦萦如猪肤丝者"
     },
     {
-     "id": "dev-187",
-     "category": "herb_swap",
+     "id": "dev-343",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "若桂枝证不罢者，复与柴胡汤"
+     "quote": "吹竹叶末鼻中，立效。"
     },
     {
-     "id": "dev-189",
-     "category": "herb_swap",
+     "id": "dev-344",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "恶风，无汗而喘者，栀子汤主之。"
+     "quote": "四肢聂聂动者，竹叶茯苓汤主之。"
     },
     {
-     "id": "dev-190",
-     "category": "herb_swap",
+     "id": "dev-345",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "于杏仁汤方内，加入半夏半升"
+     "quote": "代赭、当归各三两，芍药四两"
     },
     {
-     "id": "dev-191",
-     "category": "herb_swap",
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "于附子汤方内，加厚朴二两"
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
     },
     {
-     "id": "dev-193",
-     "category": "herb_swap",
+     "id": "dev-349",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "设胸满胁痛者，与小杏仁汤。"
+     "quote": "鼠妇十分，七月七日采"
     },
     {
-     "id": "dev-195",
-     "category": "herb_swap",
+     "id": "dev-351",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+     "quote": "若手足厥者，瓜子汤主之。"
     },
     {
-     "id": "dev-196",
-     "category": "herb_swap",
+     "id": "dev-352",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "加厚朴二两，干姜五十个"
+     "quote": "以暖水朴硝服大豆许三四丸"
     },
     {
-     "id": "dev-197",
-     "category": "herb_swap",
+     "id": "dev-353",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "杏仁本为解肌，若其人脉浮紧"
+     "quote": "阿胶、甘草各二两，海藻"
+    },
+    {
+     "id": "dev-354",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "马鞭草十分，七月七日采"
+    },
+    {
+     "id": "dev-357",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "荠苨赤石脂丸主之。"
+    },
+    {
+     "id": "dev-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "以蜂窝渍乌梅一宿"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-364",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，海藻茯苓汤主之。"
+    },
+    {
+     "id": "dev-366",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "甘草各二两，山药、当归各三两"
+    },
+    {
+     "id": "dev-367",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "白敛加甘草阿胶汤主之。"
+    },
+    {
+     "id": "dev-368",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，商陆根茯苓汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
+    },
+    {
+     "id": "dev-370",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "阿胶、甘草各二两，败酱"
+    },
+    {
+     "id": "dev-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "蜣螂二枚，去皮子，炙焦。"
+    },
+    {
+     "id": "dev-373",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "甘草各二两，商陆根、当归各三两"
+    },
+    {
+     "id": "dev-375",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "代赭二枚，去皮子，炙焦。"
     }
    ]
   },
-  "0.85": {
-   "n": 296,
-   "recall": 0.9731182795698925,
-   "false_alarm": 0.0,
-   "precision": 1.0,
-   "f1": 0.9863760217983651,
-   "balanced_accuracy": 0.9865591397849462,
+  "0.75": {
+   "n": 456,
+   "recall": 0.9335260115606936,
+   "false_alarm": 0.01818181818181818,
+   "precision": 0.9938461538461538,
+   "f1": 0.9627421758569299,
+   "balanced_accuracy": 0.9576720966894378,
    "counts": {
-    "tp": 181,
-    "fn": 5,
-    "fp": 0,
-    "tn": 110
+    "tp": 323,
+    "fn": 23,
+    "fp": 2,
+    "tn": 108
    },
    "by_category": {
     "altered": {
@@ -771,13 +290,29 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
     },
     "herb_swap": {
      "n": 40,
-     "flagged": 35
+     "flagged": 39
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 18
     },
     "misattributed": {
      "n": 30,
@@ -785,7 +320,7 @@
     },
     "noise": {
      "n": 50,
-     "flagged": 0
+     "flagged": 2
     },
     "paraphrase": {
      "n": 6,
@@ -804,20 +339,35 @@
      "not_found": 20,
      "spliced": 10
     },
+    "formula_swap": {
+     "altered": 40
+    },
+    "formula_swap_bare": {
+     "altered": 40
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
-     "not_found": 29,
-     "fuzzy": 5,
-     "spliced": 5,
-     "altered": 1
+     "altered": 39,
+     "fuzzy": 1
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "altered": 12,
+     "spliced": 2,
+     "fuzzy": 22,
+     "not_found": 4
     },
     "misattributed": {
-     "misattributed": 30
+     "misattributed": 29,
+     "altered": 1
     },
     "noise": {
-     "fuzzy": 50
+     "fuzzy": 48,
+     "altered": 2
     },
     "paraphrase": {
      "not_found": 6
@@ -828,22 +378,16 @@
    },
    "errors": [
     {
-     "id": "dev-168",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+     "id": "dev-064",
+     "category": "noise",
+     "status": "altered",
+     "quote": "去桂枝，加自术四两"
     },
     {
-     "id": "dev-180",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
-    },
-    {
-     "id": "dev-181",
-     "category": "herb_swap",
-     "status": "fuzzy",
-     "quote": "上七味，以水五升，先煮阿胶一二沸"
+     "id": "dev-096",
+     "category": "noise",
+     "status": "altered",
+     "quote": "栀子生姜豉豉汤主之。"
     },
     {
      "id": "dev-184",
@@ -852,23 +396,500 @@
      "quote": "黄柏，减二升，去上沫"
     },
     {
-     "id": "dev-195",
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-341",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "脉萦萦如猪肤丝者"
+    },
+    {
+     "id": "dev-343",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "吹竹叶末鼻中，立效。"
+    },
+    {
+     "id": "dev-344",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，竹叶茯苓汤主之。"
+    },
+    {
+     "id": "dev-345",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "代赭、当归各三两，芍药四两"
+    },
+    {
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
+    },
+    {
+     "id": "dev-349",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "鼠妇十分，七月七日采"
+    },
+    {
+     "id": "dev-351",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "若手足厥者，瓜子汤主之。"
+    },
+    {
+     "id": "dev-352",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "以暖水朴硝服大豆许三四丸"
+    },
+    {
+     "id": "dev-353",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "阿胶、甘草各二两，海藻"
+    },
+    {
+     "id": "dev-357",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "荠苨赤石脂丸主之。"
+    },
+    {
+     "id": "dev-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "以蜂窝渍乌梅一宿"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-364",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，海藻茯苓汤主之。"
+    },
+    {
+     "id": "dev-366",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "甘草各二两，山药、当归各三两"
+    },
+    {
+     "id": "dev-367",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "白敛加甘草阿胶汤主之。"
+    },
+    {
+     "id": "dev-368",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，商陆根茯苓汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
+    },
+    {
+     "id": "dev-370",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "阿胶、甘草各二两，败酱"
+    },
+    {
+     "id": "dev-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "蜣螂二枚，去皮子，炙焦。"
+    },
+    {
+     "id": "dev-373",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "甘草各二两，商陆根、当归各三两"
+    },
+    {
+     "id": "dev-375",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "代赭二枚，去皮子，炙焦。"
+    }
+   ]
+  },
+  "0.8": {
+   "n": 456,
+   "recall": 0.9653179190751445,
+   "false_alarm": 0.01818181818181818,
+   "precision": 0.9940476190476191,
+   "f1": 0.9794721407624633,
+   "balanced_accuracy": 0.9735680504466633,
+   "counts": {
+    "tp": 334,
+    "fn": 12,
+    "fp": 2,
+    "tn": 108
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 39
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 29
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 2
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "formula_swap": {
+     "altered": 40
+    },
+    "formula_swap_bare": {
+     "altered": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "altered": 27,
+     "not_found": 10,
+     "spliced": 2,
+     "fuzzy": 1
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "altered": 7,
+     "spliced": 4,
+     "fuzzy": 11,
+     "not_found": 18
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 48,
+     "altered": 2
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-064",
+     "category": "noise",
+     "status": "altered",
+     "quote": "去桂枝，加自术四两"
+    },
+    {
+     "id": "dev-096",
+     "category": "noise",
+     "status": "altered",
+     "quote": "栀子生姜豉豉汤主之。"
+    },
+    {
+     "id": "dev-184",
      "category": "herb_swap",
      "status": "fuzzy",
-     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-344",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，竹叶茯苓汤主之。"
+    },
+    {
+     "id": "dev-345",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "代赭、当归各三两，芍药四两"
+    },
+    {
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
+    },
+    {
+     "id": "dev-351",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "若手足厥者，瓜子汤主之。"
+    },
+    {
+     "id": "dev-352",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "以暖水朴硝服大豆许三四丸"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-364",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "四肢聂聂动者，海藻茯苓汤主之。"
+    },
+    {
+     "id": "dev-366",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "甘草各二两，山药、当归各三两"
+    },
+    {
+     "id": "dev-367",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "白敛加甘草阿胶汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
+    }
+   ]
+  },
+  "0.85": {
+   "n": 456,
+   "recall": 0.9855491329479769,
+   "false_alarm": 0.01818181818181818,
+   "precision": 0.9941690962099126,
+   "f1": 0.9898403483309144,
+   "balanced_accuracy": 0.9836836573830794,
+   "counts": {
+    "tp": 341,
+    "fn": 5,
+    "fp": 2,
+    "tn": 108
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 39
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 36
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 2
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "formula_swap": {
+     "altered": 37,
+     "spliced": 3
+    },
+    "formula_swap_bare": {
+     "altered": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 29,
+     "altered": 5,
+     "spliced": 5,
+     "fuzzy": 1
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "spliced": 9,
+     "fuzzy": 4,
+     "not_found": 25,
+     "altered": 2
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 48,
+     "altered": 2
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-064",
+     "category": "noise",
+     "status": "altered",
+     "quote": "去桂枝，加自术四两"
+    },
+    {
+     "id": "dev-096",
+     "category": "noise",
+     "status": "altered",
+     "quote": "栀子生姜豉豉汤主之。"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
     }
    ]
   },
   "0.9": {
-   "n": 296,
-   "recall": 0.9946236559139785,
+   "n": 456,
+   "recall": 0.9942196531791907,
    "false_alarm": 0.2545454545454545,
-   "precision": 0.8685446009389671,
-   "f1": 0.9273182957393484,
-   "balanced_accuracy": 0.870039100684262,
+   "precision": 0.9247311827956989,
+   "f1": 0.9582172701949861,
+   "balanced_accuracy": 0.869837099316868,
    "counts": {
-    "tp": 185,
-    "fn": 1,
+    "tp": 344,
+    "fn": 2,
     "fp": 28,
     "tn": 82
    },
@@ -881,13 +902,29 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
     },
     "herb_swap": {
      "n": 40,
-     "flagged": 39
+     "flagged": 40
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 38
     },
     "misattributed": {
      "n": 30,
@@ -915,13 +952,30 @@
      "not_found": 20,
      "spliced": 10
     },
+    "formula_swap": {
+     "spliced": 19,
+     "altered": 17,
+     "not_found": 4
+    },
+    "formula_swap_bare": {
+     "altered": 21,
+     "spliced": 19
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
      "not_found": 32,
-     "fuzzy": 1,
+     "altered": 1,
      "spliced": 7
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "spliced": 9,
+     "fuzzy": 2,
+     "not_found": 29
     },
     "misattributed": {
      "misattributed": 30
@@ -1108,22 +1162,28 @@
      "quote": "虚实紧弦；行其药"
     },
     {
-     "id": "dev-168",
-     "category": "herb_swap",
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
      "status": "fuzzy",
-     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
     }
    ]
   },
   "0.95": {
-   "n": 296,
+   "n": 456,
    "recall": 1.0,
    "false_alarm": 0.45454545454545453,
-   "precision": 0.788135593220339,
-   "f1": 0.8815165876777251,
+   "precision": 0.8737373737373737,
+   "f1": 0.9326145552560646,
    "balanced_accuracy": 0.7727272727272727,
    "counts": {
-    "tp": 186,
+    "tp": 346,
     "fn": 0,
     "fp": 50,
     "tn": 60
@@ -1137,11 +1197,27 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
     },
     "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
      "n": 40,
      "flagged": 40
     },
@@ -1171,12 +1247,29 @@
      "not_found": 20,
      "spliced": 10
     },
+    "formula_swap": {
+     "spliced": 32,
+     "not_found": 8
+    },
+    "formula_swap_bare": {
+     "not_found": 4,
+     "spliced": 36
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
      "not_found": 33,
      "spliced": 7
+    },
+    "herb_swap_long": {
+     "not_found": 26,
+     "spliced": 13,
+     "altered": 1
+    },
+    "herb_swap_offlist": {
+     "spliced": 10,
+     "not_found": 30
     },
     "misattributed": {
      "misattributed": 30
@@ -1496,16 +1589,1054 @@
    ]
   }
  },
+ "dev_by_terms": {
+  "+ splice detection": {
+   "n": 456,
+   "recall": 0.7514450867052023,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.858085808580858,
+   "balanced_accuracy": 0.8757225433526011,
+   "counts": {
+    "tp": 260,
+    "fn": 86,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 35
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 35
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 10
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 34
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "formula_swap": {
+     "altered": 32,
+     "spliced": 3,
+     "fuzzy": 5
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 29,
+     "fuzzy": 5,
+     "spliced": 5,
+     "altered": 1
+    },
+    "herb_swap_long": {
+     "fuzzy": 30,
+     "altered": 10
+    },
+    "herb_swap_offlist": {
+     "spliced": 9,
+     "fuzzy": 6,
+     "not_found": 25
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-168",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "火邪者，桂枝去栀子加蜀漆牡蛎龙骨救逆汤主之。"
+    },
+    {
+     "id": "dev-180",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "湿家身烦疼，可与石膏加术汤发其汗为宜"
+    },
+    {
+     "id": "dev-181",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "上七味，以水五升，先煮阿胶一二沸"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-195",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "病仍不解，烦躁者，葛根四逆汤主之。"
+    },
+    {
+     "id": "dev-297",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "日晡所发潮热，已而微利。此本干姜证，下之以不得利，今反利者，知医以丸药下之"
+    },
+    {
+     "id": "dev-300",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "但见一证便是，不必悉具。凡甘草汤病证而下之，若柴胡证不罢者，复与柴胡汤"
+    },
+    {
+     "id": "dev-301",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "其面翕热如醉状，因复下流阴股，小便难，时复冒者，与茯苓桂枝五味当归汤"
+    },
+    {
+     "id": "dev-302",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "先与小知母汤；呕不止，心下急，郁郁微烦者，为未解也，与大柴胡汤下之则愈。"
+    },
+    {
+     "id": "dev-303",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "冲气复发者，以甘草、干姜为热药也，服之当遂渴，而渴反止者，为支饮也。支饮者法当冒"
+    },
+    {
+     "id": "dev-304",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "以阿胶、干姜为热药也，服之当遂渴，而渴反止者，为支饮也。支饮者法当冒，冒者必呕"
+    },
+    {
+     "id": "dev-306",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亦勿苦劳之，须臾，可少与石膏汤及粥清，含与之，令濡喉，渐渐能咽，及稍止，若向令两人以管吹其两耳"
+    },
+    {
+     "id": "dev-309",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "休作有时，嘿嘿不欲饮食，藏府相连，其痛必下，邪高痛下，故使呕也，小阿胶汤主之。"
+    },
+    {
+     "id": "dev-310",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "脉弦发热，其胎愈胀，腹痛恶寒者，少腹如扇，所以然者，子脏开故也，当以干姜汤温其脏。"
+    },
+    {
+     "id": "dev-311",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "岂容易哉！况甘草下咽，阳盛则毙；承气入胃，阴盛以亡。死生之要，在乎须臾，视身之尽"
+    },
+    {
+     "id": "dev-313",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "因尔腹满时痛者，属太阴也，桂枝加芒硝汤主之；大实痛者，桂枝加大黄汤主之。"
+    },
+    {
+     "id": "dev-314",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘草泻心汤，同体别名耳。生姜泻心汤，本云：理中人参黄茶汤，去黄柏术，加黄连"
+    },
+    {
+     "id": "dev-315",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "六七日，而反与甘草汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷，当不能食"
+    },
+    {
+     "id": "dev-316",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "外证未除，而数下之，遂协热而利，利下不止，心下痞硬，表里不解者，桂枝茯苓汤主之。"
+    },
+    {
+     "id": "dev-317",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "木防己汤主之。虚者即愈，实者三日复发，后与不愈者，宜木防己汤去石膏加茯苓黄芩汤主之。"
+    },
+    {
+     "id": "dev-318",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "小便数。所以然者，以上虚不能制下故也。此为肺中冷，必眩，多涎唾，人参干姜汤以温之。"
+    },
+    {
+     "id": "dev-319",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "日晡所发潮热，已而微利。此本附子证，下之以不得利，今反利者，知医以丸药下之"
+    },
+    {
+     "id": "dev-320",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "得之数十日，医吐下之不愈，木厚朴汤主之。虚者即愈，实者三日复发，后与不愈者"
+    },
+    {
+     "id": "dev-322",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "仍不解者，此为坏病，黄柏不中与之也。观其脉证，知犯何逆，随证治之。桂枝本为解肌"
+    },
+    {
+     "id": "dev-324",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "发汗，遂漏不止，其人恶风，小便难，四肢微急，难以屈伸者，桂枝加黄柏汤主之。"
+    },
+    {
+     "id": "dev-325",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "本太阳病，医反下之，因尔腹满时痛者，属太阴也，桂枝加桃仁汤主之；大实痛者"
+    },
+    {
+     "id": "dev-326",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "此本知母证，下之以不得利，今反利者，知医以丸药下之，此非其治也。潮热者"
+    },
+    {
+     "id": "dev-327",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "阳浮者，热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，黄芩汤主之。"
+    },
+    {
+     "id": "dev-329",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "面色反有热色者，未欲解也，以其不能得小汗出，身必痒，宜石膏麻黄各半汤。"
+    },
+    {
+     "id": "dev-331",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "已而微利。此本栀子证，下之以不得利，今反利者，知医以丸药下之，此非其治也。"
+    },
+    {
+     "id": "dev-332",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "而更复渴，冲气复发者，以细辛、葛根为热药也，服之当遂渴，而渴反止者，为支饮也。"
+    },
+    {
+     "id": "dev-333",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "不大便，而呕，舌上白胎者，可与小知母汤。上焦得通，津液得下，胃气因和，身濈然汗出而解。"
+    },
+    {
+     "id": "dev-334",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "医二三下之，不能食而胁下满痛，面目及身黄，颈项强，小便难者，与葛根汤，后必下重。"
+    },
+    {
+     "id": "dev-335",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "如有物在皮中状，剧者不能食，身疼重，烦躁，小便不利，此为黄汗，栀子加黄耆汤主之。"
+    },
+    {
+     "id": "dev-336",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "手足温，医二三下之，不能食而胁下满痛，面目及身黄，颈项强，小便难者，与芒硝汤"
+    },
+    {
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
+    },
+    {
+     "id": "dev-355",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "百合病下之后者，滑石瞿麦汤主之。"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "水行皮中所致也，一物败酱汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
+    },
+    {
+     "id": "dev-384",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "留气结在胸课本：宜作胸痹心中痞气，气结在胸，胸满，胁下逆抢心，枳实薤白抵当汤主之"
+    },
+    {
+     "id": "dev-388",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "今反利者，知医以丸药下之，此非其治也。潮热者，实也。先宜服小青龙汤以解外"
+    },
+    {
+     "id": "dev-395",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "于炙甘草汤方内，加附子一枚，炮，去皮，破八片，余依前法。术附汤方，附于此方内"
+    },
+    {
+     "id": "dev-400",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "近之则痛剧，汗出短气，小便不利，恶风不欲去衣，或身微肿者，甘草麻黄汤主之。"
+    },
+    {
+     "id": "dev-407",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "服葛根汤，大汗出，脉洪大者，与桂枝汤，如前法。若形似疟，一日再发者，汗出必解"
+    },
+    {
+     "id": "dev-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "dev-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "dev-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，酸枣仁汤主之。"
+    },
+    {
+     "id": "dev-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，白头翁汤主之。"
+    },
+    {
+     "id": "dev-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白虎汤。"
+    },
+    {
+     "id": "dev-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "dev-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，真武汤主之。"
+    },
+    {
+     "id": "dev-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与麻子仁丸；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，茵陈蒿汤主之。"
+    },
+    {
+     "id": "dev-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，白虎汤主之。"
+    },
+    {
+     "id": "dev-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，理中丸主之。"
+    },
+    {
+     "id": "dev-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，理中丸主之。"
+    },
+    {
+     "id": "dev-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，白头翁汤主之。"
+    },
+    {
+     "id": "dev-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "dev-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与茵陈蒿汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，理中丸主之。"
+    },
+    {
+     "id": "dev-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，抵当汤主之。"
+    },
+    {
+     "id": "dev-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜苓桂术甘汤下之。"
+    },
+    {
+     "id": "dev-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，真武汤主之。"
+    },
+    {
+     "id": "dev-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，真武汤主之。"
+    },
+    {
+     "id": "dev-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，酸枣仁汤主之。"
+    },
+    {
+     "id": "dev-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜理中丸下之。"
+    },
+    {
+     "id": "dev-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜苓桂术甘汤下之。"
+    },
+    {
+     "id": "dev-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "dev-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "dev-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，苓桂术甘汤主之。"
+    }
+   ]
+  },
+  "+ herb names": {
+   "n": 456,
+   "recall": 0.861271676300578,
+   "false_alarm": 0.00909090909090909,
+   "precision": 0.9966555183946488,
+   "f1": 0.924031007751938,
+   "balanced_accuracy": 0.9260903836048345,
+   "counts": {
+    "tp": 298,
+    "fn": 48,
+    "fp": 1,
+    "tn": 109
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 39
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 39
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 34
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 1
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 20,
+     "spliced": 10
+    },
+    "formula_swap": {
+     "altered": 36,
+     "spliced": 3,
+     "fuzzy": 1
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 29,
+     "altered": 5,
+     "spliced": 5,
+     "fuzzy": 1
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "spliced": 9,
+     "fuzzy": 6,
+     "not_found": 25
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 49,
+     "altered": 1
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "dev-064",
+     "category": "noise",
+     "status": "altered",
+     "quote": "去桂枝，加自术四两"
+    },
+    {
+     "id": "dev-184",
+     "category": "herb_swap",
+     "status": "fuzzy",
+     "quote": "黄柏，减二升，去上沫"
+    },
+    {
+     "id": "dev-340",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "右三味，杵为散，取葵子黄一枚"
+    },
+    {
+     "id": "dev-346",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌鳖甲丸主之。"
+    },
+    {
+     "id": "dev-355",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "百合病下之后者，滑石瞿麦汤主之。"
+    },
+    {
+     "id": "dev-363",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木葵子汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "dev-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "水行皮中所致也，一物败酱汤主之。"
+    },
+    {
+     "id": "dev-369",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌铅丹丸主之。"
+    },
+    {
+     "id": "dev-384",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "留气结在胸课本：宜作胸痹心中痞气，气结在胸，胸满，胁下逆抢心，枳实薤白抵当汤主之"
+    },
+    {
+     "id": "dev-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "dev-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "dev-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，酸枣仁汤主之。"
+    },
+    {
+     "id": "dev-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，白头翁汤主之。"
+    },
+    {
+     "id": "dev-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白虎汤。"
+    },
+    {
+     "id": "dev-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "dev-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，真武汤主之。"
+    },
+    {
+     "id": "dev-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与麻子仁丸；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，茵陈蒿汤主之。"
+    },
+    {
+     "id": "dev-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，白虎汤主之。"
+    },
+    {
+     "id": "dev-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，理中丸主之。"
+    },
+    {
+     "id": "dev-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，理中丸主之。"
+    },
+    {
+     "id": "dev-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，白头翁汤主之。"
+    },
+    {
+     "id": "dev-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "dev-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与茵陈蒿汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，理中丸主之。"
+    },
+    {
+     "id": "dev-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，抵当汤主之。"
+    },
+    {
+     "id": "dev-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜苓桂术甘汤下之。"
+    },
+    {
+     "id": "dev-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，真武汤主之。"
+    },
+    {
+     "id": "dev-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，真武汤主之。"
+    },
+    {
+     "id": "dev-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "身无汗，剂颈而还，小便不利，渴引水浆者，此为瘀热在里，身必发黄，酸枣仁汤主之。"
+    },
+    {
+     "id": "dev-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "dev-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，麻子仁丸主之。"
+    },
+    {
+     "id": "dev-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜理中丸下之。"
+    },
+    {
+     "id": "dev-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜苓桂术甘汤下之。"
+    },
+    {
+     "id": "dev-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "dev-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，白头翁汤主之。"
+    },
+    {
+     "id": "dev-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "dev-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹当硬满，小便自利者，下血乃愈。所以然者，以太阳随经，瘀热在里故也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，苓桂术甘汤主之。"
+    },
+    {
+     "id": "dev-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，苓桂术甘汤主之。"
+    }
+   ]
+  }
+ },
  "test": {
   "exact match only": {
-   "n": 296,
+   "n": 456,
    "recall": 1.0,
    "false_alarm": 0.45454545454545453,
-   "precision": 0.788135593220339,
-   "f1": 0.8815165876777251,
+   "precision": 0.8737373737373737,
+   "f1": 0.9326145552560646,
    "balanced_accuracy": 0.7727272727272727,
    "counts": {
-    "tp": 186,
+    "tp": 346,
     "fn": 0,
     "fp": 50,
     "tn": 60
@@ -1519,11 +2650,27 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
     },
     "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
      "n": 40,
      "flagged": 40
     },
@@ -1551,10 +2698,22 @@
     "fabricated": {
      "not_found": 30
     },
+    "formula_swap": {
+     "not_found": 40
+    },
+    "formula_swap_bare": {
+     "not_found": 40
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
+     "not_found": 40
+    },
+    "herb_swap_long": {
+     "not_found": 40
+    },
+    "herb_swap_offlist": {
      "not_found": 40
     },
     "misattributed": {
@@ -1874,15 +3033,15 @@
    ]
   },
   "+ fuzzy match": {
-   "n": 296,
-   "recall": 0.7043010752688172,
+   "n": 456,
+   "recall": 0.4884393063583815,
    "false_alarm": 0.0,
    "precision": 1.0,
-   "f1": 0.8264984227129338,
-   "balanced_accuracy": 0.8521505376344086,
+   "f1": 0.6563106796116506,
+   "balanced_accuracy": 0.7442196531791907,
    "counts": {
-    "tp": 131,
-    "fn": 55,
+    "tp": 169,
+    "fn": 177,
     "fp": 0,
     "tn": 110
    },
@@ -1895,6 +3054,14 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 2
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
@@ -1902,6 +3069,14 @@
     "herb_swap": {
      "n": 40,
      "flagged": 35
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 0
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 36
     },
     "misattributed": {
      "n": 30,
@@ -1927,12 +3102,26 @@
     "fabricated": {
      "not_found": 30
     },
+    "formula_swap": {
+     "fuzzy": 38,
+     "not_found": 2
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
     "genuine": {
      "verified": 60
     },
     "herb_swap": {
      "not_found": 35,
      "fuzzy": 5
+    },
+    "herb_swap_long": {
+     "fuzzy": 40
+    },
+    "herb_swap_offlist": {
+     "fuzzy": 4,
+     "not_found": 36
     },
     "misattributed": {
      "misattributed": 30
@@ -2277,19 +3466,751 @@
      "category": "herb_swap",
      "status": "fuzzy",
      "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    },
+    {
+     "id": "test-297",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "知医以丸药下之，此非其治也。潮热者，实也。先宜服小阿胶汤以解外，后以柴胡加芒硝汤主之。"
+    },
+    {
+     "id": "test-298",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "解之后，胃中不和，心下痞硬，干噫食臭，胁下有水气，腹中雷鸣，下利者，桃仁泻心汤主之。"
+    },
+    {
+     "id": "test-299",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "不能食，无寒热，名妊娠，枳实汤主之。于法六十日当有此证；设有医治逆者，却一月加吐下者"
+    },
+    {
+     "id": "test-300",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "脉浮虚而涩者，桂枝附子汤主之。若其人大便硬，小便自利者，去桂加芍药汤主之。"
+    },
+    {
+     "id": "test-301",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "不呕不渴，脉浮虚而涩者，大枣附子汤主之。若其人大便硬，小便自利者，去桂加白术汤主之。"
+    },
+    {
+     "id": "test-302",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "昼日烦躁不得眠，夜而安静，不呕不渴，无表证，脉沉微，身无大热者，干姜大枣汤主之。"
+    },
+    {
+     "id": "test-303",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒，厥而心下悸，宜先治水，当服半夏甘草汤，却治其厥。不尔，水渍入胃，必作利也。"
+    },
+    {
+     "id": "test-304",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与白术汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-305",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮甘草附子汤。夜半阳气还"
+    },
+    {
+     "id": "test-306",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "而反与黄连汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷，当不能食"
+    },
+    {
+     "id": "test-307",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与干姜汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-308",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "煎成汤，内酒一大盏，次下大枣，去滓，分温三服，先锉败蒲席半领，煎汤浴，衣被盖覆"
+    },
+    {
+     "id": "test-309",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "转入少阳者，胁下硬满，干呕不能食，往来寒热，尚未吐下，脉沉紧者，与小桂枝汤。"
+    },
+    {
+     "id": "test-310",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "近之则痛剧，汗出短气，小便不利，恶风不欲去衣，或身微肿者，知母附子汤主之。"
+    },
+    {
+     "id": "test-311",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "后四五日，大黄证仍在者，先与小柴胡汤；呕不止，心下急，郁郁微烦者，为未解也"
+    },
+    {
+     "id": "test-312",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "师曰：妇人得平脉，阴脉小弱，其人渴，不能食，无寒热，名妊娠，泽泻汤主之。于法六十日当有此证"
+    },
+    {
+     "id": "test-313",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "阴不得有汗，今头汗出，故知非少阴也。可与小甘草汤，设不了了者，得屎而解。"
+    },
+    {
+     "id": "test-314",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "服药已微除，其人发烦目瞑，剧者必衄，衄乃解，所以然者，阳气重故也，葛根汤主之。"
+    },
+    {
+     "id": "test-315",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "复与黄柏汤。此虽已下之，不为逆，必蒸蒸而振，却发热汗出而解。若心下满而硬痛者"
+    },
+    {
+     "id": "test-316",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘遂何可以妄攻。虚盛之治，相背千里，吉凶之机，应若影响，岂容易哉！况黄柏下咽"
+    },
+    {
+     "id": "test-317",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-318",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "不可攻痞，当先解表，表解乃可攻痞。解表宜桂枝汤，攻痞宜黄柏黄连泻心汤。"
+    },
+    {
+     "id": "test-319",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "内酒一大盏，次下杏仁，去滓，分温三服，先锉败蒲席半领，煎汤浴，衣被盖覆，斯须"
+    },
+    {
+     "id": "test-320",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加附子一两、半夏大者二十枚，服之后"
+    },
+    {
+     "id": "test-321",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "必反复颠倒，心中懊𢙐，柴胡豉汤主之。若少气者，栀子甘草豉汤主之；若呕者"
+    },
+    {
+     "id": "test-322",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "倍加芎䓖；心烦吐痛，不能食饮，加干姜一两、半夏大者二十枚，服之后，更以醋浆水服之"
+    },
+    {
+     "id": "test-323",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与杏仁汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-324",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，知母汤主之。"
+    },
+    {
+     "id": "test-325",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "加黄芩；心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加细辛一两、半夏大者二十枚"
+    },
+    {
+     "id": "test-326",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "颈项强，小便难者，与黄芩汤，后必下重。本渴饮水而呕者，柴胡不中与也，食谷者哕。"
+    },
+    {
+     "id": "test-327",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "心烦吐痛，不能食饮，加细辛一两、桂枝大者二十枚，服之后，更以醋浆水服之"
+    },
+    {
+     "id": "test-328",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "因尔腹满时痛者，属太阴也，半夏加芍药汤主之；大实痛者，桂枝加大黄汤主之。"
+    },
+    {
+     "id": "test-329",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "分温三服；如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-330",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "添黄芩少许，每贴分作三小贴，每小贴以水一升，煮取七合，温服，再合滓为一服。"
+    },
+    {
+     "id": "test-331",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒八九日，风湿相搏，身体疼烦，不能自转侧，不呕不渴，脉浮虚而涩者，黄芩附子汤主之。"
+    },
+    {
+     "id": "test-332",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "以水一斗，先煮黄芩，去上沫，内诸药，煮取三升。强人服一升，羸者减之，日三服"
+    },
+    {
+     "id": "test-333",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒五六日，呕而发热者，厚朴汤证具，而以他药下之，柴胡证仍在者，复与柴胡汤。"
+    },
+    {
+     "id": "test-334",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "诸肢节疼痛，身体魁羸，脚肿如脱，头眩短气，温温欲吐，当归芍药知母汤主之。"
+    },
+    {
+     "id": "test-335",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘草泻心汤，同体别名耳。生姜泻心汤，本云：理中人参黄茶汤，去桂枝术，加厚朴"
+    },
+    {
+     "id": "test-336",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮茯苓干姜汤。夜半阳气还"
+    },
+    {
+     "id": "test-337",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木白石英汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "test-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌猪骨丸主之。"
+    },
+    {
+     "id": "test-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "灸刺诸药不能治，抵当蜣螂桂枝汤主之。"
+    },
+    {
+     "id": "test-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "薏苡附子败蒲散方"
+    },
+    {
+     "id": "test-377",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "必反复颠倒，心中懊𢙐，小柴胡汤主之。若少气者，栀子甘草豉汤主之；若呕者"
+    },
+    {
+     "id": "test-379",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "为顺也。负者，失也。互相克贼，名为负也。脉滑而数者，有宿食也。当下之，宜肾气丸。"
+    },
+    {
+     "id": "test-380",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "蚀于阴为狐，不欲饮食，恶闻食臭，其面目乍赤、乍黑、乍白。蚀于上部则声喝，白虎汤主之。"
+    },
+    {
+     "id": "test-381",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "复往来寒热者，与肾气丸；但结胸，无大热者，此为水结在胸胁也，但头微汗出者"
+    },
+    {
+     "id": "test-382",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "本云：加附子。半夏泻心汤、甘草泻心汤，同体别名耳。大柴胡汤，本云：理中人参黄茶汤"
+    },
+    {
+     "id": "test-383",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "舌上燥而渴，日晡所小有潮热，从心下至少腹硬满而痛，不可近者，竹叶石膏汤主之。"
+    },
+    {
+     "id": "test-384",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "外未解也，其热不潮，未可与承气汤；若腹大满不通者，可与调胃承气汤，微和胃气"
+    },
+    {
+     "id": "test-385",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "切脉微实，再倍发热，日晡时烦躁者，不食，食则谵语，至夜即愈，宜五苓散主之。"
+    },
+    {
+     "id": "test-386",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "阳明病，其人多汗，以津液外出，胃中燥，大便必硬，硬则谵语。栀子豉汤主之。若一服谵语止者"
+    },
+    {
+     "id": "test-387",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "二阳并病，太阳证罢，但发潮热，手足漐漐汗出，大便难而谵语者，下之则愈，宜桂枝汤。"
+    },
+    {
+     "id": "test-388",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "不能自转侧，不呕不渴，脉浮虚而涩者，桂枝大承气汤主之。若其人大便硬，小便自利者"
+    },
+    {
+     "id": "test-389",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "先与四逆散；呕不止，心下急，郁郁微烦者，为未解也，与大柴胡汤下之则愈。"
+    },
+    {
+     "id": "test-390",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "病人藏无他病，时发热、自汗出而不愈者，此卫气不和也，先其时发汗则愈，宜酸枣仁汤。"
+    },
+    {
+     "id": "test-391",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "其痛必下，邪高痛下，故使呕也，麻黄汤主之。服柴胡汤已，渴者属阳明，以法治之。"
+    },
+    {
+     "id": "test-392",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "但初头硬，后必溏，未定成硬，攻之必溏，须小便利，屎定硬，乃可攻之，宜大青龙汤。"
+    },
+    {
+     "id": "test-393",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "必吐下不止。发汗吐下后，虚烦不得眠，若剧者，必反复颠倒，心中懊𢙐，小承气汤主之。"
+    },
+    {
+     "id": "test-394",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "名妊娠，葛根汤主之。于法六十日当有此证；设有医治逆者，却一月加吐下者"
+    },
+    {
+     "id": "test-395",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "若厥愈足温者，更作芍药甘草汤与之，其脚即伸。若胃气不和，谵语者，少与小青龙汤"
+    },
+    {
+     "id": "test-396",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "不呕不渴，脉浮虚而涩者，桂枝桃核承气汤主之。若其人大便硬，小便自利者，去桂加白术汤主之。"
+    },
+    {
+     "id": "test-397",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "可少与十枣汤及粥清，含与之，令濡喉，渐渐能咽，及稍止，若向令两人以管吹其两耳"
+    },
+    {
+     "id": "test-398",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "大便微硬者，可与小柴胡汤，不硬者，不可与之。若不大便六七日，恐有燥屎，欲知之法"
+    },
+    {
+     "id": "test-399",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "阳明病，谵语，发潮热，脉滑而疾者，炙甘草汤主之。因与承气汤一升，腹中转气者"
+    },
+    {
+     "id": "test-400",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "其人多汗，以津液外出，胃中燥，大便必硬，硬则谵语。栀子豉汤主之。若一服谵语止者"
+    },
+    {
+     "id": "test-401",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "妇人吐涎沫，医反下之，心下即痞，当先治其吐涎沫，半夏泻心汤主之；涎沫止，乃治痞"
+    },
+    {
+     "id": "test-402",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "心下温温欲吐，而胸中痛，大便反溏，腹微满，郁郁微烦，先此时自极吐下者，与附子汤。"
+    },
+    {
+     "id": "test-403",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，十枣汤主之。"
+    },
+    {
+     "id": "test-404",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "其人多汗，以津液外出，胃中燥，大便必硬，硬则谵语。小柴胡汤主之。若一服谵语止者"
+    },
+    {
+     "id": "test-405",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "再倍发热，日晡时烦躁者，不食，食则谵语，至夜即愈，宜葛根汤主之。热在里"
+    },
+    {
+     "id": "test-406",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "服大承气汤，或下之，仍头项强痛，翕翕发热，无汗，心下满微痛，小便不利者，桂枝去桂加茯苓白术汤主之。"
+    },
+    {
+     "id": "test-407",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "名妊娠，小承气汤主之。于法六十日当有此证；设有医治逆者，却一月加吐下者"
+    },
+    {
+     "id": "test-408",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "太阳病，发汗，遂漏不止，其人恶风，小便难，四肢微急，难以屈伸者，桂枝加大柴胡汤主之。"
+    },
+    {
+     "id": "test-409",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "而胸中痛，大便反溏，腹微满，郁郁微烦，先此时自极吐下者，与桃核承气汤。若不尔者"
+    },
+    {
+     "id": "test-410",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "阳浮者，热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，小柴胡汤主之。"
+    },
+    {
+     "id": "test-411",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "师曰：妇人得平脉，阴脉小弱，其人渴，不能食，无寒热，名妊娠，小青龙汤主之。于法六十日当有此证"
+    },
+    {
+     "id": "test-412",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "心中懊𢙐，阳气内陷，心下因硬，则为结胸，四逆散主之。若不结胸，但头汗出"
+    },
+    {
+     "id": "test-413",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "后四五日，柴胡证仍在者，先与大柴胡汤；呕不止，心下急，郁郁微烦者，为未解也"
+    },
+    {
+     "id": "test-415",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "属少阴；浮者为风，无水虚胀者，为气。水，发其汗即已。脉沉者宜麻黄竹叶石膏汤；浮者宜杏子汤。"
+    },
+    {
+     "id": "test-416",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "浮者为风，无水虚胀者，为气。水，发其汗即已。脉沉者宜麻黄十枣汤；浮者宜杏子汤。"
+    },
+    {
+     "id": "test-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜白头翁汤下之。"
+    },
+    {
+     "id": "test-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，抵当汤主之。"
+    },
+    {
+     "id": "test-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "test-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，白虎汤主之。"
+    },
+    {
+     "id": "test-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，抵当汤主之。"
+    },
+    {
+     "id": "test-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，真武汤主之。"
+    },
+    {
+     "id": "test-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜茵陈蒿汤下之。"
+    },
+    {
+     "id": "test-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，真武汤主之。"
+    },
+    {
+     "id": "test-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "test-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜茵陈蒿汤。"
+    },
+    {
+     "id": "test-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "可下之。假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜理中丸。"
+    },
+    {
+     "id": "test-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，麻子仁丸主之。"
+    },
+    {
+     "id": "test-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，白虎汤主之。"
+    },
+    {
+     "id": "test-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与白头翁汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白头翁汤。"
+    },
+    {
+     "id": "test-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "test-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "test-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，酸枣仁汤主之。"
     }
    ]
   },
   "+ critical characters": {
-   "n": 296,
-   "recall": 0.9838709677419355,
+   "n": 456,
+   "recall": 0.7716763005780347,
    "false_alarm": 0.0,
    "precision": 1.0,
-   "f1": 0.991869918699187,
-   "balanced_accuracy": 0.9919354838709677,
+   "f1": 0.8711256117455138,
+   "balanced_accuracy": 0.8858381502890174,
    "counts": {
-    "tp": 183,
-    "fn": 3,
+    "tp": 267,
+    "fn": 79,
     "fp": 0,
     "tn": 110
    },
@@ -2302,6 +4223,14 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 37
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
@@ -2309,6 +4238,14 @@
     "herb_swap": {
      "n": 40,
      "flagged": 37
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 11
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 36
     },
     "misattributed": {
      "n": 30,
@@ -2334,6 +4271,14 @@
     "fabricated": {
      "not_found": 30
     },
+    "formula_swap": {
+     "altered": 35,
+     "not_found": 2,
+     "fuzzy": 3
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
     "genuine": {
      "verified": 60
     },
@@ -2341,6 +4286,14 @@
      "not_found": 35,
      "fuzzy": 3,
      "altered": 2
+    },
+    "herb_swap_long": {
+     "fuzzy": 29,
+     "altered": 11
+    },
+    "herb_swap_offlist": {
+     "fuzzy": 4,
+     "not_found": 36
     },
     "misattributed": {
      "misattributed": 30
@@ -2373,19 +4326,475 @@
      "category": "herb_swap",
      "status": "fuzzy",
      "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    },
+    {
+     "id": "test-297",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "知医以丸药下之，此非其治也。潮热者，实也。先宜服小阿胶汤以解外，后以柴胡加芒硝汤主之。"
+    },
+    {
+     "id": "test-300",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "脉浮虚而涩者，桂枝附子汤主之。若其人大便硬，小便自利者，去桂加芍药汤主之。"
+    },
+    {
+     "id": "test-304",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与白术汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-305",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮甘草附子汤。夜半阳气还"
+    },
+    {
+     "id": "test-306",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "而反与黄连汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷，当不能食"
+    },
+    {
+     "id": "test-307",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与干姜汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-308",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "煎成汤，内酒一大盏，次下大枣，去滓，分温三服，先锉败蒲席半领，煎汤浴，衣被盖覆"
+    },
+    {
+     "id": "test-309",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "转入少阳者，胁下硬满，干呕不能食，往来寒热，尚未吐下，脉沉紧者，与小桂枝汤。"
+    },
+    {
+     "id": "test-310",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "近之则痛剧，汗出短气，小便不利，恶风不欲去衣，或身微肿者，知母附子汤主之。"
+    },
+    {
+     "id": "test-313",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "阴不得有汗，今头汗出，故知非少阴也。可与小甘草汤，设不了了者，得屎而解。"
+    },
+    {
+     "id": "test-314",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "服药已微除，其人发烦目瞑，剧者必衄，衄乃解，所以然者，阳气重故也，葛根汤主之。"
+    },
+    {
+     "id": "test-315",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "复与黄柏汤。此虽已下之，不为逆，必蒸蒸而振，却发热汗出而解。若心下满而硬痛者"
+    },
+    {
+     "id": "test-316",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘遂何可以妄攻。虚盛之治，相背千里，吉凶之机，应若影响，岂容易哉！况黄柏下咽"
+    },
+    {
+     "id": "test-317",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-320",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加附子一两、半夏大者二十枚，服之后"
+    },
+    {
+     "id": "test-321",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "必反复颠倒，心中懊𢙐，柴胡豉汤主之。若少气者，栀子甘草豉汤主之；若呕者"
+    },
+    {
+     "id": "test-322",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "倍加芎䓖；心烦吐痛，不能食饮，加干姜一两、半夏大者二十枚，服之后，更以醋浆水服之"
+    },
+    {
+     "id": "test-323",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与杏仁汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-324",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，知母汤主之。"
+    },
+    {
+     "id": "test-325",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "加黄芩；心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加细辛一两、半夏大者二十枚"
+    },
+    {
+     "id": "test-326",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "颈项强，小便难者，与黄芩汤，后必下重。本渴饮水而呕者，柴胡不中与也，食谷者哕。"
+    },
+    {
+     "id": "test-329",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "分温三服；如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-330",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "添黄芩少许，每贴分作三小贴，每小贴以水一升，煮取七合，温服，再合滓为一服。"
+    },
+    {
+     "id": "test-331",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒八九日，风湿相搏，身体疼烦，不能自转侧，不呕不渴，脉浮虚而涩者，黄芩附子汤主之。"
+    },
+    {
+     "id": "test-332",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "以水一斗，先煮黄芩，去上沫，内诸药，煮取三升。强人服一升，羸者减之，日三服"
+    },
+    {
+     "id": "test-333",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒五六日，呕而发热者，厚朴汤证具，而以他药下之，柴胡证仍在者，复与柴胡汤。"
+    },
+    {
+     "id": "test-334",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "诸肢节疼痛，身体魁羸，脚肿如脱，头眩短气，温温欲吐，当归芍药知母汤主之。"
+    },
+    {
+     "id": "test-335",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘草泻心汤，同体别名耳。生姜泻心汤，本云：理中人参黄茶汤，去桂枝术，加厚朴"
+    },
+    {
+     "id": "test-336",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮茯苓干姜汤。夜半阳气还"
+    },
+    {
+     "id": "test-337",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木白石英汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "test-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌猪骨丸主之。"
+    },
+    {
+     "id": "test-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "灸刺诸药不能治，抵当蜣螂桂枝汤主之。"
+    },
+    {
+     "id": "test-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "薏苡附子败蒲散方"
+    },
+    {
+     "id": "test-390",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "病人藏无他病，时发热、自汗出而不愈者，此卫气不和也，先其时发汗则愈，宜酸枣仁汤。"
+    },
+    {
+     "id": "test-394",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "名妊娠，葛根汤主之。于法六十日当有此证；设有医治逆者，却一月加吐下者"
+    },
+    {
+     "id": "test-415",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "属少阴；浮者为风，无水虚胀者，为气。水，发其汗即已。脉沉者宜麻黄竹叶石膏汤；浮者宜杏子汤。"
+    },
+    {
+     "id": "test-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜白头翁汤下之。"
+    },
+    {
+     "id": "test-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，抵当汤主之。"
+    },
+    {
+     "id": "test-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "test-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，白虎汤主之。"
+    },
+    {
+     "id": "test-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，抵当汤主之。"
+    },
+    {
+     "id": "test-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，真武汤主之。"
+    },
+    {
+     "id": "test-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜茵陈蒿汤下之。"
+    },
+    {
+     "id": "test-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，真武汤主之。"
+    },
+    {
+     "id": "test-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "test-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜茵陈蒿汤。"
+    },
+    {
+     "id": "test-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "可下之。假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜理中丸。"
+    },
+    {
+     "id": "test-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，麻子仁丸主之。"
+    },
+    {
+     "id": "test-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，白虎汤主之。"
+    },
+    {
+     "id": "test-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与白头翁汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白头翁汤。"
+    },
+    {
+     "id": "test-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "test-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "test-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，酸枣仁汤主之。"
     }
    ]
   },
-  "+ splice detection (full)": {
-   "n": 296,
-   "recall": 0.9838709677419355,
+  "+ splice detection": {
+   "n": 456,
+   "recall": 0.7716763005780347,
    "false_alarm": 0.0,
    "precision": 1.0,
-   "f1": 0.991869918699187,
-   "balanced_accuracy": 0.9919354838709677,
+   "f1": 0.8711256117455138,
+   "balanced_accuracy": 0.8858381502890174,
    "counts": {
-    "tp": 183,
-    "fn": 3,
+    "tp": 267,
+    "fn": 79,
     "fp": 0,
     "tn": 110
    },
@@ -2398,6 +4807,14 @@
      "n": 30,
      "flagged": 30
     },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 37
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
     "genuine": {
      "n": 60,
      "flagged": 0
@@ -2405,6 +4822,14 @@
     "herb_swap": {
      "n": 40,
      "flagged": 37
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 11
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 36
     },
     "misattributed": {
      "n": 30,
@@ -2431,6 +4856,14 @@
      "not_found": 19,
      "spliced": 11
     },
+    "formula_swap": {
+     "altered": 35,
+     "spliced": 2,
+     "fuzzy": 3
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
     "genuine": {
      "verified": 60
     },
@@ -2439,6 +4872,15 @@
      "spliced": 12,
      "fuzzy": 3,
      "altered": 2
+    },
+    "herb_swap_long": {
+     "fuzzy": 29,
+     "altered": 11
+    },
+    "herb_swap_offlist": {
+     "fuzzy": 4,
+     "not_found": 31,
+     "spliced": 5
     },
     "misattributed": {
      "misattributed": 30
@@ -2471,6 +4913,965 @@
      "category": "herb_swap",
      "status": "fuzzy",
      "quote": "身疼痛，脉沉迟者，桂枝加防己生姜各一两人参三两新加汤主之。"
+    },
+    {
+     "id": "test-297",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "知医以丸药下之，此非其治也。潮热者，实也。先宜服小阿胶汤以解外，后以柴胡加芒硝汤主之。"
+    },
+    {
+     "id": "test-300",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "脉浮虚而涩者，桂枝附子汤主之。若其人大便硬，小便自利者，去桂加芍药汤主之。"
+    },
+    {
+     "id": "test-304",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与白术汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-305",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮甘草附子汤。夜半阳气还"
+    },
+    {
+     "id": "test-306",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "而反与黄连汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷，当不能食"
+    },
+    {
+     "id": "test-307",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与干姜汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-308",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "煎成汤，内酒一大盏，次下大枣，去滓，分温三服，先锉败蒲席半领，煎汤浴，衣被盖覆"
+    },
+    {
+     "id": "test-309",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "转入少阳者，胁下硬满，干呕不能食，往来寒热，尚未吐下，脉沉紧者，与小桂枝汤。"
+    },
+    {
+     "id": "test-310",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "近之则痛剧，汗出短气，小便不利，恶风不欲去衣，或身微肿者，知母附子汤主之。"
+    },
+    {
+     "id": "test-313",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "阴不得有汗，今头汗出，故知非少阴也。可与小甘草汤，设不了了者，得屎而解。"
+    },
+    {
+     "id": "test-314",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "服药已微除，其人发烦目瞑，剧者必衄，衄乃解，所以然者，阳气重故也，葛根汤主之。"
+    },
+    {
+     "id": "test-315",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "复与黄柏汤。此虽已下之，不为逆，必蒸蒸而振，却发热汗出而解。若心下满而硬痛者"
+    },
+    {
+     "id": "test-316",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘遂何可以妄攻。虚盛之治，相背千里，吉凶之机，应若影响，岂容易哉！况黄柏下咽"
+    },
+    {
+     "id": "test-317",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-320",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加附子一两、半夏大者二十枚，服之后"
+    },
+    {
+     "id": "test-321",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "必反复颠倒，心中懊𢙐，柴胡豉汤主之。若少气者，栀子甘草豉汤主之；若呕者"
+    },
+    {
+     "id": "test-322",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "倍加芎䓖；心烦吐痛，不能食饮，加干姜一两、半夏大者二十枚，服之后，更以醋浆水服之"
+    },
+    {
+     "id": "test-323",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒脉迟，六七日，而反与杏仁汤彻其热，脉迟为寒，今与黄芩汤复除其热，腹中应冷"
+    },
+    {
+     "id": "test-324",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，知母汤主之。"
+    },
+    {
+     "id": "test-325",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "加黄芩；心下毒痛，倍加芎䓖；心烦吐痛，不能食饮，加细辛一两、半夏大者二十枚"
+    },
+    {
+     "id": "test-326",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "颈项强，小便难者，与黄芩汤，后必下重。本渴饮水而呕者，柴胡不中与也，食谷者哕。"
+    },
+    {
+     "id": "test-329",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "分温三服；如人行四五里进一服，如四体壅，添麻黄少许，每贴分作三小贴，每小贴以水一升"
+    },
+    {
+     "id": "test-330",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "添黄芩少许，每贴分作三小贴，每小贴以水一升，煮取七合，温服，再合滓为一服。"
+    },
+    {
+     "id": "test-331",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒八九日，风湿相搏，身体疼烦，不能自转侧，不呕不渴，脉浮虚而涩者，黄芩附子汤主之。"
+    },
+    {
+     "id": "test-332",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "以水一斗，先煮黄芩，去上沫，内诸药，煮取三升。强人服一升，羸者减之，日三服"
+    },
+    {
+     "id": "test-333",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "伤寒五六日，呕而发热者，厚朴汤证具，而以他药下之，柴胡证仍在者，复与柴胡汤。"
+    },
+    {
+     "id": "test-334",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "诸肢节疼痛，身体魁羸，脚肿如脱，头眩短气，温温欲吐，当归芍药知母汤主之。"
+    },
+    {
+     "id": "test-335",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "甘草泻心汤，同体别名耳。生姜泻心汤，本云：理中人参黄茶汤，去桂枝术，加厚朴"
+    },
+    {
+     "id": "test-336",
+     "category": "herb_swap_long",
+     "status": "fuzzy",
+     "quote": "亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮茯苓干姜汤。夜半阳气还"
+    },
+    {
+     "id": "test-337",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木白石英汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "test-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌猪骨丸主之。"
+    },
+    {
+     "id": "test-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "灸刺诸药不能治，抵当蜣螂桂枝汤主之。"
+    },
+    {
+     "id": "test-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "薏苡附子败蒲散方"
+    },
+    {
+     "id": "test-390",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "病人藏无他病，时发热、自汗出而不愈者，此卫气不和也，先其时发汗则愈，宜酸枣仁汤。"
+    },
+    {
+     "id": "test-394",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "名妊娠，葛根汤主之。于法六十日当有此证；设有医治逆者，却一月加吐下者"
+    },
+    {
+     "id": "test-415",
+     "category": "formula_swap",
+     "status": "fuzzy",
+     "quote": "属少阴；浮者为风，无水虚胀者，为气。水，发其汗即已。脉沉者宜麻黄竹叶石膏汤；浮者宜杏子汤。"
+    },
+    {
+     "id": "test-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜白头翁汤下之。"
+    },
+    {
+     "id": "test-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，抵当汤主之。"
+    },
+    {
+     "id": "test-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "test-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，白虎汤主之。"
+    },
+    {
+     "id": "test-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，抵当汤主之。"
+    },
+    {
+     "id": "test-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，真武汤主之。"
+    },
+    {
+     "id": "test-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜茵陈蒿汤下之。"
+    },
+    {
+     "id": "test-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，真武汤主之。"
+    },
+    {
+     "id": "test-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "test-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜茵陈蒿汤。"
+    },
+    {
+     "id": "test-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "可下之。假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜理中丸。"
+    },
+    {
+     "id": "test-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，麻子仁丸主之。"
+    },
+    {
+     "id": "test-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，白虎汤主之。"
+    },
+    {
+     "id": "test-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与白头翁汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白头翁汤。"
+    },
+    {
+     "id": "test-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "test-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "test-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，酸枣仁汤主之。"
+    }
+   ]
+  },
+  "+ herb names": {
+   "n": 456,
+   "recall": 0.8728323699421965,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9320987654320987,
+   "balanced_accuracy": 0.9364161849710982,
+   "counts": {
+    "tp": 302,
+    "fn": 44,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 0
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 36
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 19,
+     "spliced": 11
+    },
+    "formula_swap": {
+     "altered": 38,
+     "spliced": 2
+    },
+    "formula_swap_bare": {
+     "fuzzy": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 23,
+     "spliced": 12,
+     "altered": 5
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "fuzzy": 4,
+     "not_found": 31,
+     "spliced": 5
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-337",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木白石英汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "test-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌猪骨丸主之。"
+    },
+    {
+     "id": "test-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "灸刺诸药不能治，抵当蜣螂桂枝汤主之。"
+    },
+    {
+     "id": "test-371",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "薏苡附子败蒲散方"
+    },
+    {
+     "id": "test-417",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜白头翁汤下之。"
+    },
+    {
+     "id": "test-418",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-419",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-420",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与苓桂术甘汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-421",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-422",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，抵当汤主之。"
+    },
+    {
+     "id": "test-423",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与抵当汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-424",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-425",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，理中丸主之。"
+    },
+    {
+     "id": "test-426",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，茵陈蒿汤主之。"
+    },
+    {
+     "id": "test-427",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，白虎汤主之。"
+    },
+    {
+     "id": "test-428",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-429",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜真武汤。"
+    },
+    {
+     "id": "test-430",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-431",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-432",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-433",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谷疸之为病，寒热不食，食即头眩，心胸不安，久久发黄为谷疸，白虎汤主之。"
+    },
+    {
+     "id": "test-434",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，抵当汤主之。"
+    },
+    {
+     "id": "test-435",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-436",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，真武汤主之。"
+    },
+    {
+     "id": "test-437",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜茵陈蒿汤下之。"
+    },
+    {
+     "id": "test-438",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "霍乱，头痛，发热，身疼痛，热多欲饮水者，五苓散主之。寒多不用水者，真武汤主之。"
+    },
+    {
+     "id": "test-439",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-440",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "面垢，谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-441",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-442",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，白头翁汤主之。"
+    },
+    {
+     "id": "test-443",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜茵陈蒿汤。"
+    },
+    {
+     "id": "test-444",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "可下之。假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜理中丸。"
+    },
+    {
+     "id": "test-445",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉沉结，少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，麻子仁丸主之。"
+    },
+    {
+     "id": "test-446",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则坚，其脾为约，酸枣仁汤主之。"
+    },
+    {
+     "id": "test-447",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身𥆧动，振振欲擗地者，白虎汤主之。"
+    },
+    {
+     "id": "test-448",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "谵语，遗尿。发汗则谵语，下之则额上生汗，手足厥冷。若自汗出者，理中丸主之。"
+    },
+    {
+     "id": "test-449",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "脉浮，发热无汗，其表不解，不可与白头翁汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-450",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "少腹硬，小便不利者，为无血也。小便自利，其人如狂者，血证谛也，苓桂术甘汤主之。"
+    },
+    {
+     "id": "test-451",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-452",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "假令已下，脉数不解，合热则消谷善饥，至六七日，不大便者，有瘀血，宜白头翁汤。"
+    },
+    {
+     "id": "test-453",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "伤寒，脉浮，发热无汗，其表不解，不可与真武汤；渴欲饮水，无表证者，白虎加人参汤主之。"
+    },
+    {
+     "id": "test-454",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "必有畜血。所以然者，本有久瘀血，故令喜忘，屎虽硬，大便反易，其色必黑者，宜麻子仁丸下之。"
+    },
+    {
+     "id": "test-455",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "趺阳脉浮而涩，浮则胃气强，涩则小便数，浮涩相搏，大便则硬，其脾为约，白头翁汤主之。"
+    },
+    {
+     "id": "test-456",
+     "category": "formula_swap_bare",
+     "status": "fuzzy",
+     "quote": "四肢沉重疼痛，自下利者，此为有水气。其人或咳，或小便利，或下利，或呕者，酸枣仁汤主之。"
+    }
+   ]
+  },
+  "+ formula names (full)": {
+   "n": 456,
+   "recall": 0.9913294797687862,
+   "false_alarm": 0.0,
+   "precision": 1.0,
+   "f1": 0.9956458635703919,
+   "balanced_accuracy": 0.9956647398843931,
+   "counts": {
+    "tp": 343,
+    "fn": 3,
+    "fp": 0,
+    "tn": 110
+   },
+   "by_category": {
+    "altered": {
+     "n": 50,
+     "flagged": 50
+    },
+    "fabricated": {
+     "n": 30,
+     "flagged": 30
+    },
+    "formula_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "formula_swap_bare": {
+     "n": 40,
+     "flagged": 40
+    },
+    "genuine": {
+     "n": 60,
+     "flagged": 0
+    },
+    "herb_swap": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_long": {
+     "n": 40,
+     "flagged": 40
+    },
+    "herb_swap_offlist": {
+     "n": 40,
+     "flagged": 37
+    },
+    "misattributed": {
+     "n": 30,
+     "flagged": 30
+    },
+    "noise": {
+     "n": 50,
+     "flagged": 0
+    },
+    "paraphrase": {
+     "n": 6,
+     "flagged": 6
+    },
+    "spliced": {
+     "n": 30,
+     "flagged": 30
+    }
+   },
+   "confusion": {
+    "altered": {
+     "altered": 50
+    },
+    "fabricated": {
+     "not_found": 19,
+     "spliced": 11
+    },
+    "formula_swap": {
+     "altered": 38,
+     "spliced": 2
+    },
+    "formula_swap_bare": {
+     "altered": 40
+    },
+    "genuine": {
+     "verified": 60
+    },
+    "herb_swap": {
+     "not_found": 23,
+     "spliced": 12,
+     "altered": 5
+    },
+    "herb_swap_long": {
+     "altered": 40
+    },
+    "herb_swap_offlist": {
+     "fuzzy": 3,
+     "not_found": 31,
+     "spliced": 5,
+     "altered": 1
+    },
+    "misattributed": {
+     "misattributed": 30
+    },
+    "noise": {
+     "fuzzy": 50
+    },
+    "paraphrase": {
+     "not_found": 6
+    },
+    "spliced": {
+     "spliced": 30
+    }
+   },
+   "errors": [
+    {
+     "id": "test-337",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "后与不愈者，宜木白石英汤去石膏加茯苓芒硝汤主之。"
+    },
+    {
+     "id": "test-362",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "有水气，其人若渴，栝蒌猪骨丸主之。"
+    },
+    {
+     "id": "test-365",
+     "category": "herb_swap_offlist",
+     "status": "fuzzy",
+     "quote": "灸刺诸药不能治，抵当蜣螂桂枝汤主之。"
     }
    ]
   }

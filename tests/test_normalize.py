@@ -1,4 +1,4 @@
-from citation_gate.normalize import fold, fold_text, load_critical, simplify
+from citation_gate.normalize import fold, fold_text, load_critical, load_terms, simplify
 
 
 def test_traditional_and_simplified_fold_together():
@@ -32,3 +32,14 @@ def test_critical_profiles():
     assert {"不", "肾", "寒", "七"} <= tcm
     assert "曰" not in tcm
     assert load_critical("none") == frozenset()
+
+
+def test_term_profiles(tmp_path):
+    tcm = load_terms("tcm")
+    assert {"桂枝", "麻黄", "芍药", "干姜"} <= tcm  # folded: 麻黃, 芍藥, 乾薑 in the corpus
+    assert {"桂枝汤", "大承气汤", "白虎汤", "理中丸"} <= tcm
+    assert all(fold_text(t) == t for t in tcm)
+    assert load_terms("none") == frozenset()
+    own = tmp_path / "terms.txt"
+    own.write_text("# herbs\n桂枝 74\n\n麻黃\n", encoding="utf-8")
+    assert load_terms(str(own)) == {"桂枝", "麻黄"}

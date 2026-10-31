@@ -11,6 +11,16 @@ def test_substitution():
     assert a.distance == 1
     assert [str(e) for e in a.edits] == ["c→X"]
     assert (a.start, a.end) == (1, 4)
+    assert (a.edits[0].at, a.edits[0].src) == (1, 1)
+
+
+def test_source_positions_are_relative_to_the_span():
+    # The span is "abcdefgh". Its "c" (span index 2) is missing before quote
+    # "d" (quote index 2); the quote's extra "X" (quote index 6) sits before
+    # span "h" (span index 7).
+    a = align("abdefgXh", "zzabcdefghzz")
+    assert (a.start, a.end) == (2, 10)
+    assert [(e.kind, e.at, e.src) for e in a.edits] == [("del", 2, 2), ("ins", 6, 7)]
 
 
 def test_insertion_and_deletion():

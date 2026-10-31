@@ -4,6 +4,7 @@ import pytest
 
 from citation_gate import Corpus, Policy, Status, check_answer
 from citation_gate.cli import main
+from citation_gate.normalize import load_terms
 
 BOOKS = {
     "素問": "女子七歲，腎氣盛，齒更髮長。二七而天癸至，任脈通，太衝脈盛，月事以時下，故有子。"
@@ -44,6 +45,45 @@ def test_dropped_negation_is_altered(corpus):
 def test_without_critical_chars_negation_slips_through(corpus):
     answer = "《伤寒论》：「太阳病，外证未解，可下也，下之为逆」"
     assert status(corpus, answer, critical=frozenset()) is Status.FUZZY
+
+
+HERB_SWAP = "《伤寒论》：「太阳病，项背强几几，反汗出恶风者，桂枝加柴胡汤主之」"  # 葛根→柴胡
+
+
+@pytest.fixture(scope="module")
+def formulas():
+    return Corpus.from_texts({"傷寒論": "太陽病，項背強几几，反汗出惡風者，桂枝加葛根湯主之。"})
+
+
+def test_herb_swap_is_altered_by_critical_terms(formulas):
+    assert status(formulas, HERB_SWAP, critical_terms=frozenset()) is Status.FUZZY
+    assert status(formulas, HERB_SWAP) is Status.ALTERED
+
+
+def test_critical_term_on_either_side(formulas):
+    assert status(formulas, HERB_SWAP, critical_terms=frozenset({"葛根"})) is Status.ALTERED  # source
+    assert status(formulas, HERB_SWAP, critical_terms=frozenset({"柴胡"})) is Status.ALTERED  # quote
+    assert status(formulas, HERB_SWAP, critical_terms=frozenset({"麻黄"})) is Status.FUZZY
+
+
+def test_formula_name_without_herbs(tmp_path):
+    # 白虎/真武 hold no herb and no critical character: only the formula name sees the swap.
+    corpus = Corpus.from_texts({"傷寒論": "傷寒脈浮滑，此以表有熱，裏有寒，白虎湯主之。"})
+    answer = "《伤寒论》：「伤寒脉浮滑，此以表有热，里有寒，真武汤主之」"
+    herbs_only = tmp_path / "herbs.txt"
+    herbs_only.write_text("桂枝\n麻黄\n", encoding="utf-8")
+    assert status(corpus, answer, critical_terms=load_terms(str(herbs_only))) is Status.FUZZY
+    assert status(corpus, answer) is Status.ALTERED
+
+
+def test_gaps_count_only_strictly_inside_a_term(formulas):
+    terms = frozenset({"桂枝"})
+    inside = "《伤寒论》：「太阳病，项背强几几，反汗出恶风者，桂也枝加葛根汤主之」"
+    before = "《伤寒论》：「太阳病，项背强几几，反汗出恶风者也，桂枝加葛根汤主之」"
+    dropped = "《伤寒论》：「太阳病，项背强几几，反汗出恶风者，桂加葛根汤主之」"
+    assert status(formulas, inside, critical_terms=terms) is Status.ALTERED
+    assert status(formulas, before, critical_terms=terms) is Status.FUZZY
+    assert status(formulas, dropped, critical_terms=terms) is Status.ALTERED
 
 
 def test_misattributed(corpus):
@@ -93,4 +133,15 @@ def test_cli_check(tmp_path, capsys):
     data = json.loads(out.read_text(encoding="utf-8"))
     assert data["summary"]["failed_answers"] == 1
     assert [a["failed"] for a in data["answers"]] == [False, True]
+    assert data["policy"]["critical_terms"] > 0
     assert "bad: " in capsys.readouterr().err
+
+
+def test_cli_critical_terms_none(tmp_path):
+    (tmp_path / "corpus").mkdir()
+    (tmp_path / "corpus" / "傷寒論.txt").write_text("太陽病，項背強几几，反汗出惡風者，桂枝加葛根湯主之。", encoding="utf-8")
+    answers = tmp_path / "answer.txt"
+    answers.write_text(HERB_SWAP, encoding="utf-8")
+    args = ["check", str(answers), "--corpus", str(tmp_path / "corpus"), "-q"]
+    assert main(args) == 1
+    assert main(args + ["--critical-terms", "none"]) == 0

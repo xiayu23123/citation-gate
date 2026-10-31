@@ -56,6 +56,7 @@ def to_json(reports: list[AnswerReport], policy: Policy) -> dict:
             "min_chars": policy.min_chars,
             "fuzzy_threshold": policy.fuzzy_threshold,
             "critical_chars": len(policy.critical),
+            "critical_terms": len(policy.critical_terms),
             "detect_splices": policy.detect_splices,
             "allow_unknown_sources": policy.allow_unknown_sources,
             "require_citation": policy.require_citation,
