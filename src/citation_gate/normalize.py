@@ -71,13 +71,13 @@ def simplify(s: str) -> str:
     return "".join(table.get(c, c) for c in s)
 
 
-def _profile(spec: str, bundled: str) -> list[str]:
-    """Non-comment lines of the bundled profile (`tcm`), of no profile
-    (`none`), or of the file at path `spec`."""
+def _profile(spec: str, *bundled: str) -> list[str]:
+    """Non-comment lines of the bundled profile (`tcm`, made of the files
+    `bundled`), of no profile (`none`), or of the file at path `spec`."""
     if spec == "none":
         return []
     if spec == "tcm":
-        text = _read_data(bundled)
+        text = "\n".join(_read_data(name) for name in bundled)
     else:
         with open(spec, encoding="utf-8") as f:
             text = f.read()
@@ -94,7 +94,9 @@ def load_critical(spec: str) -> frozenset[str]:
 
 
 def load_terms(spec: str) -> frozenset[str]:
-    """Critical terms, in folded form: `tcm`, `none`, or a path to a file with
-    one term per line (only the first whitespace-separated field is read)."""
-    terms = {fold_text(line.split()[0]) for line in _profile(spec, "terms-tcm.txt")}
+    """Critical terms, in folded form: `tcm` (herb and formula names), `none`,
+    or a path to a file with one term per line (only the first
+    whitespace-separated field is read)."""
+    lines = _profile(spec, "terms-tcm-herbs.txt", "terms-tcm-formulas.txt")
+    terms = {fold_text(line.split()[0]) for line in lines}
     return frozenset(t for t in terms if t)

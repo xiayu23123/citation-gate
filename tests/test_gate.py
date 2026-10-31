@@ -4,6 +4,7 @@ import pytest
 
 from citation_gate import Corpus, Policy, Status, check_answer
 from citation_gate.cli import main
+from citation_gate.normalize import load_terms
 
 BOOKS = {
     "素問": "女子七歲，腎氣盛，齒更髮長。二七而天癸至，任脈通，太衝脈盛，月事以時下，故有子。"
@@ -63,6 +64,16 @@ def test_critical_term_on_either_side(formulas):
     assert status(formulas, HERB_SWAP, critical_terms=frozenset({"葛根"})) is Status.ALTERED  # source
     assert status(formulas, HERB_SWAP, critical_terms=frozenset({"柴胡"})) is Status.ALTERED  # quote
     assert status(formulas, HERB_SWAP, critical_terms=frozenset({"麻黄"})) is Status.FUZZY
+
+
+def test_formula_name_without_herbs(tmp_path):
+    # 白虎/真武 hold no herb and no critical character: only the formula name sees the swap.
+    corpus = Corpus.from_texts({"傷寒論": "傷寒脈浮滑，此以表有熱，裏有寒，白虎湯主之。"})
+    answer = "《伤寒论》：「伤寒脉浮滑，此以表有热，里有寒，真武汤主之」"
+    herbs_only = tmp_path / "herbs.txt"
+    herbs_only.write_text("桂枝\n麻黄\n", encoding="utf-8")
+    assert status(corpus, answer, critical_terms=load_terms(str(herbs_only))) is Status.FUZZY
+    assert status(corpus, answer) is Status.ALTERED
 
 
 def test_gaps_count_only_strictly_inside_a_term(formulas):

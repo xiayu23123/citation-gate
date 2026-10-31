@@ -37,6 +37,7 @@ def test_critical_profiles():
 def test_term_profiles(tmp_path):
     tcm = load_terms("tcm")
     assert {"桂枝", "麻黄", "芍药", "干姜"} <= tcm  # folded: 麻黃, 芍藥, 乾薑 in the corpus
+    assert {"桂枝汤", "大承气汤", "白虎汤", "理中丸"} <= tcm
     assert all(fold_text(t) == t for t in tcm)
     assert load_terms("none") == frozenset()
     own = tmp_path / "terms.txt"

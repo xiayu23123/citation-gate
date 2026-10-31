@@ -5,7 +5,7 @@ texts, and fail the build when they don't. Built for classical Chinese
 (traditional/simplified, variant characters, OCR noise, editorial punctuation),
 usable on any corpus of plain text.
 
-> 中文简介：给 RAG 回答做「引文闸门」。回答里每一段带引号的原文，都要能在你的典籍库里逐字（或仅差 OCR 噪声）找到，并且出处要对得上；改了关键字（寒→热、肾→肝、漏掉「不」）、换了药名（麻黄汤→桂枝汤）、张冠李戴、东拼西凑、凭空编造的引文，一律拦下。可作命令行、Python 库或 GitHub Action 使用。
+> 中文简介：给 RAG 回答做「引文闸门」。回答里每一段带引号的原文，都要能在你的典籍库里逐字（或仅差 OCR 噪声）找到，并且出处要对得上；改了关键字（寒→热、肾→肝、漏掉「不」）、换了药名或方名（麻黄汤→桂枝汤、白虎汤→真武汤）、张冠李戴、东拼西凑、凭空编造的引文，一律拦下。可作命令行、Python 库或 GitHub Action 使用。
 
 ```text
 $ citation-gate check examples/answers.jsonl --corpus corpus
@@ -82,14 +82,16 @@ fail the answer.
    critical term. The bundled `tcm` character profile lists numerals,
    negations, organs, the eight principles (阴阳表里寒热虚实), channels, five
    phases, treatment verbs, direction and size, prognosis and sex; see
-   `src/citation_gate/data/critical-tcm.txt`. The bundled term profile lists
-   78 herb names (桂枝, 麻黄, 芍药 …) that `scripts/extract_terms.py` pulls
-   from the ingredient lines of the corpus's formulas, keeping names used in
-   at least two recipes; see `src/citation_gate/data/terms-tcm.txt`. Terms
-   are checked on both sides of the alignment: an edit fails the quote if it
-   lands inside a listed name in the quote or in the source passage, so
-   麻黄汤→桂枝汤 fails because it breaks 麻黄. Pass `--critical none`,
-   `--critical-terms none` or your own files for other domains.
+   `src/citation_gate/data/critical-tcm.txt`. The bundled term profile is
+   built from the corpus by `scripts/extract_terms.py`: 78 herb names
+   (桂枝, 麻黄, 芍药 …) from the ingredient lines of its formulas, keeping
+   names used in at least two recipes, and 186 formula names (桂枝汤,
+   白虎汤, 理中丸 …) from its recipe headings; see
+   `src/citation_gate/data/terms-tcm-*.txt`. Terms are checked on both sides
+   of the alignment: an edit fails the quote if it lands inside a listed name
+   in the quote or in the source passage, so 麻黄汤→桂枝汤 fails because it
+   breaks 麻黄. Pass `--critical none`, `--critical-terms none` or your own
+   files for other domains.
 5. **Explain failures**: attribution is checked against the book the best match
    came from; a quote that matches nowhere is covered greedily by exact
    fragments, and two or more fragments that do not line up in one passage
@@ -100,7 +102,7 @@ No dependencies beyond the standard library.
 ## Benchmark
 
 `bench/` holds a labelled benchmark built deterministically from the corpus by
-`scripts/build_bench.py`: 376 items per split, each one answer with one quote
+`scripts/build_bench.py`: 456 items per split, each one answer with one quote
 under test. Labels come from construction, never from running the gate.
 
 | category | built as | should |
@@ -110,7 +112,9 @@ under test. Labels come from construction, never from running the gate.
 | altered | one critical edit: organ, numeral, polarity, or dropping 不 | fail |
 | herb_swap | one herb or formula name replaced by another | fail |
 | herb_swap_long | the same, in a quote of 30–60 characters | fail |
-| herb_swap_offlist | one herb the term list does not contain, replaced by another it does not contain; neither has a critical character | fail |
+| herb_swap_offlist | one herb the herb list does not contain, replaced by another it does not contain; neither has a critical character | fail |
+| formula_swap | one formula name replaced by another, in a quote of 30–60 characters | fail |
+| formula_swap_bare | the same, among formula names that contain no listed herb and no critical character (白虎汤, 真武汤, 理中丸 …) | fail |
 | misattributed | a real passage credited to another book in the corpus | fail |
 | spliced | two real fragments from different places, joined | fail |
 | fabricated | classical-looking text from a character Markov model of the corpus | fail |
@@ -126,14 +130,15 @@ Test split, threshold 0.85, each row adding one mechanism:
 | configuration | bad quotes caught | good quotes rejected |
 |---|---|---|
 | exact match only | 100.0% | 45.5% |
-| + fuzzy match | 62.8% | 0.0% |
-| + critical characters | 86.5% | 0.0% |
-| + splice detection | 86.5% | 0.0% |
-| + critical terms | 98.5% | 0.0% |
+| + fuzzy match | 48.8% | 0.0% |
+| + critical characters | 77.2% | 0.0% |
+| + splice detection | 77.2% | 0.0% |
+| + herb names | 87.3% | 0.0% |
+| + formula names | 99.1% | 0.0% |
 
 The `+ splice detection` row is the v0.1.0 gate. It scores lower than it did
-on the v0.1.0 benchmark because the benchmark gained two herb-swap categories
-that it mostly misses. The 296 items the benchmark already had are unchanged,
+on the v0.1.0 benchmark because the benchmark gained five name-swap
+categories, which it mostly misses. The 296 items the benchmark already had are unchanged,
 byte for byte, and on their categories its flag rates are the same as before.
 
 - Fuzzy matching removes every false alarm and lets through **all 50**
@@ -147,14 +152,25 @@ byte for byte, and on their categories its flag rates are the same as before.
   (8–30 characters) but only 28% of `herb_swap_long` (30–60 characters), and
   those 28% are swaps where one of the names happens to contain a critical
   character (大枣, 生姜, 半夏, 枳实, 泽泻); fuzzy matching alone catches 0%.
-  With critical terms both are 100%.
+  With herb names both are 100%.
 - **Off the list, critical terms do nothing.** `herb_swap_offlist` swaps two
-  herbs the list does not contain and stays at 90% with or without it; those
-  90% are the threshold rejecting short quotes. Long quotes are as exposed
-  off the list as they were before: with the list switched off every herb is
-  off-list, and the gate catches 28% of `herb_swap_long`, all of it through
-  critical characters, which the off-list names here were chosen not to
-  contain. All four errors left on test are off-list swaps.
+  herbs the herb list does not contain and stays at 90% with or without it;
+  those 90% are the threshold rejecting short quotes. Formula names raise it
+  to 92%, by catching one swap that sits inside a listed formula name. Long
+  quotes are as exposed off the list as they were before: with the list
+  switched off every herb is off-list, and the gate catches 28% of
+  `herb_swap_long`, all of it through critical characters, which the
+  off-list names here were chosen not to contain. All three errors left on
+  test are off-list herb swaps.
+- **Formula names add little on top of herb names.** Most formula names are
+  built from herb names and critical characters (承**气**, **泻**心, **四**逆,
+  **大**/**小**柴胡): `formula_swap` is caught 92% of the time by critical
+  characters alone and 100% once herb names are on, so formula names add
+  nothing there. They matter only for names with neither, which is 38 of the
+  186 extracted: `formula_swap_bare`, which swaps only among such names
+  (白虎汤→真武汤), goes from 0% to 100%. That category was built to need
+  formula names, and it accounts for nearly all of the overall jump from
+  87.3% to 99.1%; read the category rows, not the total.
 - **The term list was not copied from the benchmark, but it overlaps it
   almost completely.** `herb_swap` and `herb_swap_long` swap names from a
   hand-written list of 32 herbs (`HERBS` in `scripts/build_bench.py`); the
@@ -163,11 +179,14 @@ byte for byte, and on their categories its flag rates are the same as before.
   which the extractor finds in only one recipe). So the two 100% figures say
   that the extracted list covers the common herbs of these books, not that it
   will cover yours. `herb_swap_offlist` is the number to expect for the herbs
-  it misses.
-- **The cost: a slip inside a herb name now fails as well.** No good quote on
-  test is rejected, but one on dev is (去桂枝，加自术四两: an OCR-style 白→自
-  inside 白术), so the false-alarm rate on dev goes from 0.0% to 0.9%. The
-  threshold chosen on dev is still 0.85.
+  it misses. The same goes for formulas: `FORMULAS` is a hand-written list of
+  47 well-known formulas, and 42 of them are among the extracted names.
+- **The cost: a slip inside a listed name now fails as well.** No good quote
+  on test is rejected, but on dev the false-alarm rate goes from 0.0% to 0.9%
+  with herb names (去桂枝，加自术四两: an OCR-style 白→自 inside 白术) and to
+  1.8% with formula names (栀子生姜豉豉汤主之: a doubled 豉 inside
+  栀子生姜豉汤). That is 2 of 110 good dev quotes. The threshold chosen on
+  dev is still 0.85.
 
 ### What this benchmark does not show
 
@@ -177,8 +196,9 @@ byte for byte, and on their categories its flag rates are the same as before.
   is in memory; corpora in the hundreds of millions of characters are untested.
 - The term list is extracted from the same corpus the benchmark is built
   from, so it fits these texts better than it would fit others; rebuild it
-  for your own corpus or supply your own file. It holds herb names only:
-  formula names, symptoms and pulse terms are not critical terms yet.
+  for your own corpus or supply your own file. It holds herb and formula
+  names only; symptoms and pulse terms are not critical terms yet. A formula
+  with no recipe heading in the corpus (吴茱萸汤) is not on it.
 - Books that share passages (《伤寒论》 and 《金匮要略》 do) make
   misattribution genuinely ambiguous. The gate accepts a quote found in any
   book its attribution can refer to.

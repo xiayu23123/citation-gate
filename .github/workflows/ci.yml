@@ -38,7 +38,7 @@ jobs:
       - name: Re-extract critical terms
         run: >-
           python scripts/extract_terms.py &&
-          git diff --exit-code src/citation_gate/data/terms-tcm.txt scripts/terms-single-recipe.txt
+          git diff --exit-code -- 'src/citation_gate/data/terms-tcm-*.txt' scripts/terms-single-recipe.txt
       - name: Rebuild benchmark
         run: python scripts/build_bench.py && git diff --exit-code bench/
       - name: Score benchmark

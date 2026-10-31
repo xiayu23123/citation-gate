@@ -25,7 +25,7 @@ inputs:
     description: "'tcm', 'none', or a path to a file of critical characters."
     default: tcm
   critical-terms:
-    description: "'tcm', 'none', or a path to a file of critical terms (herb names and the like), one per line."
+    description: "'tcm' (herb and formula names), 'none', or a path to a file of critical terms, one per line."
     default: tcm
   allow-unknown-sources:
     description: Warn instead of fail when an answer cites a work the corpus does not have.
